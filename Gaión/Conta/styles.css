@@ -1,0 +1,90 @@
+body {
+    background-color: #fceee3;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.botão button {
+    color: #a97d57;
+    margin-bottom: 20px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    
+}
+.logo img {
+    width: 220px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #8b5e3c;
+    margin: 5px 0;
+}
+
+p.subtitle {
+    color: #a97d57;
+    margin-bottom: 20px;
+}
+
+.input-container {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+
+input[type="email"], input[type="password"] {
+    padding: 0px;
+    border: none;
+    border-bottom: 1px solid #b27c50;
+    background: transparent;
+    outline: none;
+}
+
+label {
+    font-size: 14px;
+    color: #8b5e3c;
+}
+
+.social-login {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 40px 0;
+}
+
+.social-login img {
+    width: 32px;
+    cursor: pointer;
+}
+button{
+    background-color:#b27c50; 
+    color: rgb(20, 10, 10);              
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: auto;
+    display: inline-block;
+    font-weight: bold;         
+}
+ .botão{
+    font-size: 20px;
+ } 
+
+.links {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #a97d57;
+}
+
+.links a {
+    color: #a97d57;
+    text-decoration: underline;
+}
