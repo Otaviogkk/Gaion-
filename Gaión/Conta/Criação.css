@@ -1,0 +1,17 @@
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+.clip-shape {
+  width: 50vw;
+  height:100vh;
+  background: #FFF3EA;
+  left: auto;
+  right: 0px;
+  top: 0;
+  position: absolute;
+  /* Clip-path com a forma SVG que você forneceu */
+  clip-path: path('M12.1294 687.566C-53.5482 865.366 189.747 1080.5 189.747 1080.5L1156.88 1082.5V0.639257H153.723C153.723 0.639257 243.214 263.383 169.233 418.747C121.761 518.442 50.411 583.932 12.1294 687.566Z');
+}
+
