@@ -1,21 +1,36 @@
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Gaión – Informações do Projeto</title>
   <link rel="stylesheet" href="App.css">
+  <!-- CSS da sidebar -->
+  <link rel="stylesheet" href="sidebar.css" class="openbtn" onclick="perfil()">
 </head>
 <body>
+  <!-- botão para abrir a sidebar -->
 
-  <header>
-    <div class="title">
-      <h1>Gaión</h1>
-      <p>Informações do Projeto</p>
+  <header style="background-color: #b88e6c; padding: 10px;">
+  <img src="../imagens/Gaiôn.png" alt="Icone" class="botao" onclick="perfil()">
+  <img class="lupa" src="../imagens/lupa.png" alt="barra de pequisa">
+  <input type="text" id="searchInput" placeholder="Pesquisar...">
+</header>
+  <!-- sidebar -->
+  <div id="sidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="fecharPerfil()">&times;</a>
+    <div class="perfil-conteudo">
+      <img src="../imagens/Gaiôn.png" alt="Avatar" class="inicio" onclick="volta()">
+      <section class="sidebar-card"><p><strong>Cria conta</strong></p></section>
+      <section class="sidebar-card" onclick="Entra()"><p><strong>Entra</strong></p></section>
+      <section class="sidebar-card"><p><strong>Salvos</strong></p></section>
+      <section class="sidebar-card"><p><strong>Localização</strong></p></section>
+      <section class="sidebar-card"><p><strong>Configuração</strong></p></section>
+      <section class="sidebar-card"><p><strong>Empresas</strong></p></section>
+      <section class="sidebar-card" onclick="Sabia_mais()"><p><strong>Saiba mais</strong></p></section>
     </div>
-    <img src="../imagens/Gaiôn.png" alt="Logo Gaión">
-  </header>
-
-  <main>
+  </div>
+ <main id="main-content">
     <section class="card">
       <h2>📘 Dados Institucionais</h2>
       <p><strong>Instituição:</strong> Instituto Federal do Piauí – Campus Picos</p>
@@ -69,6 +84,6 @@
       <p class="quote">“A raiz da riqueza é a terra.”</p>
     </section>
   </main>
-
+<script src="sidebar.js"></script>
 </body>
 </html>

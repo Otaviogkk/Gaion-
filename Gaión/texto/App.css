@@ -12,9 +12,9 @@ header{
   background: #bf9778;
   color: black;
   width:100vw;
-  height: 72px;
+  height: 60px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-
+  
 }
 
 header img{
@@ -24,7 +24,28 @@ header img{
   top: 0;
   right: 40px;
 }
+header .lupa{
+  left: 40px;
+  top: auto;
+  width: 30px;
+  height: 30px;
+}
+.container {
+  max-width: 200px;
+  margin: auto;
+}
 
+input[type="text"] {
+  width: 50%;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-left: 100px;
+  margin-top: auto;
+  background-color: #ebfdff;
+}
 header .title h1 {
   margin: 0;
   font-size: 1.8rem;
@@ -65,4 +86,67 @@ ul {
   color: #555;
   border-left: 3px solid #8B0000;
   padding-left: 1rem;
+}
+/* Inicia fechada */
+#sidebar {
+  width: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  background-color: #bf9778;
+  overflow-x: hidden;
+  transition: width 0.5s;
+  z-index: 1000;
+  padding-top: 60px;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+}
+
+/* Ao abrir */
+#sidebar.open {
+  width: 250px; /* largura desejada */
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 30px;
+  cursor: pointer;
+  color: #000;
+}
+
+.perfil-conteudo {
+  padding: 20px;
+  text-align: center;
+}
+
+.perfil-conteudo img {
+  height: 90px;
+  width: 90px;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border-radius: 50%;
+}
+
+/* cards da sidebar isolados */
+.sidebar-card {
+  background: #fff3ea;
+  margin: 1rem auto;
+  width: 120px;
+  padding: 4px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  text-align: center;
+  cursor: pointer;
+}
+
+/* botão de abrir */
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  z-index: 1001;
 }
