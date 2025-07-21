@@ -5,14 +5,24 @@ body {
   color: #333;
 }
 
-header {
+header{
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: #bf9778;
   color: black;
-  padding: 1.5rem 2rem;
+  width:100vw;
+  height: 72px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+
+}
+
+header img{
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  top: 0;
+  right: 40px;
 }
 
 header .title h1 {
@@ -25,10 +35,7 @@ header .title p {
   font-size: 1rem;
 }
 
-header img {
-  max-height: 100px;
-  width: auto;
-}
+
 
 main {
   max-width: 900px;

@@ -1,0 +1,109 @@
+body{
+  margin: 0;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #bf9778;
+  color: black;
+  width:100vw;
+  height: 60px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+
+}
+
+header img{
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  top: 0;
+  right: 40px;
+}
+header .lupa{
+  left: 40px;
+  top: auto;
+  width: 30px;
+  height: 30px;
+  
+}
+/* Estilo do painel lateral */
+.sidebar {
+  background-color: #bf9778;
+  height: 100%;
+  width: 1080px;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 30px;
+  cursor: pointer;
+  color: #000;
+}
+
+.perfil-conteudo {
+  padding: 20px;
+  text-align: center;
+}
+.perfil-conteudo img {
+height: 90px;
+width: 90px;
+object-fit: cover;
+margin-bottom: 15px;
+}
+
+.card { 
+  background: #fff3ea;
+  margin-bottom: 1.5rem ;
+  width: 120px;
+  padding: 4px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* style.css */
+
+
+.container {
+  max-width: 200px;
+  margin: auto;
+}
+
+input[type="text"] {
+  width: 50%;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-left: 100px;
+  margin-top: auto;
+  background-color: #ebfdff;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+}
+

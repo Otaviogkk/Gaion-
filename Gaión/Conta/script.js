@@ -4,9 +4,11 @@ function login() {
     
     if (email && senha) {
         alert("Login realizado com: " + email);
+        window.location.href = "../tela-Iniciar.html"
     } else {
         alert("Por favor, preencha todos os campos.");
     }
+    
 }
 
 function loginSocial(platform) {

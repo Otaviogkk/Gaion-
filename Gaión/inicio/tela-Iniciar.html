@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="tela-Iniciar.css">
+  <title>Gaión</title>
+ </head>
+<body>
+<header style="background-color: #b88e6c; padding: 10px;">
+  <img src="../imagens/Gaiôn.png" alt="Icone" class="botao" onclick="perfil()">
+  <img class="lupa" src="../imagens/lupa.png" alt="barra de pequisa">
+  <input type="text" id="searchInput" placeholder="Pesquisar...">
+</header>
+<div id="sidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="fecharPerfil()">&times;</a>
+  <div class="perfil-conteudo">
+    <img src="../imagens/Gaiôn.png">
+    <section class="card">
+      <p><strong>Cria conta</strong></p>
+    </section>
+    <section class="card"  onclick="Entra()">
+      <p><strong>Entra</strong></p>  
+    </section>
+    <section class="card">
+     <p><strong>Salvos</strong></p>
+    </section>
+     <section class="card">
+     <p><strong>Localização</strong></p>
+    </section>
+      <section class="card">
+    <p><strong>Configuaração</strong></p>
+    </section>
+    <section class="card">
+     <p><strong>Empresas</strong></p>
+    </section>
+      <section class="card" onclick="Sabia_mais()">
+      <p><strong>Sabia mais</strong></p>
+      </section>
+
+  </div>
+</div>
+
+<script src="tela-Iniciar.js">
+</script>
+
+</body>
+</html>
