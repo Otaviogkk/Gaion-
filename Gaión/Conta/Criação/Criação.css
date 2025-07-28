@@ -1,0 +1,40 @@
+body, html {
+  margin: 0;
+  padding: 0;
+}
+/* Área da imagem de fundo reduzida */
+.imagens {
+  width: 50vw; /* diminuída para metade da tela */
+  height: 100vh;
+  background-image: url("../../imagens/Parque Estadual Serra do Rola Moça _ Biologia da Paisagem.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+filter: blur(3px);
+transform: scale(1.05);
+}
+
+/* A forma arredondada ocupa agora a maior parte */
+.clip-shape {
+  width: 70vw; /* aumentada para cobrir mais área */
+  height: 100vh;
+  background: #FFF3EA;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  clip-path: path('M12.1294 687.566C-53.5482 865.366 189.747 1080.5 189.747 1080.5L1156.88 1082.5V0.639257H153.723C153.723 0.639257 243.214 263.383 169.233 418.747C121.761 518.442 50.411 583.932 12.1294 687.566Z');
+}
+/* Vector 1 */
+
+
+
+
+
+
+
+
+
