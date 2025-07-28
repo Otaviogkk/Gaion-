@@ -4,19 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="tela-Iniciar.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap" rel="stylesheet">
   <title>Gaión</title>
  </head>
 <body>
 <header style="background-color: #b88e6c; padding: 10px;">
+
   <img src="../imagens/Gaiôn.png" alt="Icone" class="botao" onclick="perfil()">
   <img class="lupa" src="../imagens/lupa.png" alt="barra de pequisa">
   <input type="text" id="searchInput" placeholder="Pesquisar...">
+  <button class="hamburger" onclick="toggleSidebar()">☰</button>
 </header>
+
 <div id="sidebar" class="sidebar">
-  <a href="javascript:void(0)" class="closebtn" onclick="fecharPerfil()">&times;</a>
   <div class="perfil-conteudo">
     <img src="../imagens/Gaiôn.png">
-    <section class="card">
+    <div class="cards-container">
+    <section class="card" onclick="criação()">
       <p><strong>Cria conta</strong></p>
     </section>
     <section class="card"  onclick="Entra()">
@@ -29,19 +34,29 @@
      <p><strong>Localização</strong></p>
     </section>
       <section class="card">
-    <p><strong>Configuaração</strong></p>
+    <p><strong>Configuração</strong></p>
     </section>
     <section class="card">
      <p><strong>Empresas</strong></p>
     </section>
       <section class="card" onclick="Sabia_mais()">
-      <p><strong>Sabia mais</strong></p>
+      <p><strong>Saiba mais</strong></p>
       </section>
-
+    </div>
   </div>
 </div>
-
-<script src="tela-Iniciar.js">
+<div class="banner-container">
+  <div class="banner-slides">
+<section class="infomação">
+  <p id="lentra">Maiores <br>
+Novidades <br>
+do mês </p>
+</section>
+<img src="../imagens/terreno a venda condomínio paineiras.jpeg" class="slides">
+<img src="../imagens/_Imagine construir a casa dos seus sonhos em um terreno de 525m² no Condomínio Gran Ville Atibaia! Com topografia plana e área de lazer completa, esse espaço é perfeito para quem busca conforto e segurança_ Marque.jpeg" class="slides">
+  </div>
+  
+<script src="tela-Iniciar.js">  
 </script>
 
 </body>

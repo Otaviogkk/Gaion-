@@ -15,3 +15,22 @@ function Entra() {
 function volta(){
   window.location.href ="../inicio/tela-Iniciar.html";
 }
+function criação(){
+window.location.href = "../Conta/Criação/Criação.html"
+}
+
+
+function toggleSidebar() {
+  const sidebar = document.getElementById("sidebar");
+  sidebar.classList.toggle("active");
+}
+
+document.addEventListener("click", function(e) {
+  const sidebar = document.getElementById("sidebar");
+  const hamburger = document.querySelector(".hamburger");
+
+  if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+    sidebar.classList.remove("active");
+  }
+});
+

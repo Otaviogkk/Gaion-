@@ -2,11 +2,12 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gaión – Informações do Projeto</title>
   <link rel="stylesheet" href="App.css">
   <!-- CSS da sidebar -->
   <link rel="stylesheet" href="sidebar.css" class="openbtn" onclick="perfil()">
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- botão para abrir a sidebar -->
@@ -15,19 +16,22 @@
   <img src="../imagens/Gaiôn.png" alt="Icone" class="botao" onclick="perfil()">
   <img class="lupa" src="../imagens/lupa.png" alt="barra de pequisa">
   <input type="text" id="searchInput" placeholder="Pesquisar...">
+  <button class="hamburger" onclick="toggleSidebar()">☰</button>
 </header>
   <!-- sidebar -->
   <div id="sidebar" class="sidebar">
-    <a href="javascript:void(0)" class="closebtn" onclick="fecharPerfil()">&times;</a>
+    <a href="javascript:void(0)" class="closebtn" onclick="fecharPerfil()"></a>
     <div class="perfil-conteudo">
       <img src="../imagens/Gaiôn.png" alt="Avatar" class="inicio" onclick="volta()">
-      <section class="sidebar-card"><p><strong>Cria conta</strong></p></section>
+      <div class="cards-container">
+      <section class="sidebar-card" onclick="criação()"><p><strong>Cria conta</strong></p></section>
       <section class="sidebar-card" onclick="Entra()"><p><strong>Entra</strong></p></section>
       <section class="sidebar-card"><p><strong>Salvos</strong></p></section>
       <section class="sidebar-card"><p><strong>Localização</strong></p></section>
-      <section class="sidebar-card"><p><strong>Configuração</strong></p></section>
+      <section class="sidebar-card"><p><strong><b>Configuração</b></strong></p></section>
       <section class="sidebar-card"><p><strong>Empresas</strong></p></section>
       <section class="sidebar-card" onclick="Sabia_mais()"><p><strong>Saiba mais</strong></p></section>
+      </div>
     </div>
   </div>
  <main id="main-content">
