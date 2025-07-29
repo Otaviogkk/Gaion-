@@ -10,10 +10,10 @@ header{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #bf9778;
+  background: #310000;
   color: black;
   width:100vw;
-  height: 60px;
+  height: 8.47vh;
   box-shadow: 4px 10px 10px rgba(0,0,0,0.2);
   position: fixed;
   top: 0;
@@ -21,6 +21,10 @@ header{
   z-index: 1000;
   margin-left: 200px;
 }
+#logo{
+  margin-left: 4.61vw;
+}
+
 
 header img{
   width: 70px;
@@ -198,7 +202,7 @@ ul {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    background-color: #b88e6c;
+    background-color: #310000;
     position: fixed;
     top: 0;
     left: 0;
