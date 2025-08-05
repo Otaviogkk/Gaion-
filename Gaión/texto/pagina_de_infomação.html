@@ -1,93 +1,78 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gaión – Informações do Projeto</title>
-  <link rel="stylesheet" href="App.css">
-  <!-- CSS da sidebar -->
-  <link rel="stylesheet" href="sidebar.css" class="openbtn" onclick="perfil()">
+  <title>Document</title>
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="App.css">
 </head>
 <body>
-  <!-- botão para abrir a sidebar -->
+<header id="estilo"> </header>
+  <header>
+<svg id="logo"  viewBox="0 0 30 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M20.8477 21.1484H3.12305L4.82617 18.0254H17.1738L24.8389 3.97461H29.6641L20.8477 21.1484ZM24.8389 3.97461H12.4902L4.82617 18.0254H0L9.36719 0.851562H26.542L24.8389 3.97461Z" fill="white"/>
+<path d="M13.2706 8.65771H17.9545L15.6126 13.3416H10.9287L13.2706 8.65771Z" fill="white"/>
+</svg>
+<input type="text" id="searchInput" placeholder ="Buscar">
+<svg id="lupa"  viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.6665 11.6665L9.30405 9.30405M9.30405 9.30405C9.68324 8.92486 9.98403 8.47469 10.1893 7.97925C10.3945 7.48382 10.5001 6.95281 10.5001 6.41655C10.5001 5.88029 10.3945 5.34928 10.1893 4.85385C9.98403 4.35841 9.68324 3.90824 9.30405 3.52905C8.92486 3.14986 8.47469 2.84907 7.97925 2.64385C7.48382 2.43863 6.95281 2.33301 6.41655 2.33301C5.88029 2.33301 5.34928 2.43863 4.85385 2.64385C4.35841 2.84907 3.90824 3.14986 3.52905 3.52905C2.76324 4.29486 2.33301 5.33353 2.33301 6.41655C2.33301 7.49957 2.76324 8.53824 3.52905 9.30405C4.29486 10.0699 5.33353 10.5001 6.41655 10.5001C7.49957 10.5001 8.53824 10.0699 9.30405 9.30405Z" stroke="#A0776F" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
 
-  <header style="background-color: #b88e6c; padding: 10px;">
-  <img src="../imagens/Gaiôn.png" alt="Icone" class="botao" onclick="perfil()">
-  <img class="lupa" src="../imagens/lupa.png" alt="barra de pequisa">
-  <input type="text" id="searchInput" placeholder="Pesquisar...">
-  <button class="hamburger" onclick="toggleSidebar()">☰</button>
-</header>
-  <!-- sidebar -->
-  <div id="sidebar" class="sidebar">
-    <a href="javascript:void(0)" class="closebtn" onclick="fecharPerfil()"></a>
-    <div class="perfil-conteudo">
-      <img src="../imagens/Gaiôn.png" alt="Avatar" class="inicio" onclick="volta()">
-      <div class="cards-container">
-      <section class="sidebar-card" onclick="criação()"><p><strong>Cria conta</strong></p></section>
-      <section class="sidebar-card" onclick="Entra()"><p><strong>Entra</strong></p></section>
-      <section class="sidebar-card"><p><strong>Salvos</strong></p></section>
-      <section class="sidebar-card"><p><strong>Localização</strong></p></section>
-      <section class="sidebar-card"><p><strong><b>Configuração</b></strong></p></section>
-      <section class="sidebar-card"><p><strong>Empresas</strong></p></section>
-      <section class="sidebar-card" onclick="Sabia_mais()"><p><strong>Saiba mais</strong></p></section>
-      </div>
+<button class="hamburger" onclick="toggleSidebar()"><svg width="32" height="14" viewBox="0 0 32 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.664062 0.5H31.6641V1.5H0.664062V0.5Z" fill="#ffffff"/>
+<path d="M0.664062 4.5H31.6641V5.5H0.664062V4.5Z" fill="#ffffff"/>
+<path d="M0.664062 8.5H31.6641V9.5H0.664062V8.5Z" fill="#ffffff"/>
+<path d="M0.664062 12.5H31.6641V13.5H0.664062V12.5Z" fill="#ffffff"/>
+</svg>
+</button>
+    </header>
+<div id="sidebar" class="sidebar">
+  <div class="perfil-conteudo">
+    <div class="perfil-cor">
+     <svg id="logo2" width="142" height="40" viewBox="0 0 142 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M61.4505 31.338C59.4451 31.338 57.6875 30.8873 56.1778 29.986C54.6907 29.0622 53.5303 27.744 52.6966 26.0316C51.8854 24.3191 51.4798 22.2574 51.4798 19.8464C51.4798 17.4804 51.9079 15.4412 52.7641 13.7288C53.6429 12.0163 54.8597 10.6981 56.4144 9.7743C57.9917 8.82793 59.8281 8.35475 61.9236 8.35475C64.1769 8.35475 66.0133 8.79413 67.4329 9.6729C68.8524 10.5517 69.9678 11.9149 70.779 13.7626L67.3991 15.2835C66.9935 13.9992 66.3175 13.0415 65.3711 12.4106C64.4473 11.7797 63.2981 11.4642 61.9236 11.4642C60.5942 11.4642 59.4338 11.8022 58.4424 12.4782C57.4509 13.1317 56.6736 14.0893 56.1102 15.3511C55.5469 16.5904 55.2653 18.0888 55.2653 19.8464C55.2653 21.6264 55.5244 23.1474 56.0426 24.4092C56.5609 25.671 57.3157 26.6287 58.3072 27.2821C59.2986 27.9356 60.5266 28.2623 61.9912 28.2623C62.825 28.2623 63.5798 28.1496 64.2558 27.9243C64.9543 27.699 65.5514 27.361 66.0471 26.9103C66.5654 26.4597 66.9597 25.9189 67.2301 25.288C67.523 24.6345 67.6695 23.9022 67.6695 23.0911V22.3813H61.4843V19.5084H70.9142V31H68.244L67.9736 26.3358L68.6496 26.6737C68.1314 28.1384 67.2639 29.2875 66.0471 30.1212C64.8529 30.9324 63.3207 31.338 61.4505 31.338ZM85.4511 20.1168C85.4511 19.0127 85.1582 18.1452 84.5723 17.5142C83.9865 16.8833 83.1753 16.5679 82.1388 16.5679C81.1474 16.5679 80.3024 16.8045 79.6039 17.2777C78.9279 17.7508 78.4322 18.5169 78.1167 19.576L75.0748 18.393C75.4804 16.996 76.2916 15.8806 77.5084 15.0469C78.7251 14.1907 80.3249 13.7626 82.3078 13.7626C83.6372 13.7626 84.8089 13.9879 85.8229 14.4385C86.8594 14.8667 87.6593 15.5314 88.2226 16.4327C88.8085 17.334 89.1014 18.4493 89.1014 19.7788V27.2821C89.1014 28.1834 89.507 28.6341 90.3181 28.6341C90.4984 28.6341 90.6899 28.6228 90.8927 28.6003C91.0955 28.5552 91.2758 28.5101 91.4335 28.4651L91.2307 30.8648C91.0054 30.9775 90.7237 31.0676 90.3857 31.1352C90.0703 31.2253 89.6985 31.2704 89.2704 31.2704C88.5944 31.2704 87.9748 31.1465 87.4114 30.8986C86.8481 30.6282 86.4087 30.2339 86.0933 29.7156C85.7778 29.1749 85.6201 28.4989 85.6201 27.6877V27.3159L86.2285 27.2821C86.0708 28.1834 85.6877 28.9383 85.0793 29.5466C84.4935 30.155 83.7837 30.6057 82.95 30.8986C82.1163 31.1915 81.26 31.338 80.3813 31.338C78.8265 31.338 77.5309 30.9549 76.4944 30.1888C75.4804 29.4227 74.9734 28.2848 74.9734 26.7751C74.9734 25.5584 75.3452 24.5444 76.0888 23.7332C76.8549 22.8995 78.0041 22.325 79.5363 22.0095L85.9243 20.6913V23.0911L81.3952 24.0712C80.4714 24.2515 79.7729 24.5219 79.2997 24.8824C78.8491 25.2429 78.6237 25.7724 78.6237 26.4709C78.6237 27.1469 78.8603 27.6764 79.3335 28.0595C79.8067 28.4426 80.4601 28.6341 81.2938 28.6341C81.8121 28.6341 82.3191 28.5665 82.8148 28.4313C83.3105 28.2736 83.7499 28.037 84.1329 27.7215C84.5385 27.4061 84.854 27.0117 85.0793 26.5385C85.3272 26.0428 85.4511 25.457 85.4511 24.781V20.1168ZM97.9902 14.1006V31H94.3399V14.1006H97.9902ZM96.2665 11.329C95.4553 11.329 94.8244 11.1375 94.3737 10.7545C93.9456 10.3489 93.7316 9.7743 93.7316 9.03072C93.7316 8.28715 93.9456 7.72383 94.3737 7.34078C94.8244 6.93519 95.4553 6.7324 96.2665 6.7324C97.0777 6.7324 97.6973 6.93519 98.1254 7.34078C98.5535 7.72383 98.7676 8.28715 98.7676 9.03072C98.7676 9.7743 98.5535 10.3489 98.1254 10.7545C97.6973 11.1375 97.0777 11.329 96.2665 11.329ZM110.548 13.7626C112.148 13.7626 113.556 14.1118 114.773 14.8103C116.013 15.5088 116.981 16.5228 117.68 17.8522C118.401 19.1591 118.761 20.7251 118.761 22.5503C118.761 24.3754 118.401 25.9527 117.68 27.2821C116.981 28.589 116.013 29.5917 114.773 30.2902C113.556 30.9887 112.148 31.338 110.548 31.338C108.949 31.338 107.529 30.9887 106.29 30.2902C105.05 29.5917 104.082 28.589 103.383 27.2821C102.684 25.9527 102.335 24.3754 102.335 22.5503C102.335 20.7251 102.684 19.1591 103.383 17.8522C104.082 16.5228 105.05 15.5088 106.29 14.8103C107.529 14.1118 108.949 13.7626 110.548 13.7626ZM110.548 16.6017C109.602 16.6017 108.791 16.8383 108.115 17.3115C107.439 17.7621 106.909 18.4268 106.526 19.3056C106.166 20.1844 105.986 21.2659 105.986 22.5503C105.986 23.8346 106.166 24.9162 106.526 25.795C106.909 26.6737 107.439 27.3497 108.115 27.8229C108.791 28.2736 109.602 28.4989 110.548 28.4989C111.495 28.4989 112.306 28.2736 112.982 27.8229C113.658 27.3497 114.176 26.6737 114.537 25.795C114.92 24.8937 115.111 23.8121 115.111 22.5503C115.111 21.2659 114.92 20.1844 114.537 19.3056C114.176 18.4268 113.658 17.7621 112.982 17.3115C112.306 16.8383 111.495 16.6017 110.548 16.6017ZM123.155 31V14.1006H126.366L126.602 18.6972L126.129 18.2578C126.557 16.7256 127.312 15.599 128.394 14.8779C129.475 14.1344 130.737 13.7626 132.179 13.7626C133.328 13.7626 134.354 13.9992 135.255 14.4723C136.156 14.923 136.877 15.6102 137.418 16.5341C137.959 17.4579 138.229 18.6183 138.229 20.0154V31H134.579V21.0969C134.579 19.4971 134.241 18.3705 133.565 17.717C132.911 17.0636 132.089 16.7369 131.098 16.7369C130.399 16.7369 129.712 16.9171 129.036 17.2777C128.382 17.6156 127.842 18.1677 127.413 18.9338C127.008 19.6999 126.805 20.7026 126.805 21.9419V31H123.155Z" fill="white"/>
+<path d="M28.7295 34.4244H4.30371L6.65039 30.1216H23.667L34.2295 10.7574H40.8799L28.7295 34.4244ZM34.2295 10.7574H17.2129L6.65039 30.1216H0L12.9092 6.45464H36.5762L34.2295 10.7574Z" fill="white"/>
+<path d="M18.2881 17.2124H24.7428L21.5154 23.667H15.0608L18.2881 17.2124Z" fill="white"/></svg></div>
+    <div class="cards-container">
+    <section class="card" onclick="criação()">
+      <svg id="simbolos"  viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.32751 14.5436V10.8798H10.2585V14.5436C10.2585 14.9466 10.5883 15.2764 10.9913 15.2764H13.1896C13.5926 15.2764 13.9223 14.9466 13.9223 14.5436V9.41429H15.168C15.5051 9.41429 15.6663 8.99662 15.4098 8.77679L9.28398 3.25912C9.00553 3.00998 8.58053 3.00998 8.30208 3.25912L2.17622 8.77679C1.92708 8.99662 2.08096 9.41429 2.41803 9.41429H3.66372V14.5436C3.66372 14.9466 3.99346 15.2764 4.39648 15.2764H6.59475C6.99777 15.2764 7.32751 14.9466 7.32751 14.5436Z" fill="#C0A49C"/>
+      </svg><span> Dashboard</span>
+    </section>
+    <section class="card"  onclick="Entra()">
+      <div class ="conversar">
+<svg id="conversar" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_146_681)">
+<path d="M13.5725 7.23177V9.16626L11.5912 7.23177H7.6284C7.27807 7.23177 6.94209 7.0959 6.69437 6.85404C6.44665 6.61219 6.30749 6.28416 6.30749 5.94212V1.42833C6.30749 0.719017 6.9019 0.138672 7.6284 0.138672H14.233C14.5833 0.138672 14.9193 0.274546 15.167 0.516403C15.4148 0.75826 15.5539 1.08629 15.5539 1.42833V5.94212C15.5539 6.28416 15.4148 6.61219 15.167 6.85404C14.9193 7.0959 14.5833 7.23177 14.233 7.23177H13.5725ZM11.5912 8.52143V9.81108C11.5912 10.1531 11.452 10.4812 11.2043 10.723C10.9566 10.9649 10.6206 11.1007 10.2702 11.1007H6.30749L4.32611 13.0352V11.1007H3.66565C3.31532 11.1007 2.97934 10.9649 2.73161 10.723C2.48389 10.4812 2.34473 10.1531 2.34473 9.81108V5.29729C2.34473 4.58798 2.93914 4.00764 3.66565 4.00764H4.98657V5.94212C4.98657 6.6262 5.2649 7.28225 5.76034 7.76597C6.25578 8.24968 6.92775 8.52143 7.6284 8.52143H11.5912Z" fill="#C0A49C"/>
+</g>
+<defs>
+<clipPath id="clip0_146_681">
+<rect width="80px" height="80px" fill="white" />
+</clipPath>
+</defs>
+</svg>
+</div>
+
+      <p>Conversas</p>  
+    </section>
+    <section class="card">
+     <p><strong>Salvos</strong></p>
+    </section>
+     <section class="card">
+     <p><strong>Localização</strong></p>
+    </section>
+      <section class="card">
+    <p><strong>Configuração</strong></p>
+    </section>
+    <section class="card">
+     <p><strong>Empresas</strong></p>
+    </section>
+      <section class="card" onclick="Sabia_mais()">
+      <p><strong>Saiba mais</strong></p>
+      </section>
     </div>
   </div>
- <main id="main-content">
-    <section class="card">
-      <h2>📘 Dados Institucionais</h2>
-      <p><strong>Instituição:</strong> Instituto Federal do Piauí – Campus Picos</p>
-      <p><strong>Curso:</strong> Informática – 2º Ano</p>
-      <p><strong>Disciplina:</strong> Projeto Integrador</p>
-      <p><strong>Professor:</strong> Jader Abreu</p>
-      <p><strong>Data:</strong> 29 de junho de 2025</p>
-    </section>
-
-    <section class="card">
-      <h2>👥 Membros do Grupo</h2>
-      <ul>
-        <li>José Otávio</li>
-        <li>Ronalty Hauan</li>
-        <li>Cauã Santos</li>
-      </ul>
-    </section>
-
-    <section class="card">
-      <h2>🎯 Briefing</h2>
-      <p>O <strong>Gaión</strong> é um app para compra e venda de terrenos, com foco em:</p>
-      <ul>
-        <li>Interface intuitiva com geolocalização e mapas interativos</li>
-        <li>Filtros de busca personalizados</li>
-        <li>Chat seguro entre comprador e vendedor</li>
-        <li>Cadastro completo: fotos, vídeos e documentos</li>
-      </ul>
-      <p>Um ambiente digital confiável para negociações imobiliárias.</p>
-    </section>
-
-    <section class="card">
-      <h2>⚙️ Funcionalidades</h2>
-      <ul>
-        <li>Cadastro/Login, recuperação de senha e edição de perfil</li>
-        <li>Filtros por local, valor e tamanho</li>
-        <li>Mapas interativos e estatísticas de mercado</li>
-        <li>Chat integrado e notificações automatizadas</li>
-        <li>Sistema antifraude, ranking de usuários e verificação de identidade</li>
-      </ul>
-    </section>
-
-    <section class="card">
-      <h2>🚀 Diferenciais</h2>
-      <ul>
-        <li>Exclusivo para terrenos</li>
-        <li>Processo 95% digital, sem burocracia</li>
-        <li>Comunicação direta e gratuita com anúncios</li>
-        <li>Ranking e comunidade ativa</li>
-        <li>Transparência em todas as etapas</li>
-      </ul>
-      <p class="quote">“A raiz da riqueza é a terra.”</p>
-    </section>
-  </main>
-<script src="sidebar.js"></script>
+</div>
 </body>
 </html>

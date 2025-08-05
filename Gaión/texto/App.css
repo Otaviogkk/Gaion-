@@ -4,24 +4,29 @@ body {
   margin: 0;
   color: #333;
   padding-top: 60px;
+  display: flex;
 }
-
 header{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #bf9778;
+  background: #310000;
   color: black;
   width:100vw;
-  height: 60px;
-  box-shadow: 4px 10px 10px rgba(0,0,0,0.2);
+  height: 8.47vh;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000;
-  margin-left: 200px;
+  z-index: 999;
+  margin-left: 13.19vw;
 }
-
+#lupa {
+position: absolute; 
+margin-left: 730px;
+margin-top: 0;
+width: 30px;
+height: 30px;
+}
 header img{
   width: 70px;
   height: 70px;
@@ -29,56 +34,103 @@ header img{
   top: 0;
   right: 40px;
 }
-header .lupa{
-  left: 40px;
-  top: auto;
-  width: 30px;
-  height: 30px;
+header .title h1 {
+  margin: 0;
+  font-size: 1.8rem;
 }
+header .title p {
+  margin: 0.2rem 0 0;
+  font-size: 1rem;
+}  
 .container {
   max-width: 200px;
   margin: auto;
 }
-
+#logo{
+  margin-left: 4.61vw;
+  opacity: 0;
+}
+#logo2{
+  margin-left: 0;
+  margin-bottom: 0;
+  margin-top: 2px;
+  padding: 20px;
+  z-index: 99999;
+}
+.perfil-cor{
+  background-color: #531D1A;
+  width: 13.85vw;
+  height: 14vh;
+  z-index: 1000;
+  left: 0px;
+  right: 0px;
+  top: 0;
+  bottom: 20px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  position: fixed;
+}
 input[type="text"] {
   width: 50%;
   padding: 10px;
   margin-bottom: 10px;
   box-sizing: border-box;
   border: 1px solid #ccc;
-  border-radius: 8px;
-  margin-left: 100px;
+  border-radius: 7px;
+  margin-right: 46.182vw;
+  margin-left: 0;
   margin-top: auto;
   background-color: #ebfdff;
+  color: #531D1A;
+  position: relative;
 }
-header .title h1 {
-  margin: 0;
-  font-size: 1.8rem;
+input[type="text"]::placeholder {
+  font-size: bolder;
+  color: #531D1A;
+  opacity: 1;
+  font-family: 'Chakra Petch', sans-serif;
 }
-
-header .title p {
-  margin: 0.2rem 0 0;
-  font-size: 1rem;
-}
-
-strong{
-  font-weight:bold;
-}
-
 main {
   max-width: 900px;
   margin: 2rem auto;
   padding: 0 1rem;
 }
-
+.clipRect{
+  width: 800px;
+  height: 800px;
+}
+.conversas{
+  height: 25px;
+  width: 25px;
+}
 .card {
-  background: #fff3ea;
+  font-family: 'Chakra Petch', sans-serif;
+  display: flex;
+ align-items: center;
   margin-bottom: 1.5rem;
-  padding: 1.5rem;
+  justify-content: center;
   border-radius: 4px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  width: 9.57vw;
+  height: 50px;
+  margin-left: 0.8vw;
 }
+.cards-container :hover{
+  background-color: #531D1A;
+  
+}
+.cards-container{
+  color: white;
+    font-family: 'Chakra Petch', sans-serif;
+    margin-top: 100px;
+}
+.card svg {
+  margin-right: 10px;
+  width: 25px;
+  height: 25px;
 
+}
 .card h2 {
   margin-top: 0;
   color: #5B0000;
@@ -87,6 +139,8 @@ main {
 ul {
   padding-left: 1.2rem;
 }
+
+
 
 .quote {
   font-style: italic;
@@ -110,8 +164,8 @@ ul {
 }
   */
 #sidebar {
-  background-color: #bf9778;
-  width: 200px;
+  background-color: #310000;
+  width: 13.19vw;
   height: 100vh;
   z-index: 999;
   position: fixed;
@@ -147,20 +201,16 @@ ul {
   border-radius: 50%;
 }
 
-/* cards da sidebar isolados */
-.sidebar-card {
-  background: #fff3ea;
-  margin-bottom: 1.5rem ;
-  width: 120px;
-  padding: 4px;
-  border-radius: 4px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;}
+#logo{
+  margin-left: 0;
+  opacity: 1;
+  position: relative;
+  left: -25.0vw;
+  width: 30px;
+  height: 30px;
+}
 
 
-/* botão de abrir */
 .openbtn {
   font-size: 20px;
   cursor: pointer;
@@ -181,184 +231,69 @@ ul {
   z-index: 1001;
 }
 
+/* Responsividade para dispositivos móveis */
+/* Estilos gerais para telas pequenas */
+/* Responsividade para dispositivos móveis */
+/* --- RESPONSIVO PARA 480px (smartphones pequenos) --- */
 @media (max-width: 480px) {
-  body {
-    padding-top: 50px;
-    margin: 0;
-   font-size: 14px;
-   overflow-x: hidden;
-  }
-
-  /* --- HEADER --- */
-  header {
-    margin: 0;
-    width: 100vw;
-    height: 50px;
-    padding: 0 10px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    background-color: #b88e6c;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-  }
-
-  header .lupa {
-    width: 20px;
-    height: 20px;
-    margin-right: 8px;
-    margin-left: 20px;
-  }
-
-  input[type="text"] {
-    width: 70%;
-    max-width: 180px;
-    padding: 6px 10px;
-    font-size: 13px;
-    border: 1px solid #aaa;
-    border-radius: 20px;
-    outline: none;
-    background-color: #fff;
-    margin-left: 0;
-    margin-left: 80px;
-  }
-
-  header .botao {
-    width: 36px;
-    height: 36px;
-    margin-right: 8px;
-    border-radius: 50%;
+  .sidebar {
     opacity: 0;
   }
-
-  /* --- BOTÃO HAMBURGUER --- */
-    .hamburger {
-    display: block;
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    font-size: 24px;
-    background: none;
-    border: none;
-    color: white;
-    z-index: 1001;
-    cursor: pointer;
-    width: 30px;
-    height: 30px;
-    text-align: center;
-    line-height: 1;
-    margin-top: 21px;
-    top: 0;
-  }
-
-  /* --- SIDEBAR (menu lateral) --- */
-  .sidebar {
-    width: 75vw;
-    max-width: 280px;
-    height: 100vh;
-    left: -75vw;
-    transition: left 0.3s ease;
-    z-index: 1002;
+  header{
+    margin-left: 8vw;
+    width: 84vw;
+    border-radius: 7px;
+    margin-top: 5vh;
+    border: 1.3px solid #ffffff;
     position: fixed;
-    top: 0;
-    background-color: #bf9778;
-    padding-top: 40px;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.15);
-    transform: translateX(-100%);
   }
+#estilo{
+  background-color: #310000;
+  padding: 10px;
+  margin-top: -4.83vh;
+  width: 100vw;
+  height: 12.07vh;
+  border-bottom-right-radius: 50px;
+  margin-left: -4.16vw;
+}
 
-
-  .sidebar.active {
-    left: 0;
-    transform: translateX(0);
-  }
-
-  #main-content {
-    margin-left: 0;
-    padding: 20px;
-    transition: margin-left 0.3s ease;
-  }
-  .perfil-conteudo img {
-    width: 72px;
-    height: 72px;
-    border-radius: 50%;
-    margin-bottom: 12px;
-    margin-top: 10px;
-  }
-
-  .sidebar-card {
-    width: 90%;
-    max-width: 240px;
-    margin: 8px auto;
-    padding: 10px 8px;
-    font-size: 14px;
-    background-color: #fff3ea;
-    border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-  }
-
-  .sidebar-card p {
-    margin: 0;
-    font-weight: 500;
-  }
-
-
-  .infomação {
-    width: 94vw;
-    height: 200px;
-    background: linear-gradient(90deg, #531D1A 40%, #a0776f 70%, #c0a49c 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 15px;
-    box-sizing: border-box;
-    border-radius: 8px;
-    font-size: 22px;
-    color: white;
-    text-align: center;
-    line-height: 1.3;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  }
-
-  #lentra {
-    margin: 0;
-    font-size: 24px;
-    font-weight: bold;
-  }
-
-  .banner-container {
-    width: 94vw;
-    height: 200px;
-    margin: 20px auto;
-    overflow: hidden;
-    position: relative;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  }
-
-  .banner-slides {
-  display: flex;
-  width: 300%; /* 3 slides * 100% = 300% */
-  height: 100%;
-  transition: transform 0.8s ease-in-out;
-  }
-
-  .slides {
-    min-width: 94vw;
-    height: 200px;
-    object-fit: cover;
-  }
-
-  /* --- CONTAINER DOS CARDS (dentro do sidebar) --- */
-  .cards-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 0;
-  }
+#logo{
+  margin-left: 0;
+  opacity: 1;
+  position: absolute;
+  left: 4.92vw;
+  width: 40px;
+  height: 40px;
+}  
+.hamburger {
+  display: block;
+  position: absolute;
+  top: -10px;
+  right: 4.92vw; 
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+  z-index: 1001;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 1;
+  margin-top: 21px;
+}
+input[type="text"] {
+  margin-top: 1.77vh;
+  margin-left: 19.4vw;
+  position: absolute;
+  width: 45.06vw;
+  height: 5.314vh;
+}
+#lupa {
+  top: 7.77vh;
+  right: 31.25vw;
+  position: fixed;
+  width: 4.58vw;
+  height: 3.542vh;
+}
 }
