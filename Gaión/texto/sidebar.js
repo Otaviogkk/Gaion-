@@ -34,3 +34,16 @@ document.addEventListener("click", function(e) {
   }
 });
 
+const initialHeight = window.innerHeight;
+
+window.addEventListener("resize", () => {
+  const heightDiff = initialHeight - window.innerHeight;
+  if (heightDiff > 150) {
+    // Provavelmente o teclado abriu — ignore ou trate de forma diferente
+    console.log("Teclado aberto");
+  } else {
+    // Resize verdadeiro
+    console.log("Resize real");
+  }
+});
+
