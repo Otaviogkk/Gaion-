@@ -5,317 +5,362 @@ body {
   color: #333;
   padding-top: 60px;
   display: flex;
-}
-header{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #310000;
-  color: black;
-  width:100vw;
-  height: 8.47vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  margin-left: 13.19vw;
-}
-#lupa {
-position: absolute; 
-margin-left: 730px;
-margin-top: 0;
-width: 30px;
-height: 30px;
-}
-header img{
-  width: 70px;
-  height: 70px;
-  position: absolute;
-  top: 0;
-  right: 40px;
-}
-header .title h1 {
-  margin: 0;
-  font-size: 1.8rem;
-}
-header .title p {
-  margin: 0.2rem 0 0;
-  font-size: 1rem;
-}  
-.container {
-  max-width: 200px;
-  margin: auto;
-}
-#logo{
-  margin-left: 4.61vw;
-  opacity: 0;
-}
-#logo2{
-  margin-left: 0;
-  margin-bottom: 0;
-  margin-top: 2px;
-  padding: 20px;
-  z-index: 99999;
-}
-.perfil-cor{
-  background-color: #531D1A;
-  width: 13.85vw;
-  height: 14vh;
-  z-index: 1000;
-  left: 0px;
-  right: 0px;
-  top: 0;
-  bottom: 20px;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  position: fixed;
-  ;
-}
-input[type="text"] {
-  width: 50%;
-  padding: 10px;
-  margin-bottom: 10px;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 7px;
-  margin-right: 46.182vw;
-  margin-left: 0;
-  margin-top: auto;
-  background-color: #ebfdff;
-  color: #531D1A;
-  position: relative;
-}
-input[type="text"]::placeholder {
-  font-size: bolder;
-  color: #531D1A;
-  opacity: 1;
-  font-family: 'Chakra Petch', sans-serif;
-}
-main {
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-}
-.clipRect{
-  width: 800px;
-  height: 800px;
-}
-.conversas {
-  height: 25px;
-  width: 25px;
-  left: 0px;
-  right: 0px;
-  top: 20px;
-  bottom: 30px;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  position: fixed;
-  margin-right: 100px;
-
-}
-#salvos {
-  width: 20px;
-  height: 20px;
-  left: 50px;
-  margin-right: 20px;
-}
-
-.card {
-  font-family: 'Chakra Petch', sans-serif;
-  display: flex;
-  align-items: center;
-  margin-bottom: 1.5rem;
-  
-  border-radius: 4px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-  width: 9.57vw;
-  height: 50px;
-  margin-left: 0.8vw;
-}
-
-.card:hover {
-  background-color: #531D1A;
-  height: 65px;
-  width: 10.57vw;
-  margin-left: 1.5vw;
-}
-.cards-container{
-  color: white;
-    font-family: 'Chakra Petch', sans-serif;
-    margin-top: 100px;
-    
-}
-.card svg {
-  width: 25px;
-  height: 25px;
-  margin-right: 20px
-
-}
-.card h2 {
-  margin-top: 0;
-  color: #5B0000;
-}
-
-ul {
-  padding-left: 1.2rem;
-}
-
-
-
-.quote {
-  font-style: italic;
-  color: #555;
-  border-left: 3px solid #8B0000;
-  padding-left: 1rem;
-}
-/* Inicia fechada *
-#sidebar {
-  width: 0;
-  position: fixed;
-  top: 0;
-  right: 0;
-  height: 100%;
-  background-color: #bf9778;
   overflow-x: hidden;
-  transition: width 0.5s;
-  z-index: 1000;
-  padding-top: 60px;
-  box-shadow: -2px 0 5px rgba(0,0,0,0.3);
 }
-  */
-#sidebar {
-  background-color: #310000;
-  width: 13.19vw;
-  height: 100vh;
-  z-index: 999;
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-/* Ao abrir *
-#sidebar.open {
-  width: 250px; /* largura desejada *
+strong{
+  font-weight: bold;
 }
 
-.sidebar .closebtn {
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  font-size: 30px;
-  cursor: pointer;
-  color: #000;
-}
-*/
-.perfil-conteudo {
-  padding: 20px;
-  text-align: center;
-  color: black;
-  font-weight: bolder
-}
 
-.perfil-conteudo img {
-  height: 90px;
-  width: 90px;
-  object-fit: cover;
-  margin-bottom: 15px;
-  border-radius: 50%;
-}
-
-#logo{
-  margin-left: 0;
-  opacity: 1;
+.anucios{
   position: relative;
-  left: -25.0vw;
-  width: 30px;
+}
+.anucios .home {
+  top: 9px;
+  width: 52%;
+  height: auto;
+  margin-left: 40.8vw;
+ 
+}
+
+.anucios p{
+z-index: 1;
+position: absolute;
+top: 90px;
+font-size: 0.782vw;
+color: #531D1A;
+left: 10.8vw;
+}
+.anucios h3{
+  z-index: 1;
+  position: absolute;
+  top: 90px;
+  font-size: 1.98vw;
+  color: #531D1A;
+  left: 10.8vw;
+  font-weight: bolder;
+  line-height: 1.2;
+  font-family: 'Kantumruy Pro', sans-serif;
+  }
+.anucios #vendedores{
+  z-index: 1;
+  position: absolute;
+  top: 13vw;
+  font-weight: 250;
+  font-size: 1.12vw;
+  color: #531D1A;
+  left: 10.8vw;
+  line-height: 1.5;
+}
+.anucios #Play{
+  z-index: 1;
+  position: absolute;
+  bottom: 250px;
+  left: 24vw;
+  width: 1.98vw;
+  height: 1.98vw;
+  top: 427px;
+}
+.playstore p{
+  z-index: 1;
+  position: absolute;
+  top: 417px;
+  left: 27.3vw;
+  width: 100px;
   height: 30px;
+  font-size: 0.6vw; 
+}
+#play{
+  font-size: 1vw;
+}
+.barra{
+  background-color: #000000;
+  width: 1px;
+  height: 2.31vw;
+  position: absolute;
+  z-index: 1;
+  left: 33.9vw;
+  top: 425px;
+}
+.apple{
+  position: absolute;
+  top: 419px;
+  left: 33.9vw;
+  z-index: 1;
+}
+.apple p{
+  position: absolute;
+  top: 0px;
+  left: 3.96vw;
+  width: 100px;
+  font-size: 0.6vw;
+}
+.apple img{
+height: 3.168vw;
+width: 3.168vw;
 }
 
-
-.openbtn {
-  font-size: 20px;
-  cursor: pointer;
-  position: fixed;
-  top: 15px;
-  right: 20px;
-  z-index: 1001;
+.baixa{
+width: 11.88vw;
+height: 2.64vw;
+background: #531D1A;
+background: linear-gradient(90deg, rgba(83, 29, 26, 1) 0%, rgba(49, 0, 0, 1) 100%);
+position: absolute;
+top: 423px;
+left: 10.8vw;
+z-index: 1;
+border-radius: 4.14px;
 }
-.menu-btn {
-  display: none;
-  font-size: 30px;
-  background: none;
-  border: none;
-  color: white;
-  position: fixed;
+.baixa p{
+  left: 0.66vw;
+  top: -0.66vw;
+  color: white; 
+  font-size: 1.12vw;
+}
+.baixa svg{
+  left: 6.6vw;
   top: 10px;
-  left: 10px;
-  z-index: 1001;
+  position: absolute;
+  width: 1.353vw;
+  height: 1.353vw;
+}
+/*block*/
+.container{
+margin-left: 8vw;
+position: absolute;
+bottom: -300px;
 }
 
-/* Responsividade para dispositivos móveis */
-/* Estilos gerais para telas pequenas */
-/* Responsividade para dispositivos móveis */
-/* --- RESPONSIVO PARA 480px (smartphones pequenos) --- */
+.wrapper .card {
+  width: 1305px;
+  height: auto;
+  height: 400px; 
+  display: flex; /* obrigação do aluno */
+  align-items: center;
+
+  background: #531D1A;
+  border-radius: 20px;
+  box-shadow: 2px 10px 8px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.wrapper .card:hover {
+transform: translateY(-10px);
+
+}
+
+.card .card-content {
+  flex: 1;
+  position: relative;
+  margin-left: 68px;
+  font-family: "Kantumruy Pro",sans-serif ;
+  font-size: 35px;
+  width: 395px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 25px 25px;
+  color: #fff;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  justify-content: space-between;
+
+}
+
+
+.card .card-content2 {
+  font-size: 20px;
+  color: #fff;
+  width: 619px;
+  position: absolute;
+  top: 70px;
+  left: 600px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 25px 25px;
+  color: #fff;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  text-align:inherit;
+}
+
+
+
+@media (min-width: 4px) and (max-width: 1024px ) {
+  body{
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+.anucios .home {
+  width: 55vw;
+  position: relative;
+  left: 0%;
+   top: 6%;
+   margin-top: 5%;
+}
+.anucios p{
+z-index: 1;
+position: absolute;
+top: 24.7%;
+font-size: 1.2vw;
+color: #531D1A;
+left: 5.2%;
+}
+.anucios h3{
+  z-index: 1;
+  position: absolute;
+  top: 24.7%;
+  font-size: 2.4vw;
+  color: #531D1A;
+  left: 5.2%;
+  font-weight: bolder;
+  line-height: 1.2;
+  font-family: 'Kantumruy Pro', sans-serif;
+  }
+.anucios #vendedores{
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  font-weight: 250;
+  font-size: 1.5vw;
+  color: #531D1A;
+  left: 5.2%;
+  line-height: 1.5;
+}
+.anucios #Play{
+  z-index: 1;
+  position: absolute;
+  bottom: 52.08vw;
+  left: 27.08%;
+  width: 2.8vw;
+  height: 2.8vw;
+  top: 82%;
+}
+.playstore p{
+  z-index: 1;
+  position: absolute;
+  top: 81.5%;
+  left: 31.25%;
+  width: 20.8vw;
+  height: 6.25vw;
+  font-size: 12%; 
+}
+#play{
+  font-size: 1.5vw;
+}
+.barra{
+  background-color: #000000;
+  width: 0.05%;
+  height: 5.2vw;
+  position: absolute;
+  z-index: 1;
+  left: 43.75%;
+  top: 79%;
+}
+.apple img{
+  width: 4.3vw;
+  height: 4.3vw;
+
+}
+.apple{
+  position: absolute;
+  top: 80.8%;
+  left: 43.75vw;
+  z-index: 1;
+  width: 8vw;
+}
+.apple p{
+  position: absolute;
+  left: 5.25vw;
+  width: 20.8vw;
+  font-size: 7%;
+  top: 12%;
+  
+}
+.baixa{
+width: 18vw;
+height: 3.4vw;
+background: #531D1A;
+background: linear-gradient(90deg, rgba(83, 29, 26, 1) 0%, rgba(49, 0, 0, 1) 100%);
+position: absolute;
+top: 82%;
+left: 5.2%;
+z-index: 1;
+border-radius: 4.14px;
+}
+.baixa p{
+  left: 10.04%;
+  position: relative;
+  top: -37%;
+  color: white; 
+  font-size: 1.7vw;
+}
+.baixa svg{
+  left: 74.53%;
+  top: 30%;
+  position: absolute;
+  width: 1.6vw;
+  height: 1.6vw;
+}
+/* block */
+.container{
+margin-left: 8vw;
+position: relative;
+top: 9%;
+}
+
+.wrapper .card {
+  width: 70vw;
+  height: clamp(74px ,16.6vw,17vw); 
+  display: flex; 
+  align-items: center;
+  background: #531D1A;
+  border-radius: 20px;
+  box-shadow: 2px 10px 8px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.wrapper .card:hover {
+transform: translateY(-10px);
+
+}
+
+.card .card-content {
+  flex: 1;
+  top: 6%;
+  margin-left: 5%;
+  font-family: "Kantumruy Pro",sans-serif ;
+  font-size: 2vw;
+  width: 10px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 25px 25px;
+  color: #fff;
+  line-height: 1.6;
+  margin-bottom: 0%;
+  justify-content: space-between;
+
+}
+
+
+.card .card-content2 {
+  font-size: clamp(5px, 1.2vw, 1.5vw);
+  color: #4b4848;
+  width: 27.34vw;
+  top: 0px;
+  left: 30.75vw;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 25px 25px;
+  color: #fff;
+  line-height: 1.6;
+  text-align:inherit;
+}
+}
 @media (max-width: 480px) {
-  .sidebar {
-    opacity: 0;
+  .card .card-content2 {
+    top: -10px;
   }
-  header{
-    margin-left: 8vw;
-    width: 84vw;
-    border-radius: 7px;
-    margin-top: 5vh;
-    border: 1.3px solid #ffffff;
-    position: fixed;
-  }
-#estilo{
-  background-color: #310000;
-  padding: 10px;
-  margin-top: -4.83vh;
-  width: 100vw;
-  height: 12.07vh;
-  border-bottom-right-radius: 50px;
-  margin-left: -4.16vw;
-  position: fixed;
-}
 
-#logo{
-  margin-left: 0;
-  opacity: 1;
-  left: 4.92vw;
-  width: 40px;
-  height: 6.44vh;
-}  
-.hamburger {
-  display: block;
-  position: absolute;
-  top: -15px;
-  right: 4.92vw; 
-  font-size: 24px;
-  background: none;
-  border: none;
-  color: white;
-  z-index: 1001;
-  cursor: pointer;
-  width: 45px;
-  height: 40px;
-  text-align: center;
-  line-height: 1;
-  margin-top: 21px;
-}
-input[type="text"] {
-  margin-top: 1.77vh;
-  margin-left: 19.4vw;
-  position: absolute;
-  width: 45.06vw;
-  height: 5.314vh;
-}
-#lupa {
-  top: 7.77vh;
-  right: 31.25vw;
-  position: fixed;
-  width: 4.58vw;
-  height: 3.542vh;
-}
+
 }

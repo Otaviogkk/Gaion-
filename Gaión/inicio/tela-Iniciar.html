@@ -3,62 +3,329 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="tela-Iniciar.css">
-
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap" rel="stylesheet">
-  <title>Gaión</title>
- </head>
+  <link rel="stylesheet" href="../css_universal/sidebar.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="stylesheet" href="tela-Iniciar.css">
+</head>
 <body>
-<header style="background-color: #b88e6c; padding: 10px;">
-
-  <img src="../imagens/Gaiôn.png" alt="Icone" class="botao" onclick="perfil()">
-  <img class="lupa" src="../imagens/lupa.png" alt="barra de pequisa">
-  <input type="text" id="searchInput" placeholder="Pesquisar...">
-  
-  <button class="hamburger" onclick="toggleSidebar()">☰</button>
+<header id="estilo"> </header>
+  <header class="barra-buscar">
+<input type="text" id="searchInput" placeholder ="Buscar">
+<svg id="lupa"  viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.6665 11.6665L9.30405 9.30405M9.30405 9.30405C9.68324 8.92486 9.98403 8.47469 10.1893 7.97925C10.3945 7.48382 10.5001 6.95281 10.5001 6.41655C10.5001 5.88029 10.3945 5.34928 10.1893 4.85385C9.98403 4.35841 9.68324 3.90824 9.30405 3.52905C8.92486 3.14986 8.47469 2.84907 7.97925 2.64385C7.48382 2.43863 6.95281 2.33301 6.41655 2.33301C5.88029 2.33301 5.34928 2.43863 4.85385 2.64385C4.35841 2.84907 3.90824 3.14986 3.52905 3.52905C2.76324 4.29486 2.33301 5.33353 2.33301 6.41655C2.33301 7.49957 2.76324 8.53824 3.52905 9.30405C4.29486 10.0699 5.33353 10.5001 6.41655 10.5001C7.49957 10.5001 8.53824 10.0699 9.30405 9.30405Z" stroke="#A0776F" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+  <a href="#" class="p">
+ <svg xmlns="http://www.w3.org/2000/svg" height="34px" viewBox="0 -960 960 960" width="34px" fill="#e3e3e3"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></span>
 </header>
+<aside class="sidebar">
+ <header class="sidebar-header">
+  <a onclick="inicio()" class="header-logo">
+    <svg viewBox="0 0 673 481" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M468.614 480.322H57.7119L102.175 398.807H411.442L573.981 82.1937H673L468.614 480.322ZM573.981 82.1937H274.873L102.175 398.807H0.540039L217.701 0.679077H615.828L573.981 82.1937Z" fill="white"/>
+<path d="M292.964 190.775H401.544L347.254 299.355H238.674L292.964 190.775Z" fill="white"/>
+</svg>
+  </a>
+  <span>Gaion
+  </span>
+</button>
+ </header>
 
-<div id="sidebar" class="sidebar">
-  <div class="perfil-conteudo">
-    <img src="../imagens/Gaiôn.png">
-    <div class="cards-container">
-    <section class="card" onclick="criação()">
-      <p><strong>Cria conta</strong></p>
-    </section>
-    <section class="card"  onclick="Entra()">
-      <p><strong>Entra</strong></p>  
-    </section>
-    <section class="card">
-     <p><strong>Salvos</strong></p>
-    </section>
-     <section class="card">
-     <p><strong>Localização</strong></p>
-    </section>
-      <section class="card">
-    <p><strong>Configuração</strong></p>
-    </section>
-    <section class="card">
-     <p><strong>Empresas</strong></p>
-    </section>
-      <section class="card" onclick="Sabia_mais()">
-      <p><strong>Saiba mais</strong></p>
-      </section>
+  <nav class="sidebar-nav">
+<ul class="abras primeira">
+ <li class="item">
+  <a href="#" class="nav-link">
+   <span class="material-symbols-outlined">dashboard</span>
+   <span class="nav-label">Painel</span>
+ </a>
+ </li>
+  <li class="item">
+  <a href="#" class="nav-link">
+ <span class="material-symbols-outlined">forum</span>
+   <span class="nav-label">mensagem</span>
+ </a>
+  <li class="item">
+  <a href="#" class="nav-link">
+   <span class="material-symbols-outlined">bookmark</span>
+   <span class="nav-label">Salvos</span>
+ </a>
+  <li class="item">
+  <a href="" class="nav-link">
+   <span class="material-symbols-outlined">newspaper</span>
+   <span class="nav-label">Novidades</span>
+ </a>
+ 
+ <li class="item">
+  <a href="#" class="nav-link">
+   <span class="material-symbols-outlined">group</span>
+   <span class="nav-label">Empresas</span>
+ </a>
+</ul>
+
+<ul class="abras segunda">
+ <li class="item">
+  <a href="#" class="nav-link">
+   <span class="material-symbols-outlined">account_circle</span>
+   <span class="nav-label">Usuario</span></li></a>
+ <li onclick="sair()" class="item"">
+  <a class="nav-link">
+   <span href="../Conta/Criação.html" class="material-symbols-outlined">logout</span>
+   <span " class="nav-label">sair</span></a>
+</ul>
+  </nav>
+</aside>
+
+     <div class="container">
+    <div class="wrapper">
+      <div class="card-list">
+        <div class="card">
+          <div class="container-image">
+          <div class="card-image">
+         <img src="../imagens/post_thumbnail-9c4db417cdb6db7b1f98e300bdaf5121.jpg" alt="Development">
+        </div>
+        </div>
+        <div class="card-content">
+                  <h3 class="card-title">Junco, Picos-PI</h3>
+            <p class="card-text">Junco, bairro de Picos-PI, destaca-se pela tranquilidade, convivência comunitária, ruas simples e desenvolvimento urbano em crescimento.
+          </p>
+      
+          <div class="card-footer">
+            <div class="card-profile-info">
+           <span class="card-profile-name">R$: 160,50</span>
+          </div>
+          <a onclick="comprar()" class="card-button">Comprar</a>
+        </div>
+      </div>
+      </div>
+             <div class="card">
+          <div class="container-image">
+          <div class="card-image">
+         <img src="../imagens/post_thumbnail-9c4db417cdb6db7b1f98e300bdaf5121.jpg" alt="Development">
+        </div>
+        </div>
+        <div class="card-content">
+       
+                  <h3 class="card-title">Junco, Picos-PI</h3>
+            <p class="card-text">Junco, bairro de Picos-PI, destaca-se pela tranquilidade, convivência comunitária, ruas simples e desenvolvimento urbano em crescimento.
+          </p>
+      
+          <div class="card-footer">
+            <div class="card-profile-info">
+           <span class="card-profile-name">R$: 160,50</span>
+          </div>
+          <a onclick="comprar()" class="card-button">Comprar</a>
+        </div>
+      </div>
+        </div>
+      </div>
+             <div class="card">
+          <div class="container-image">
+          <div class="card-image">
+         <img src="../imagens/post_thumbnail-9c4db417cdb6db7b1f98e300bdaf5121.jpg" alt="Development">
+        </div>
+        </div>
+        <div class="card-content">
+       
+                  <h3 class="card-title">Junco, Picos-PI</h3>
+            <p class="card-text">Junco, bairro de Picos-PI, destaca-se pela tranquilidade, convivência comunitária, ruas simples e desenvolvimento urbano em crescimento.
+          </p>
+      
+          <div class="card-footer">
+            <div class="card-profile-info">
+           <span class="card-profile-name">R$: 40.000</span>
+          </div>
+        <a onclick="comprar()"" class="card-button">Comprar</a>
+        </div>
+      </div>
+        </div>
+             <div class="card">
+          <div class="container-image">
+          <div class="card-image">
+         <img src="../imagens/post_thumbnail-9c4db417cdb6db7b1f98e300bdaf5121.jpg" alt="Development">
+        </div>
+        </div>
+        <div class="card-content">
+       
+              <h3 class="card-title">Junco, Picos-PI</h3>
+            <p class="card-text">Junco, bairro de Picos-PI, destaca-se pela tranquilidade, convivência comunitária, ruas simples e desenvolvimento urbano em crescimento.
+          </p>
+      
+          <div class="card-footer">
+            <div class="card-profile-info">
+           <span class="card-profile-name">R$: 40.000</span>
+          </div>
+          <a href="#" class="card-button">Comprar</a>
+        </div>
+      </div>
+        </div>
+           <div class="card">
+          <div class="container-image">
+          <div class="card-image">
+         <img src="../imagens/post_thumbnail-9c4db417cdb6db7b1f98e300bdaf5121.jpg" alt="Development">
+        </div>
+        </div>
+        <div class="card-content">
+       
+                  <h3 class="card-title">Junco, Picos-PI</h3>
+            <p class="card-text">Junco, bairro de Picos-PI, destaca-se pela tranquilidade, convivência comunitária, ruas simples e desenvolvimento urbano em crescimento.
+          </p>
+      
+          <div class="card-footer">
+            <div class="card-profile-info">
+           <span class="card-profile-name">R$: 40.000</span>
+          </div>
+          <a href="#" class="card-button">Comprar</a>
+        </div>
+      </div>
+      </div>
+      <div class="card">
+          <div class="container-image">
+          <div class="card-image">
+         <img src="../imagens/post_thumbnail-9c4db417cdb6db7b1f98e300bdaf5121.jpg" alt="Development">
+        </div>
+        </div>
+        <div class="card-content">
+       
+                  <h3 class="card-title">Junco, Picos-PI</h3>
+            <p class="card-text">Junco, bairro de Picos-PI, destaca-se pela tranquilidade, convivência comunitária, ruas simples e desenvolvimento urbano em crescimento.
+          </p>
+      
+          <div class="card-footer">
+            <div class="card-profile-info">
+           <span class="card-profile-name">R$: 40.000</span>
+          </div>
+          <a href="#" class="card-button">Comprar</a>
+        </div>
+      </div>
     </div>
+ <div class="card">
+          <div class="container-image">
+          <div class="card-image">
+         <img src="../imagens/post_thumbnail-9c4db417cdb6db7b1f98e300bdaf5121.jpg" alt="Development">
+        </div>
+        </div>
+        <div class="card-content">
+       
+                  <h3 class="card-title">Junco, Picos-PI</h3>
+            <p class="card-text">Junco, bairro de Picos-PI, destaca-se pela tranquilidade, convivência comunitária, ruas simples e desenvolvimento urbano em crescimento.
+          </p>
+      
+          <div class="card-footer">
+            <div class="card-profile-info">
+           <span class="card-profile-name">R$: 40.000</span>
+          </div>
+          <a href="#" class="card-button">Comprar</a>
+          </div>
+        </div>
+ </div>
+   <div class="card">
+          <div class="container-image">
+          <div class="card-image">
+         <img src="../imagens/post_thumbnail-9c4db417cdb6db7b1f98e300bdaf5121.jpg" alt="Development">
+        </div>
+        </div>
+        <div class="card-content">
+       
+                  <h3 class="card-title">Junco, Picos-PI</h3>
+            <p class="card-text">Junco, bairro de Picos-PI, destaca-se pela tranquilidade, convivência comunitária, ruas simples e desenvolvimento urbano em crescimento.
+          </p>
+      
+          <div class="card-footer">
+            <div class="card-profile-info">
+           <span class="card-profile-name">R$: 40.000</span>
+          </div>
+          <a href="#" class="card-button">Comprar</a>
+          </div>
+        </div>
+ </div>
+  <div class="card">
+          <div class="container-image">
+          <div class="card-image">
+         <img src="../imagens/post_thumbnail-9c4db417cdb6db7b1f98e300bdaf5121.jpg" alt="Development">
+        </div>
+        </div>
+        <div class="card-content">
+       
+                  <h3 class="card-title">Junco, Picos-PI</h3>
+            <p class="card-text">Junco, bairro de Picos-PI, destaca-se pela tranquilidade, convivência comunitária, ruas simples e desenvolvimento urbano em crescimento.
+          </p>
+      
+          <div class="card-footer">
+            <div class="card-profile-info">
+           <span class="card-profile-name">R$: 40.000</span>
+          </div>
+          <a href="#" class="card-button">Comprar</a>
+          </div>
+        </div>
+ </div>
+  <div class="card">
+          <div class="container-image">
+          <div class="card-image">
+         <img src="../imagens/post_thumbnail-9c4db417cdb6db7b1f98e300bdaf5121.jpg" alt="Development">
+        </div>
+        </div>
+        <div class="card-content">
+       
+                  <h3 class="card-title">Junco, Picos-PI</h3>
+            <p class="card-text">Junco, bairro de Picos-PI, destaca-se pela tranquilidade, convivência comunitária, ruas simples e desenvolvimento urbano em crescimento.
+          </p>
+      
+          <div class="card-footer">
+            <div class="card-profile-info">
+           <span class="card-profile-name">R$: 40.000</span>
+          </div>
+          <a href="#" class="card-button">Comprar</a>
+          </div>
+        </div>
+ </div>
+ <div class="card">
+          <div class="container-image">
+          <div class="card-image">
+         <img src="../imagens/post_thumbnail-9c4db417cdb6db7b1f98e300bdaf5121.jpg" alt="Development">
+        </div>
+        </div>
+        <div class="card-content">
+       
+                  <h3 class="card-title">Junco, Picos-PI</h3>
+            <p class="card-text">Junco, bairro de Picos-PI, destaca-se pela tranquilidade, convivência comunitária, ruas simples e desenvolvimento urbano em crescimento.
+          </p>
+      
+          <div class="card-footer">
+            <div class="card-profile-info">
+           <span class="card-profile-name">R$: 40.000</span>
+          </div>
+          <a onclick="sair()" class="card-button">Comprar</a>
+          </div>
+        </div>
+ </div>
+  <div class="card">
+          <div class="container-image">
+          <div class="card-image">
+         <img src="../imagens/post_thumbnail-9c4db417cdb6db7b1f98e300bdaf5121.jpg" alt="Development">
+        </div>
+        </div>
+        <div class="card-content">
+       
+                  <h3 class="card-title">Junco, Picos-PI</h3>
+            <p class="card-text">Junco, bairro de Picos-PI, destaca-se pela tranquilidade, convivência comunitária, ruas simples e desenvolvimento urbano em crescimento.
+          </p>
+      
+          <div class="card-footer">
+            <div class="card-profile-info">
+           <span class="card-profile-name">R$: 40.000</span>
+          </div>
+          <a  class="card-button" href="compra/compra.html" onclick="comprar()">Comprar</a>
+          </div>
+        </div>
+ </div>
   </div>
-</div>
-<div class="banner-container">
-  <div class="banner-slides">
-<section class="infomação">
-  <p id="lentra">Maiores <br>
-Novidades <br>
-do mês </p>
-</section>
-<img src="../imagens/terreno a venda condomínio paineiras.jpeg" class="slides">
-<img src="../imagens/_Imagine construir a casa dos seus sonhos em um terreno de 525m² no Condomínio Gran Ville Atibaia! Com topografia plana e área de lazer completa, esse espaço é perfeito para quem busca conforto e segurança_ Marque.jpeg" class="slides">
-  </div>
-  
-<script src="tela-Iniciar.js">  
-</script>
+ </div>
+    
+
+<script src="../css_universal/Java.js"></script>
+<script src="tela-Iniciar.js"></script>
 
 </body>
 </html>

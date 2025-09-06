@@ -1,34 +1,126 @@
-body, html {
-  margin: 0;
-  padding: 0;
-}
-/* Área da imagem de fundo reduzida */
-.imagens {
-  width: 50vw; /* diminuída para metade da tela */
-  height: 100vh;
-  background-image: url("../../imagens/Parque Estadual Serra do Rola Moça _ Biologia da Paisagem.jpeg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  position: absolute;
-  left: 0;
-  top: 0;
-filter: blur(3px);
-transform: scale(1.05);
+body{
+  background: #A0776F;
+background: linear-gradient(90deg,rgba(160, 119, 111, 1) 4%, rgba(180, 147, 139, 1) 56%, rgba(223, 210, 200, 1) 90%);
 }
 
-/* A forma arredondada ocupa agora a maior parte */
-.clip-shape {
-  width: 70vw; /* aumentada para cobrir mais área */
+.container{
+  display: grid;
+  place-items: center; /* vertical + horizontal */
   height: 100vh;
-  background: #FFF3EA;
-  position: absolute;
-  right: 0;
-  top: 0;
-
-  clip-path: path('M12.1294 687.566C-53.5482 865.366 189.747 1080.5 189.747 1080.5L1156.88 1082.5V0.639257H153.723C153.723 0.639257 243.214 263.383 169.233 418.747C121.761 518.442 50.411 583.932 12.1294 687.566Z');
 }
-/* Vector 1 */
+
+.wrapper .card {
+  position: relative;
+  width: 1005px;
+  height: 700px;
+  padding: 30px;
+
+  display: flex; /* obrigação do aluno */
+  align-items: center;
+  background: #f0f0f0;
+  border-radius: 20px;
+  border: 1px solid black;
+  transition: transform 0.3s ease;
+}
+
+
+.wrapper .card:hover {
+transform: translateY(-10px);
+
+}
+
+.card .card-content {
+  flex: 1;
+  width: 300px;
+  position: relative;
+  font-family: "Kantumruy Pro",sans-serif ;
+  font-size: 24px;
+  left: 6%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 25px 25px;
+  color: #000000;
+  line-height: 1.6;
+  margin-bottom: 500px;
+  justify-content: space-between;
+
+}
+.card .card-content svg{
+  width: 140px;
+}
+.card .card-content #mau {
+  position: absolute;
+  left: 180px;
+  font-size: 18px;
+  font-family: 'Chakra Petch', sans-serif; ;
+  color: #531D1A;
+}
+.card .card-content #gaion{
+  position: absolute;
+  left: 170px;
+  font-size: 60px;
+  top: 20px;
+  color: #531D1A;
+  font-family: "Kantumruy Pro", sans-serif;;
+}
+
+.card .card-content #bom{
+  position: absolute;
+  justify-items: center;
+  width: 500px;
+  top: 40px;
+  left: 500px;
+  font-family: 'Chakra Petch', sans-serif;;
+  color: #531D1A;
+}
+.card .card-content #bom #dia{
+  position: absolute;
+  justify-items: center;
+  width: 500px;
+  top: 40px;
+  left: 50px;
+}
+
+
+.card-image{
+  position: relative;
+  right: 500px;
+  top: 50px;
+}
+
+.card-image img{
+  width: 400px;
+  height: 400px;
+}
+.card .botao {
+ position: absolute; 
+ display: block;
+ margin-left: 40px;
+ margin-top: 40px;
+}
+
+.card .botao1 {
+  display: block;
+  width: 300px;
+  height: 60px;
+  margin-top: 30px;
+  margin-left: 580px;
+  border-radius: 15px;
+  font-size: 20px;
+}
+.card .botao1.primeiro {
+  width: 300px;
+  background-color: #fff;
+  margin-bottom: 20px;
+  
+}
+.card .botao1.sengudo{
+   width: 300px;
+  background: linear-gradient( #531D1A, #310000) ;
+  margin-bottom: 20px;
+  color: #fff;
+  
+}
 
 
 
