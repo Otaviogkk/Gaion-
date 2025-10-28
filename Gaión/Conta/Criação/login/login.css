@@ -1,0 +1,161 @@
+body{
+  background-image: url("../../../imagens/fundo.png");
+  background-repeat: no-repeat;   
+  background-size: cover;         
+  background-position: center; 
+  display: flex;
+  justify-content: center;  
+  align-items: center;  
+  min-height: 100vh;         
+  margin: 0;
+  font-family: 'Chakra Petch', sans-serif;
+}
+
+.container{
+  position: relative;
+  width: 55vw;
+  height: 87vh;
+  padding: min(2.02vw,3.17vh);
+  display: flex; 
+  align-items: center;
+  transition: transform 0.3s ease;
+  justify-content: center;
+  gap: 5.29vh;
+  border: 1px solid black;
+  border-radius: 7px;
+  background-color: #ffffff;
+}
+
+.card-content {
+  margin-bottom: 0px;
+  display: flex;
+  flex-direction: column; /* para ficar um abaixo do outro */
+  align-items: center;
+  gap: 10vh; 
+}
+
+.card-content .incone-gaion1 {
+display: flex;
+align-items: center;
+flex-direction: column;
+margin-top: 5.29vh;
+
+}
+
+.card-content .incone-gaion1 svg{
+  width: min(8.108vw,12.711vh);
+  height: auto;
+  margin-bottom: 1.05vh;
+}
+.card-content .incone-gaion1 span{
+  font-size: clamp(19px,min(2.3vw,3.7vh),35px);
+  font-family: 'Kantumruy Pro', sans-serif;
+  color: #531D1A;
+  font-weight: 600;
+}
+
+.card-content .incone-gaion {
+  bottom: 6vh;
+ font-size: clamp(19px,min(2.3vw,3.7vh),35px);
+ position: relative;
+}
+
+.card-content .incone-gaion svg{
+  width: 42px;
+  height: auto;
+}
+
+.card-content .form {
+color: #531D1A;
+font-size: 18px;
+align-items: center;
+justify-content: center;
+}
+
+.card-content .form input {
+  width: 27vw;
+  height: 42px;
+  border-radius: 7px;
+  border: 0.5px solid #531D1A;
+  color: #531D1A;
+  font-size: 14px;
+  background-color: #F7F3F4;
+  transition: background-color 0.3s;
+}
+
+
+
+.card-content .form .nome {
+display: flex;
+flex-direction: row;
+gap:30px;
+}
+
+.card-content .form .collumn {
+display: flex;
+flex-direction: column;
+}
+
+.card-content .form .caxina input{
+width: 20px;
+}
+
+.checkbox-custom {
+  display: none;
+}
+
+.checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 17px;
+  font-family: 'Chakra Petch', sans-serif;
+  color: #531D1A;
+  position: relative; 
+  padding-left: 26px; 
+  line-height: 1.4;
+}
+
+.checkbox-label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #531D1A;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.checkbox-custom:checked + .checkbox-label::before {
+  background-color: #fff;
+  border-color: #531D1A;
+}
+
+.checkbox-custom:checked + .checkbox-label::before {
+  background-color: white; 
+  border-color: #531D1A;
+  background-image: url("data:image/svg+xml,%3Csvg width='8' height='7' viewBox='0 0 8 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.66667 6.28L0 3.61333L0.94 2.66667L2.66667 4.39333L7.06 0L8 0.946667' fill='%23531D1A'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20px 15px; 
+}
+
+.botão{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+#Login{
+  width: 250px;
+  height: 50px;
+  background: #531D1A;
+  background: linear-gradient(90deg,rgba(83, 29, 26, 1) 0%, rgba(49, 0, 0, 1) 100%);
+  color: #fff;
+  font-size: 18px;
+}
+
+@media (max-width: 768px){}

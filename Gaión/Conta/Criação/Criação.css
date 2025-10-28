@@ -1,132 +1,342 @@
-body{
-  background: #A0776F;
-background: linear-gradient(90deg,rgba(160, 119, 111, 1) 4%, rgba(180, 147, 139, 1) 56%, rgba(223, 210, 200, 1) 90%);
-}
-
-.container{
-  display: grid;
-  place-items: center; /* vertical + horizontal */
-  height: 100vh;
-}
-
-.wrapper .card {
-  position: relative;
-  width: 1005px;
-  height: 700px;
-  padding: 30px;
-
-  display: flex; /* obrigação do aluno */
-  align-items: center;
-  background: #f0f0f0;
-  border-radius: 20px;
-  border: 1px solid black;
-  transition: transform 0.3s ease;
-}
-
-
-.wrapper .card:hover {
-transform: translateY(-10px);
-
-}
-
-.card .card-content {
-  flex: 1;
-  width: 300px;
-  position: relative;
-  font-family: "Kantumruy Pro",sans-serif ;
-  font-size: 24px;
-  left: 6%;
+body {
+  background-image: url("../../imagens/fundo.png");
+  background-repeat: no-repeat;   
+  background-size: cover;         
+  background-position: center; 
   display: flex;
-  flex-direction: column;
-  padding: 10px 25px 25px;
-  color: #000000;
-  line-height: 1.6;
-  margin-bottom: 500px;
-  justify-content: space-between;
+  justify-content: center;  
+  align-items: center;  
+  min-height: 100vh;         
+  margin: 0;
 
 }
-.card .card-content svg{
-  width: 140px;
-}
-.card .card-content #mau {
-  position: absolute;
-  left: 180px;
-  font-size: 18px;
-  font-family: 'Chakra Petch', sans-serif; ;
-  color: #531D1A;
-}
-.card .card-content #gaion{
-  position: absolute;
-  left: 170px;
-  font-size: 60px;
-  top: 20px;
-  color: #531D1A;
-  font-family: "Kantumruy Pro", sans-serif;;
-}
-
-.card .card-content #bom{
-  position: absolute;
-  justify-items: center;
-  width: 500px;
-  top: 40px;
-  left: 500px;
-  font-family: 'Chakra Petch', sans-serif;;
-  color: #531D1A;
-}
-.card .card-content #bom #dia{
-  position: absolute;
-  justify-items: center;
-  width: 500px;
-  top: 40px;
-  left: 50px;
-}
-
-
-.card-image{
+.card {
+  width: max(1000.6px,79.9vw);
+  display: flex;
   position: relative;
-  right: 500px;
-  top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #fff;
+  border: 0.4px solid #732e2a;
+  border-radius: 7px;
+  height: clamp(600px,calc(680px + 5vh),890px);
+  transition: all 0.6s ease;
+}
+.card .card-conteudo {
+  margin-left: max(600px, 50%);
+  margin-top: 100px;
+  position: absolute;
+}
+.card .card-header {
+  text-align: center;
 }
 
-.card-image img{
-  width: 400px;
-  height: 400px;
-}
-.card .botao {
- position: absolute; 
- display: block;
- margin-left: 40px;
- margin-top: 40px;
+.card .card-header .card-title {
+ font-size: 24px;
+ font-family: 'Chakra Petch', sans-serif;
+ color: #531D1A;
+ font-weight: 400;
 }
 
-.card .botao1 {
-  display: block;
-  width: 300px;
-  height: 60px;
-  margin-top: 30px;
-  margin-left: 580px;
-  border-radius: 15px;
-  font-size: 20px;
-}
-.card .botao1.primeiro {
-  width: 300px;
-  background-color: #fff;
-  margin-bottom: 20px;
-  
-}
-.card .botao1.sengudo{
-   width: 300px;
-  background: linear-gradient( #531D1A, #310000) ;
-  margin-bottom: 20px;
-  color: #fff;
-  
+.card .card-header .card-title svg {
+  width: 94px;
+  height: auto;
 }
 
+.card .card-header .card-title #primario {
+font-size: 62px;
+font-weight: 500;
+font-family: "Kantumruy Pro", sans-serif;;
+}
+.card .card-header .subtitulo {
+  font-size: 30px;
+  font-weight: 400;
+  font-family: 'Chakra Petch', sans-serif;
+  color: #531D1A;
+}
+.card .card-header .destaque {
+  font-weight: 700;
+}
+
+.card .card-figure {
+  margin-left: 110px;
+  width: auto;
+  height: auto;
+  margin-top: 100px;
+}
+
+.card .card-figure img {
+  width: auto;
+  height: auto;
+}
+.button-group {
+  text-align: center;
+  top: 380px;
+  margin-left: clamp(640px,56%,56%);
+  display: flex;            
+  flex-direction: column;   
+  align-items: center;
+  gap: 8px;   
+  position: absolute;             
+}
+
+.button-group .btn {
+  display: inline-block;
+  padding: 12px 25px;
+  font-family: 'Chakra Petch', sans-serif;
+  width: 293px;
+  border-radius: 8.5px;
+  text-decoration: none;
+  font-size: 23px;
+  font-weight: 400;
+  transition: all 0.2s ease, background 0.3s ease;
+}
+
+.btn-primary {
+  background: #ffff;
+  color: #310000;
+  border: 0.5px solid #531D1A;
+}
+
+.btn-primary:hover {
+  background: #f5f2f2;
+  transform: scale(1.03);
+}
+
+.btn-secondary {
+  background: linear-gradient(#531D1A 0%, #310000 100%);
+  color: white;
+  border: none;
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(#310000 0%, #531D1A 100%);
+  transform: scale(1.03);
+}
+
+@media (max-width: 1024px) and (orientation: landscape) {
+ .card {
+  width: 90.9vw;
+  height: 91vh;
+ }
+
+  .card .card-conteudo {
+    position: absolute;
+    width: 51.75vw;
+    margin-top: 9.625vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-left: 0;
+    right: 0%;
+    
+  }
+
+  .card .card-header .card-title {
+ font-size: 2.34375vw;
+}
+
+.card .card-header .card-title svg {
+  width: 6.34vw;
+}
+
+.card .card-header .card-title #primario {
+font-size: 4.882vw;
+}
+.card .card-header .subtitulo {
+  font-size: 2.569vw;
+}
+.card .card-figure {
+    display: flex;
+   justify-content: center;   /* Centraliza horizontalmente */
+    align-items: center;       /* Centraliza verticalmente */
+    min-height: 100vh;         /* Garante altura total da tela */
+    margin: 0;
+    margin-left: 4.4vw;
+}
+
+.card .card-figure img {
+  width: min(39.0625vw, 63.594vh); 
+  height: min(39.0625vw, 63.594vh); 
+  margin-bottom: 9.67vh;
+}
+
+.button-group{
+   right: 11.718vw;
+    top: max(215.424px,48.96vh);
+  gap: 0.1px;
+  align-items: center;
+} 
+
+.button-group .btn {
+  padding: 1.4vh 3vw;
+  width: 20.460vw;
+  height: max(20.71px, 2.38vh);
+  border-radius: 8.5px;
+  font-size: clamp(14.976px,min(1.95vw, 3.6vh),min(1.95vw, 3.6vh));
+}
+
+}
 
 
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  body{
+    background-image: url("../../imagens/fundo2.png");
+  }
+  .card {
+    margin-top: 5vh;
+    width: 83vw;
+    height: 87vh;
+    min-height: 750px; 
+    flex-direction: column;
+    align-items: center; /* Garante que tudo dentro centralize */
+    padding-bottom: 40px;
+  }
 
+  .card .card-conteudo {
+    position: relative;
+    width: 100%;
+    margin-left: 0px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 
+  .card .card-figure {
+    width: auto;
+    margin: 20px auto 10px auto; /* Centraliza automaticamente */
+    padding: 10px;
+  }
 
+  .card .card-figure img {
+    width: max(309.507px,37.29vh);
+    height: auto;
+    margin-bottom: 20px; /* Use algo razoável, não 900px */
+  }
 
+  .button-group {
+    position: relative; /* remove comportamento absoluto */
+    top: 0px;
+    padding: 0px;
+    margin-left: 30px;
+    margin-top: 3vh;
+    display: flex;
+    align-items: center;
+    gap: 0px;
+  }
+  .button-group .btn {
+    width: 23.42vh;
+    height: auto;
+    font-size: 2.3vh;
+  }
 
+  .card .card-header .card-title {
+ font-size: 2vh;
+}
 
+.card .card-header .card-title #primario {
+font-size: max(50px,4.7vh);
+}
+.card .card-header .subtitulo {
+  font-size: 3vh;
+  font-weight: 400;
+  font-family: 'Chakra Petch', sans-serif;
+  color: #531D1A;
+}
+}
+
+  @media (max-width: 768px)  and (orientation: portrait) {
+   body{
+    background-image: url("../../imagens/fundo3.png");
+    display: flex;
+    justify-content: center;   /* Centraliza horizontalmente */
+    align-items: center;       /* Centraliza verticalmente */
+    min-height: 100vh;         /* Garante altura total da tela */
+    margin: 0;
+}  
+    .card {
+    margin-top: calc(2px + 1vh) ;
+    width: 89vw;
+    height: 89vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;   /* Centraliza o conteúdo dentro do card */
+    padding-bottom: 40px
+  }
+
+  .card .card-conteudo {
+    position: relative;
+    width: 100%;
+    margin-left: 0px;
+    margin-top: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .card .card-figure {
+    width: auto;
+    margin: 20px auto 10px auto; /* Centraliza automaticamente */
+    padding: 10px;
+  }
+
+  .card .card-figure img {
+    width: clamp(250px,41.6vh,330px);
+    height: auto;
+    margin-bottom: 20px; /* Use algo razoável, não 900px */
+  }
+
+  .button-group {
+    position: relative; /* remove comportamento absoluto */
+    top: 0px;
+    padding: 0px;
+    margin-left: 2.66vw;
+    display: flex;
+    align-items: center;
+    gap: 0px;
+  }
+  .button-group .btn {
+    width: 35.5vw;
+    height: max(8px,1.8vh);
+    font-size: 2.3vh;
+    margin-top: 0px;   
+    line-height: max(8px,1.8vh);
+  }
+
+.card .card-header .card-title svg {
+  width: 60px;
+  height: auto
+}
+
+.card .card-header .card-title #primario {
+font-size: min(56px,10vw);
+}
+.card .card-header .subtitulo {
+  font-size: min(4.3vw,24px);
+  font-weight: 400;
+  font-family: 'Chakra Petch', sans-serif;
+  color: #531D1A;
+}
+}
+@media (max-width: 400px)  and (orientation: portrait) {
+.body {
+  justify-content: center;
+  align-items: center;
+
+}
+
+  .card .card-figure img {
+    width: 78vw;
+    height: auto;
+    margin-bottom: 20px; /* Use algo razoável, não 900px */
+  }
+ .button-group .btn {
+      font-size: clamp(12px, min(6vw, 3vh), 24px);
+
+  }
+
+}
