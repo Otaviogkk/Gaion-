@@ -1,28 +1,5 @@
-// login.js
-/*function login() {
-  const fname = document.getElementById('fname').value;
-  const lname = document.getElementById('lname').value;
-  
-  if (!fname || !lname) {
-    alert('Por favor, preencha todos os campos!');
-    return false;
-  }
-  
-  console.log('Login válido! Redirecionando...');
-  window.location.href = '../../../inicio/tela-Iniciar.html';
-  return false;
-}*/
-document.addEventListener("DOMContentLoaded", () => {
-  // --- MÁSCARA DE TELEFONE ---
-  const telefone = document.getElementById('telefone');
-  telefone.addEventListener('input', (e) => {
-    let valor = e.target.value.replace(/\D/g, ""); // remove não números
-    valor = valor.replace(/^(\d{2})(\d)/g, "($1) $2"); // adiciona parênteses
-    valor = valor.replace(/(\d{5})(\d{4})$/, "$1-$2"); // adiciona hífen
-    e.target.value = valor;
-  });
 
-  
+document.addEventListener("DOMContentLoaded", () => {
 
   
   const cpfInput = document.getElementById('cpf');
@@ -42,17 +19,12 @@ document.addEventListener("DOMContentLoaded", () => {
     e.target.value = valor;
   });
 
-  // --- DESBLOQUEIO DO INPUT ---
-  const checkbox = document.getElementById('caixinha'); // a checkbox
-  const input = document.getElementById('ID');           // o campo de senha
-  // começa bloqueado
-  input.disabled = true;
-  checkbox.addEventListener('change', function() {
-    input.disabled = !this.checked;
-    if (this.checked) {
-      input.focus(); // ativa foco
-    } else {
-      input.value = ''; // limpa se desmarcar
-    }
-  });
+
+  const checkbox = document.getElementById("caixinha"); 
+  const form = document.querySelector(".Vendedor");          
+checkbox.addEventListener('change', function() {
+  const forms = document.querySelectorAll('.Vendedor');
+  forms.forEach(form => form.classList.toggle('Not'));
+});
+
 });

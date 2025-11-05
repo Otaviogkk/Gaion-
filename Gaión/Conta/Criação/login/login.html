@@ -13,64 +13,73 @@
 <body>
   <div class="container">
     <div class="card-content">            
-      <div class ="incone-gaion1">
-       <p> <svg viewBox="0 0 88 60" fill="none" xmlns="http://www.w3.org/2000/svg"><mask id="path-1-inside-1_99_3" fill="white"><path d="M61.6279 59.999H9.23047L14.2656 50.7686H50.7686L73.4268 9.22949H87.6914L61.6279 59.999ZM73.4268 9.22949H36.9229L14.2656 50.7686H0L27.6924 0H78.4609L73.4268 9.22949Z"/></mask>
-<path d="M61.6279 59.999H9.23047L14.2656 50.7686H50.7686L73.4268 9.22949H87.6914L61.6279 59.999ZM73.4268 9.22949H36.9229L14.2656 50.7686H0L27.6924 0H78.4609L73.4268 9.22949Z" fill="#DFD2C8"/>
-<path d="M61.6279 59.999V60.999H62.2386L62.5175 60.4557L61.6279 59.999ZM9.23047 59.999L8.35259 59.5201L7.54587 60.999H9.23047V59.999ZM50.7686 50.7686V51.7686H51.3622L51.6464 51.2474L50.7686 50.7686ZM87.6914 9.22949L88.581 9.68619L89.3289 8.22949H87.6914V9.22949ZM36.9229 9.22949V8.22949H36.3292L36.045 8.75065L36.9229 9.22949ZM0 50.7686L-0.877892 50.2897L-1.68456 51.7686H0V50.7686ZM27.6924 0V-1H27.0988L26.8145 -0.478858L27.6924 0ZM78.4609 0L79.3388 0.478846L80.1455 -1H78.4609V0ZM61.6279 59.999V58.999H9.23047V59.999V60.999H61.6279V59.999ZM9.23047 59.999L10.1084 60.4779L15.1435 51.2474L14.2656 50.7686L13.3877 50.2897L8.35259 59.5201L9.23047 59.999ZM14.2656 50.7686V51.7686H50.7686V50.7686V49.7686H14.2656V50.7686ZM50.7686 50.7686L51.6464 51.2474L74.3046 9.70835L73.4268 9.22949L72.5489 8.75063L49.8907 50.2897L50.7686 50.7686ZM73.4268 9.22949V10.2295H87.6914V9.22949V8.22949H73.4268V9.22949ZM87.6914 9.22949L86.8018 8.77279L60.7383 59.5423L61.6279 59.999L62.5175 60.4557L88.581 9.68619L87.6914 9.22949ZM73.4268 9.22949V8.22949H36.9229V9.22949V10.2295H73.4268V9.22949ZM36.9229 9.22949L36.045 8.75065L13.3877 50.2897L14.2656 50.7686L15.1435 51.2474L37.8008 9.70834L36.9229 9.22949ZM14.2656 50.7686V49.7686H0V50.7686V51.7686H14.2656V50.7686ZM0 50.7686L0.877892 51.2474L28.5703 0.478858L27.6924 0L26.8145 -0.478858L-0.877892 50.2897L0 50.7686ZM27.6924 0V1H78.4609V0V-1H27.6924V0ZM78.4609 0L77.583 -0.478846L72.5489 8.75065L73.4268 9.22949L74.3047 9.70834L79.3388 0.478846L78.4609 0Z" fill="#DFD2C8" mask="url(#path-1-inside-1_99_3)"/>
-<path d="M52.2681 23.5762L45.8442 36.4229H33.1157L39.5396 23.5762H52.2681Z" fill="#DFD2C8" stroke="#DFD2C8"/>
-</svg><br>
-</p> <span>Faça sua Validação</span>
-          </div>
+      <div class="incone-gaion1">
+        <p>
+          <svg viewBox="0 0 88 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <mask id="path-1-inside-1_99_3" fill="white">
+              <path d="M61.6279 59.999H9.23047L14.2656 50.7686H50.7686L73.4268 9.22949H87.6914L61.6279 59.999ZM73.4268 9.22949H36.9229L14.2656 50.7686H0L27.6924 0H78.4609L73.4268 9.22949Z"/>
+            </mask>
+            <path d="M61.6279 59.999H9.23047L14.2656 50.7686H50.7686L73.4268 9.22949H87.6914L61.6279 59.999ZM73.4268 9.22949H36.9229L14.2656 50.7686H0L27.6924 0H78.4609L73.4268 9.22949Z" fill="#DFD2C8"/>
+            <path d="M52.2681 23.5762L45.8442 36.4229H33.1157L39.5396 23.5762H52.2681Z" fill="#DFD2C8" stroke="#DFD2C8"/>
+          </svg><br>
+        </p>
+        <span>Faça seu login</span>
+      </div>
+
       <div class="form">
         <form onsubmit="return login()">
           <div class="nome">
             <div class="collumn">
-          <label for="fname">Nome:</label>
-          <input type="text" id="fname" name="fname" placeholder="Ex: João Pedro">
+              <label for="email">E-mail:</label>
+              <input type="email" id="usuario" name="email" placeholder="Digite seu e-mail">
+            </div>
           </div>
-          <div class="collumn">
-          <label for="Sobrenome">Sobrenome</label>
-          <input type="text" id="fname" name="fname" placeholder="Ex: Silva Carvalho">
+
+          <div class="nome">
+            <div class="collumn">
+              <label for="password">Senha:</label>
+              <input type="password" id="usuario" name="Senha" placeholder="Digite sua senha">
+            </div>
           </div>
-        </div>
+
           <br>
-          <div class="nome">
-            <div class="collumn">
-          <label for="CPF">CPF</label>
-          <input type="text" id="cpf" name="CPF" placeholder="000.000.000-00" ><br>
+
+          <div class="Vendedor Not">
+            <div class="nome">
+              <div class="collumn">
+                <label for="CPF">CPF</label>
+                <input type="text" id="cpf" name="CPF" placeholder="000.000.000-00">
+              </div>
+              <div class="collumn">
+                <label for="id">Seu ID</label>
+                <input type="password" id="ID" placeholder="Seu ID de empresa "><br>
+              </div>
+            </div>
           </div>
-          <div class="collumn">
-          <label for="id">Seu ID</label>
-          <input type="password" id="ID" placeholder="Seu ID de empresa ">
-          </div>
-          </div>
-          <div class="nome">
-            <div class="collumn">
-          <label for="numero">Telefone</label>
-          <input type="tel" id="telefone" name="telefone" placeholder="(11) 98765-4321" minlength="15" maxlength="15"><br>
-          </div>
-          <div class="collumn">
-          <label for="id">Data de Nascimento</label>
-          <input type="date" id="id">
-          </div>
-          </div><br>
-          <div class="checkbox-wrapper">
-          <input id="caixinha" type="checkbox" class="checkbox-custom">
-          <label for="caixinha" class="checkbox-label">Vendedor</label>
-            </div><br>
-            <div class="botão">
-          <input type="submit" id="Login"  value="Login" class="botao">
-          </div>
+          
+      <div class="checkbox-wrapper">
+        <input id="caixinha" type="checkbox" class="checkbox-custom">
+        <label for="caixinha" class="checkbox-label">Vendedor</label>
+      </div><br>
+
+      <div class="botão">
+        <input type="submit" id="Login" value="Login" class="botao">
+      </div>    
         </form>
       </div>
-        <div class ="incone-gaion">
-      <p> <svg  viewBox="0 0 69 55" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M48.3066 54.7617H7.23535L11.1816 46.3369H39.7949L57.5547 8.4248H68.7354L48.3066 54.7617ZM57.5547 8.4248H28.9414L11.1816 46.3369H0L21.7061 0H61.501L57.5547 8.4248Z" fill="#310000"/>
-<path d="M30.7503 21.0615H41.6033L36.1768 33.6989H25.3237L30.7503 21.0615Z" fill="#310000"/>
-</svg> <span>Gaion</span></p>  
-</div>
+      
+   
+
+      <div class="incone-gaion">
+        <p>
+          <svg viewBox="0 0 69 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M48.3066 54.7617H7.23535L11.1816 46.3369H39.7949L57.5547 8.4248H68.7354L48.3066 54.7617ZM57.5547 8.4248H28.9414L11.1816 46.3369H0L21.7061 0H61.501L57.5547 8.4248Z" fill="#310000"/>
+            <path d="M30.7503 21.0615H41.6033L36.1768 33.6989H25.3237L30.7503 21.0615Z" fill="#310000"/>
+          </svg> 
+          <span>Gaion</span>
+        </p>  
+      </div>
     </div>
-    
   </div>
    
   <script src="login.js"></script>

@@ -164,7 +164,7 @@ font-size: 4.882vw;
 
 .button-group{
    right: 11.718vw;
-    top: max(215.424px,48.96vh);
+    top: max(180px,48.96vh);
   gap: 0.1px;
   align-items: center;
 } 
