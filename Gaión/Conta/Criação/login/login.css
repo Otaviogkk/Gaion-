@@ -3,6 +3,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  background-color: rgb(252, 246, 240);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,7 +47,8 @@ body {
 
 .card-content .incone-gaion1 svg {
   width: min(8.108vw, 12.711vh);
-  height: auto
+  height: auto;
+  color: #DFD2C8;
 }
 
 .card-content .incone-gaion1 span {
@@ -57,15 +59,24 @@ body {
 }
 
 .card-content .incone-gaion {
+  display: flex;
+  align-items: center;
+  gap: 0px;
+  margin-top: 8vh;
   position: relative;
-  bottom: 0.2vh;
-  font-size: clamp(19px, min(2.3vw, 3.7vh), 35px);
-    font-family: 'Kantumruy Pro', sans-serif;
+}
+.card-content .incone-gaion span{
+  position: static;
+  white-space: nowrap;
+  font-size: clamp(19px, min(3.5vw, 4.5vh), 35px);
+  font-family: 'Kantumruy Pro', sans-serif;
+  margin-top: 5px; 
 }
 
 .card-content .incone-gaion svg {
   width: 42px;
   height: auto;
+  aspect-ratio: 1 / 1;
 }
 
 .card-content .form {
@@ -201,7 +212,11 @@ font-size: clamp(11px,min(1.45vw, 2.25vh),min(1.45vw, 2.25vh));
 }
 
 .card-content .incone-gaion1 svg {
- display: none;
+ width: 8vh;
+ min-width: 50px;
+ height: auto;
+ color: #531D1A;
+
 }
 
 .card-content .form .nome {
@@ -211,12 +226,12 @@ gap:0px;
 
 
 .card-content .form input {
-  width: 84vw;
-  max-width: 315px;
-  height: min(10vw,4.56vh);
+  width: 80vw;
+  max-width: 500px;
+  height: min(10vw,9.56vh);
   min-height: 0px;
   max-height: 38px;
-  font-size: clamp(7.5px, 1.7vw, 11px);
+  font-size: clamp(13px, 3.5vw, 18px);
 }
 .checkbox-label {
   padding-left: min(17px,5.1vw); /* espaço para o quadrado do checkbox */
@@ -242,6 +257,7 @@ gap:0px;
   position: relative;
   margin-top: 5vh;
   font-size: clamp(11px, min(6.4vw, 2.88vh), 24px);
+  display: none;
 }
 
 .card-content .incone-gaion svg {
@@ -291,6 +307,7 @@ bottom: 0px;
   height: min(10vw,4.56vh);
   min-height: 0px;
   max-height: 40px;
+
 }
 
 }

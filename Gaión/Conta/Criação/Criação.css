@@ -3,15 +3,17 @@ body {
   background-repeat: no-repeat;   
   background-size: cover;         
   background-position: center; 
+  background-color: rgb(252, 246, 240);
   display: flex;
   justify-content: center;  
   align-items: center;  
   min-height: 100vh;         
   margin: 0;
-
+  
 }
+
 .card {
-  width: max(1000.6px,79.9vw);
+  width: max(800.48px,80.7vw);
   display: flex;
   position: relative;
   margin-left: auto;
@@ -19,12 +21,12 @@ body {
   background: #fff;
   border: 0.4px solid #732e2a;
   border-radius: 7px;
-  height: clamp(600px,calc(680px + 5vh),890px);
+  height: clamp(600px,calc(680px + 1vh),890px);
   transition: all 0.6s ease;
 }
 .card .card-conteudo {
   margin-left: max(600px, 50%);
-  margin-top: 100px;
+  top: 100px;
   position: absolute;
 }
 .card .card-header {
@@ -60,7 +62,7 @@ font-family: "Kantumruy Pro", sans-serif;;
 
 .card .card-figure {
   margin-left: 110px;
-  width: auto;
+  width: 300px;
   height: auto;
   margin-top: 100px;
 }
@@ -149,9 +151,9 @@ font-size: 4.882vw;
 }
 .card .card-figure {
     display: flex;
-   justify-content: center;   /* Centraliza horizontalmente */
-    align-items: center;       /* Centraliza verticalmente */
-    min-height: 100vh;         /* Garante altura total da tela */
+   justify-content: center;   
+    align-items: center;       
+    min-height: 100vh;         
     margin: 0;
     margin-left: 4.4vw;
 }
@@ -190,7 +192,7 @@ font-size: 4.882vw;
     height: 87vh;
     min-height: 750px; 
     flex-direction: column;
-    align-items: center; /* Garante que tudo dentro centralize */
+    align-items: center;
     padding-bottom: 40px;
   }
 
@@ -198,7 +200,8 @@ font-size: 4.882vw;
     position: relative;
     width: 100%;
     margin-left: 0px;
-    margin-top: 20px;
+    margin-top: 0px;
+    top:0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -207,18 +210,18 @@ font-size: 4.882vw;
 
   .card .card-figure {
     width: auto;
-    margin: 20px auto 10px auto; /* Centraliza automaticamente */
+    margin: 20px auto 10px auto;
     padding: 10px;
   }
 
   .card .card-figure img {
     width: max(309.507px,37.29vh);
     height: auto;
-    margin-bottom: 20px; /* Use algo razoável, não 900px */
+    margin-bottom: 20px;
   }
 
   .button-group {
-    position: relative; /* remove comportamento absoluto */
+    position: relative;
     top: 0px;
     padding: 0px;
     margin-left: 30px;
@@ -252,9 +255,9 @@ font-size: max(50px,4.7vh);
    body{
     background-image: url("../../imagens/fundo3.png");
     display: flex;
-    justify-content: center;   /* Centraliza horizontalmente */
-    align-items: center;       /* Centraliza verticalmente */
-    min-height: 100vh;         /* Garante altura total da tela */
+    justify-content: center;   
+    align-items: center;     
+    min-height: 100vh;         
     margin: 0;
 }  
     .card {
@@ -263,7 +266,7 @@ font-size: max(50px,4.7vh);
     height: 89vh;
     flex-direction: column;
     align-items: center;
-    justify-content: center;   /* Centraliza o conteúdo dentro do card */
+    justify-content: center;  
     padding-bottom: 40px
   }
 
@@ -272,6 +275,7 @@ font-size: max(50px,4.7vh);
     width: 100%;
     margin-left: 0px;
     margin-top: 0px;
+    top: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -280,18 +284,18 @@ font-size: max(50px,4.7vh);
 
   .card .card-figure {
     width: auto;
-    margin: 20px auto 10px auto; /* Centraliza automaticamente */
+    margin: 20px auto 10px auto;
     padding: 10px;
   }
 
   .card .card-figure img {
     width: clamp(250px,41.6vh,330px);
     height: auto;
-    margin-bottom: 20px; /* Use algo razoável, não 900px */
+    margin-bottom: 20px; 
   }
 
   .button-group {
-    position: relative; /* remove comportamento absoluto */
+    position: relative; 
     top: 0px;
     padding: 0px;
     margin-left: 2.66vw;
@@ -332,7 +336,7 @@ font-size: min(56px,10vw);
   .card .card-figure img {
     width: 78vw;
     height: auto;
-    margin-bottom: 20px; /* Use algo razoável, não 900px */
+    margin-bottom: 20px; 
   }
  .button-group .btn {
       font-size: clamp(12px, min(6vw, 3vh), 24px);

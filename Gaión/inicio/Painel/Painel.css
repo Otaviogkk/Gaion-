@@ -1,0 +1,198 @@
+body{
+  background-image: url("../../imagens/fundo.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-top: 0px;
+}
+
+.barra-buscar{
+  display: none;
+  
+}
+
+main{
+  font-family: "Kantumruy Pro", sans-serif;
+  color: #531D1A;
+  display: flex;
+  min-height: 100vh;         
+  margin: 0;
+  align-items: center;  
+  flex-direction: column;
+}
+.centro{
+  display: flex;
+  justify-content: center;  
+  align-items: start;  
+  flex-direction:column;
+ 
+}
+
+.painel{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 20px;
+  width: 58.47vw;
+}
+
+.periodo{
+  max-width: 34.7vw;
+  height: 4.2vh;
+  color: #531D1A;
+  outline: none;
+  padding-left: 10px;
+  background: #DFD2C8;
+  border: 0.5px solid #531D1A;
+  border-radius: 7px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  font-size: 1.5vh;
+}
+.periodo option{
+  font-size: 1vh;
+}
+
+
+.periodo:focus{
+  transform: scale(1.02);
+}
+
+.cards{
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  border-radius: 7px;
+  height: 105px;
+  background: #fff;
+  border: 0.1px solid #531D1A;
+  fill: #531D1A;
+  padding-left: 20px;
+  gap: 20px;
+  font-size: 1.5vh;
+}
+.cards svg{
+ width: 2em;
+}
+
+.grafico-container{
+  border-radius: 7px;
+  padding-left: 20px;
+  height: 42.8vh;
+  border: 0.1px solid #531D1A;
+  background: #fff;
+
+}
+
+.cards-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cards-text span:first-child {
+  font-size: 1.6vh;
+  margin-bottom: 3px;
+}
+
+.cards-text span:last-child {
+  font-weight: bold;
+  font-size: 2vh;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  padding: 8px 16px;
+  background: #fcede3;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  font: inherit;
+  width: 30vw;
+  text-align: left; 
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  min-width: 300px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+  background: #fcede3;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  z-index: 1000;
+  min-width: 30vw;
+  display: none; /* escondido por padrão */
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 8px 16px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  color: #333;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: #e9ecef;
+}
+@media (max-width: 768px) and (orientation: portrait){
+
+main{
+ padding-top: 0px;
+} 
+.barra-buscar{
+  display: inline;
+}
+.painel{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 20px;
+  width: 315px;
+}
+
+
+.cards{
+  border-radius: 7px;
+  height: 9.57vh;
+  background: #fff;
+  border: 0.1px solid #531D1A;
+   fill: #531D1A;
+   padding-left: 20px;
+   gap: 20px;
+}
+.grafico-container{
+  border-radius: 7px;
+  padding-left: 20px;
+  height: 230px;
+  border: 0.1px solid #531D1A;
+  background: #fff;
+}
+
+.periodo{
+  max-width: none;
+  height: 30px;
+
+}
+
+}

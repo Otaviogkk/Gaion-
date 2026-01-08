@@ -1,0 +1,254 @@
+body{
+  margin: 0;
+}
+.sidebar{
+  display: flex;
+  position: fixed;
+  width: 4.2vw;
+  height: 90vh;
+  background-color: rgb(83, 29, 26);
+  border-radius: 10px;
+  align-items: center; 
+  justify-content: center;
+  flex-direction: column; 
+  box-sizing: border-box;
+  font-size: 1.2vw;
+  transition: 0.4s ease;
+  z-index: 100;
+}
+.sidebar svg{
+  width: 1.7em;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  color: white;
+}
+.sidebar header {
+  width: 100%;
+  display: flex;
+  background-color: #460606;
+  border-bottom: 1px solid black;
+  flex-grow: 1;
+  justify-content: center;
+  max-height: max-content;
+  border-radius: 0 10px 0 0;
+  padding: 10px;
+  box-sizing: border-box;
+
+}
+
+
+.sidebar a span {
+  display: none;
+  white-space: nowrap;
+  font-size: max(9px,1em);
+  width: 4.5em;
+
+}
+
+
+.sidebar ul {
+ display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  box-sizing: border-box;
+  border-radius: 0 10px 0 0;
+  padding-left: 0;
+  gap: 2.1vh;
+  padding-top: 10px;
+
+}
+
+.sidebar li a svg {
+  width: 1.5em;
+  min-width: 18.5px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0; /* Evita que o SVG encolha */
+
+}
+
+
+.aside-cont-bottom {
+  margin-top: auto;
+}
+.sidebar.collapsed{
+  width: 13vw;
+}
+.sidebar.collapsed a span {
+  display: block;
+}
+.sidebar li a {
+  display: flex;
+  align-items: center;
+  gap: 0.9vw; 
+  padding: 12px 10px;
+  text-decoration: none;
+  color: white;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 20px;
+  transition: background-color 0.80s;
+}
+.sidebar header a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9vw; /* Espaço entre SVG e texto */
+  padding: 0;
+  text-decoration: none;
+  color: white;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 20px;
+  transition: background-color 0.80s;
+  font-size: 1.5vw;
+}
+.sidebar header svg {
+  width: 1.7em;
+  min-width: 18px;
+  flex-shrink: 0;
+}
+
+
+.sidebar header a span {
+ font-size: 1.7em;
+}
+
+.sidebar li a:hover {
+  background-color: white;
+}
+
+.sidebar li a:hover svg {
+  color: rgb(83, 29, 26); 
+}
+
+
+.sidebar li a:hover span {
+  color: rgb(83, 29, 26);
+}
+
+.barra {
+  display: flex;
+  width: 100vw;
+  background-color: #310000;
+  height: 45px;
+  align-items: center;
+  justify-content: center;
+  gap: 3.57vw;
+  box-sizing: border-box;
+  flex-grow: 1;
+}
+
+.pusca {
+  display: flex;
+  position: relative;
+  flex-grow: 1;
+  max-width: 50vw; /* limite de largura */
+  width: 100%;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo para o input dentro de .pusca */
+.pusca input {
+  width: 100%;
+  padding: 5px 40px 5px 16px; /* espaço para o ícone */
+  border-radius: 7px;
+  border: none;
+  font-size: 16px;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(223, 210, 200, 1) 100%);
+}
+.incone {
+  position: absolute;
+  right: 2px;
+  top: 45%;
+  transform: translateY(-30%);
+}
+
+.text-content{
+  display: flex;
+  gap: 1.14vw;
+  width: 30vw;
+  box-sizing: border-box;
+}
+
+.text{
+ display: flex;
+ color: #DFD2C8;
+ font-family: 'Chakra Petch', sans-serif;
+ flex-grow: 1;
+ font-size: clamp(9px,1.14vw, 16px);
+}
+
+
+@media (max-width: 1024px) and (orientation: portrait) {
+  .sidebar {
+    z-index: 100;
+    width: 90vw;
+    max-width: 600px;
+    height: 3.5rem;
+    bottom: 2vh;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: row;
+    align-items: center;
+    padding: 0 1rem;
+    gap: 10px;
+  }
+
+   .sidebar header {
+    width: auto;           /* não ocupa tudo */
+    min-width: unset;     /* remove qualquer mínimo herdado */
+    max-width: fit-content; /* encolhe ao conteúdo */
+    flex-shrink: 0;       /* não deixa o flex esmagar */
+    padding: 0 0.4rem;    /* bem mais fino */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;   /* opcional */
+    border-radius: 0;
+    font-size: 1.2vw;
+  }
+
+  .sidebar ul {
+    flex-direction: row;
+    gap: 0.4rem;
+    padding: 0;
+    margin: 0;
+  }
+ .sidebar li a {
+    padding: 0.6em 2em;   /* botão maior */
+    border-radius: 16px;      /* acompanha o tamanho */
+  }
+
+  .sidebar li a svg {
+    width: 3em; 
+    min-width: 25px;             /* ícone maior */
+    height: auto;
+  }
+.sidebar header svg {
+  width: 2.6em;
+  min-width: 25px;
+  flex-shrink: 0;
+}
+
+}
+@media (max-width: 920px) and (orientation: portrait) {
+  .text-content{
+    display: none;
+  }
+.barra{
+  max-width: 600px;
+  width: 90vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+}
+
+}
