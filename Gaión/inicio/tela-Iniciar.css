@@ -1,23 +1,17 @@
-main{
-  padding-left: 4.2vw;
-  margin: 0 auto;
-}
-.new{
-  width: 95vw;
-  height: 45.21vh;
-  overflow: hidden;
+body{
+  background: #D4CACA;
 }
 
-.new .news figure img{
-  width: 95vw;
-  height: 50.21vh;
+main{
+  display: grid;
+  padding-left: 4.2vw;
+  margin: 0 auto;
+  gap: 30px;
 }
-.new .news figure rect{
-  height: 100vw;
-  width: 85.21vh;
-}
+
+
 .banner {
-  width: 95vw;
+  width: 93vw;
   height: 50vh;
   margin: auto;
   margin-top: min(10px, 1.2vh);
@@ -113,3 +107,96 @@ main{
   background: #5a120a;
   transform: scale(1.1);
 }
+.divisao {
+  position: relative; /* IMPORTANTE */
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 93vw;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  gap: 10px;
+  padding: 15px;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+.infomacao {
+  font-size: 20px;
+  color: #460606;
+  font-weight: 700;
+}
+
+.carousel {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.track {
+
+  display: flex;
+  transition: transform 0.6s ease;
+  position: relative;
+  z-index: 1;
+  gap: 1vw;
+}
+
+.item {
+  flex-grow: 0 0 auto;
+  width: calc(100% / 3); /* 3 por vez */
+  flex-shrink: 0;
+  position: relative;
+}
+
+.item img {
+  width: 100%;
+  height: 100%;
+  max-width: 28vw;
+  max-height: 31vh;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* setas */
+.passe,
+.duas {
+  position: absolute;
+  top: 55%;
+  transform: translateY(-50%);
+  z-index: 5;
+  cursor: pointer;
+}
+
+.passe { left: 10px; pointer-events: auto;}
+.duas  { right: 10px; pointer-events: auto;}
+.info.res{
+  bottom: 0.5rem;
+  left: 0.5rem;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(6px);
+  padding: 0.8rem 1rem;
+  border-radius: 0.8rem;
+  font-family: 'Arial', sans-serif;
+  color: #3a1a12;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  font-size: 0.7vw;
+  box-sizing: border-box;
+}
+.info.res .linha {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  font-size: max(0.9em, 8px);
+  margin-bottom: 0.2em;
+}
+
+.info.res .preco {
+  margin-top: 0.3em;
+  font-size: max(1.4em, 8.5px);
+  font-weight: bold;
+  color: #5a120a;
+}
+
+
