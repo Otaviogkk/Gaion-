@@ -17,6 +17,7 @@ body{
   font-size: 1.2vw;
   transition: 0.4s ease;
   z-index: 100;
+  pointer-events: auto;
 }
 .sidebar svg{
   width: 1.7em;
@@ -148,6 +149,7 @@ body{
   width: 100%;
   padding: 0;
   box-sizing: border-box;
+  font-size: 2vh;
 }
 
 .pusca input {
@@ -155,7 +157,7 @@ body{
   padding: 5px 40px 5px 16px; 
   border-radius: 7px;
   border: none;
-  font-size: 16px;
+  font-size: 2vh;
   box-sizing: border-box;
   background: #FFFFFF;
   background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(223, 210, 200, 1) 100%);
@@ -165,6 +167,8 @@ body{
   right: 2px;
   top: 45%;
   transform: translateY(-30%);
+  width: 2.3em;
+  min-width: 20px ;
 }
 
 .text-content{
@@ -252,5 +256,14 @@ body{
   transform: translateX(-50%);
   border-radius: 10px;
 }
+}
+@media (max-height: 456px){
+  .sidebar{
+  font-size: min(1.2vw, 2.51vh);
+}
+.sidebar ul {
+  gap: 0px;
+  padding-top: 0px;
 
+}
 }

@@ -1,12 +1,15 @@
 const sidebar = document.querySelector(".sidebar");
 const desktopQuery = window.matchMedia("(min-width: 1025px)");
-
-function open() {
-  sidebar.classList.add("collapsed");
+function open(e) {
+  if (!sidebar.contains(e.relatedTarget)) {
+    sidebar.classList.add("collapsed");
+  }
 }
 
-function close() {
-  sidebar.classList.remove("collapsed");
+function close(e) {
+  if (!sidebar.contains(e.relatedTarget)) {
+    sidebar.classList.remove("collapsed");
+  }
 }
 
 function updateSidebarBehavior() {
