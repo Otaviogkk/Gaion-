@@ -190,42 +190,49 @@ function criarCarrossel(trackSelector, produtos, idBtnAvancar, idBtnVoltar, visi
   let currentX = 0;
   let isDragging = false;
 
-  track.addEventListener("touchstart", (e) => {
-    startX = e.touches[0].clientX;
-    isDragging = true;
-    track.style.transition = "none";
-  });
+track.addEventListener("touchend", () => {
+  if (!isDragging) return;
+  isDragging = false;
 
-  track.addEventListener("touchmove", (e) => {
-    if (!isDragging) return;
-    currentX = e.touches[0].clientX;
-    const delta = startX - currentX;
-    const step = getStep();
-    track.style.transform = `translateX(-${page * step + delta}px)`;
-  });
+  const delta = startX - currentX;
+  const step = getStep();
 
-  track.addEventListener("touchend", () => {
-    if (!isDragging) return;
-    isDragging = false;
-
-    const delta = startX - currentX;
-    const step = getStep();
-
-    track.style.transition = "transform 0.3s ease";
-
-    if (Math.abs(delta) > step / 4) {
-      if (delta > 0) {
-        page++; // swipe esquerda
-      } else {
-        page--; // swipe direita
-      }
+  // Determina nova página com base no swipe
+  if (Math.abs(delta) > step / 4) {
+    if (delta > 0) {
+      page++; // swipe para esquerda → avança
+    } else {
+      page--; // swipe para direita → volta
     }
+  }
 
-    if (page < 0) page = 0;
-    if (page >= produtos.length) page = produtos.length - 1;
-
+  // Lógica de loop infinito (igual aos botões)
+  if (page >= produtos.length) {
+    // Chegou ao fim → volta pro início
+    track.style.transition = "none";
+    track.style.transform = `translateX(-${page * step}px)`;
+    // Aguarda próximo frame para resetar sem animação
+    requestAnimationFrame(() => {
+      page = 0;
+      track.style.transition = "transform 0.3s ease";
+      update();
+    });
+  } else if (page < 0) {
+    // Voltou do início → vai pro fim
+    page = produtos.length - 1;
+    track.style.transition = "none";
+    update(false);
+    // Pequeno delay para simular "salto" suave
+    setTimeout(() => {
+      track.style.transition = "transform 0.3s ease";
+      update();
+    }, 10);
+  } else {
+    // Dentro dos limites normais
+    track.style.transition = "transform 0.3s ease";
     update();
-  });
+  }
+});
 
   // Avançar (→)
   btnAvancar.addEventListener("click", () => {
