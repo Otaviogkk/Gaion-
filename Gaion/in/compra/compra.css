@@ -57,12 +57,12 @@ main{
     flex-direction:column;
   }
 
-  .campo label{
+  .campo span{
     font-size:14px;
     margin-bottom:5px;
   }
 
-  .campo input, .campo select{
+  .aparecia{
     padding:10px;
     font-size:16px;
     border:1px solid #bbb;
@@ -76,6 +76,7 @@ main{
 
   .botao{
     margin-top:20px;
+    margin-left: 50%;
     width:100%;
     background:#4b0d0d;
     color:white;
@@ -84,6 +85,7 @@ main{
     border:none;
     border-radius:10px;
     cursor:pointer;
+   
   }
 
   .botao:hover{

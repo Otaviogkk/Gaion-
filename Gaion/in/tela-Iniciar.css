@@ -35,6 +35,7 @@ main{
   opacity: 0;
   transition: opacity 0.5s ease;
   cursor: pointer;
+  pointer-events: none;
 }
 .slide::before {
   content: "";
@@ -56,10 +57,11 @@ main{
 }
 .slide.active {
   opacity: 1;
-}
-.banner, .slide {
   pointer-events: auto;
+  
 }
+
+
 .info {
   position: absolute;
   bottom: 0.3rem;

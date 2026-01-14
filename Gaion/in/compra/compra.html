@@ -62,9 +62,9 @@
 <main>
 <div class="container">
   <h2>Vende-se Terrenos em Picos!</h2>
-  <div class="local">Bomba, Picos - PI<br>São Benedito, nº 280, Bairro Bomba - Picos - PI</div>
+  <div class="local"><span id="local"></span>, Picos - PI<br>São Benedito, nº 280,  <span id="local"></span> - Picos - PI</div>
 
-  <img src="../../imagens/_Imagine construir a casa dos seus sonhos em um terreno de 525m² no Condomínio Gran Ville Atibaia! Com topografia plana e área de lazer completa, esse espaço é perfeito para quem busca conforto e segurança_ Marque.jpeg"class= "foto">
+  <img id="imagem-grande" alt="Imagem do terreno" class="foto">
 
   <div class="icones">🏠  📷 🗺️</div>
 
@@ -72,35 +72,29 @@
 
   <div class="grid">
     <div class="campo">
-      <label>Tamanho (m²)</label>
-      <input type="number" value="205" fi>
+      <label>Valor</label>
+      <div class="aparecia">R$:<span id="preco"></div>
     </div>
 
     <div class="campo">
       <label>Tipo de Terreno</label>
-      <select>
-        <option>Urbano</option>
-        <option>Rural</option>
-      </select>
+      <div class="aparecia">Urbano</span></div>
+
     </div>
 
-    <div class="campo">
-      <label>Comprimento (m)</label>
-      <input type="number" value="30">
-    </div>
+    <div class="campo tamanho">
+      <label>Área (m)</label>
+      <div class="aparecia"><span id="area"></span></div>
+    </div><br>
 
-    <div class="campo">
-      <label>Largura (m)</label>
-      <input type="number" value="23">
-    </div>
-  </div>
-
-  <div class="preco">R$ 40.000,00<br><span style="font-size:14px; color:#555;">Cond. Sob Consulta | IPTU Sob Consulta</span></div>
+ 
 
   <button class="botao">Consultar</button>
 </div>
 </main>
 
+
 <script src="../../Universal/sidebar.js"></script>
+<script src="compra.js"></script>
 </body>
 </html>

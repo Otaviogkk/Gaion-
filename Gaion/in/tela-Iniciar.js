@@ -1,8 +1,8 @@
 // ============ PRIMEIRO CARROSSEL (banner principal) ============
 const imagensProduto = [
-  { url: "../imagens/ert.jpeg", link: "Painel/Painel.html", area: "250 m²", local: "Picos R. Santos", preco: "1.210.000" },
-  { url: "../imagens/33300d20f8ec0b140b543fbf6d5a7fa4.jpg", link: "Painel/Painel.html", area: "180 m²", local: "Picos, Centro ", preco: "1.175.000" },
-  { url: "../imagens/767267443391f57f2eb6949319d1f0a0.jpg", link: "Painel/Painel.html", area: "320 m²", local: "Bairro Junco", preco: "2.095.000" }
+  { id: "terreno-1", url: "../imagens/ert.jpeg", link:"compra/compra.html", area: "250 m²", local: "Picos R. Santos", preco: "1.210.000" },
+  { id: "terreno-2", url: "../imagens/33300d20f8ec0b140b543fbf6d5a7fa4.jpg", link: "compra/compra.html", area: "180 m²", local: "Picos, Centro ", preco: "1.175.000" },
+  { id: "terreno-3", url: "../imagens/767267443391f57f2eb6949319d1f0a0.jpg", link: "compra/compra.html", area: "320 m²", local: "Bairro Junco", preco: "2.095.000" }
 ];
 
 const banner = document.querySelector(".banner");
@@ -50,9 +50,14 @@ imagensProduto.forEach((img, i) => {
   `;
 
   slide.appendChild(info);
-  slide.addEventListener("click", () => {
-    location.href = img.link;
-  });
+slide.dataset.produtoId = img.id;
+
+slide.addEventListener("click", function() {
+  const id = this.dataset.produtoId; // pega do próprio elemento
+  const url = new URL("compra/compra.html", window.location.href);
+  url.searchParams.set("id", id);
+  window.location.href = url.toString();
+});
   banner.appendChild(slide);
 
   const dot = document.createElement("div");
@@ -112,20 +117,17 @@ function criarCarrossel(trackSelector, produtos, idBtnAvancar, idBtnVoltar, visi
   extended.forEach(p => {
     const item = document.createElement("div");
     item.classList.add("item");
+    const produtoId = p.id !== undefined ? p.id : index;
+    item.dataset.produtoId = produtoId;
 
     const img = document.createElement("img");
     img.src = p.url;
     img.alt = "Imóvel";
     img.loading = "lazy";
 
-    if (p.link) {
-      const a = document.createElement("a");
-      a.href = p.link;
-      a.appendChild(img);
-      item.appendChild(a);
-    } else {
+
       item.appendChild(img);
-    }
+    
 
     if (p.area || p.local || p.preco) {
       const info = document.createElement("div");
@@ -159,7 +161,12 @@ function criarCarrossel(trackSelector, produtos, idBtnAvancar, idBtnVoltar, visi
       `;
       item.appendChild(info);
     }
-
+      item.addEventListener("click", function () {
+      const id = this.dataset.produtoId;
+      const url = new URL("compra/compra.html", window.location.href);
+      url.searchParams.set("id", id);
+      window.location.href = url.toString();
+    });
     track.appendChild(item);
   });
 
@@ -246,30 +253,30 @@ function criarCarrossel(trackSelector, produtos, idBtnAvancar, idBtnVoltar, visi
   window.addEventListener("load", () => setTimeout(update, 100));
 }
 const novosProdutos = [
-  { url: "../imagens/ert.jpeg", link: "Painel/Painel.html", area: "250 m²", local: "Picos R. Santos", preco: "210.000" },  
-  { url: "../imagens/33300d20f8ec0b140b543fbf6d5a7fa4.jpg", link: "Painel/Painel.html", area: "180 m²", local: "Centro", preco: "175.000" },
-  { url: "../imagens/767267443391f57f2eb6949319d1f0a0.jpg", link: "Painel/Painel.html", area: "320 m²", local: "Bairro Junco", preco: "295.000"},
-  { url: "../imagens/2.jpeg", area: "520 m²", local: "Bairro Junco", preco: "495.000" },
-  { url: "../imagens/3.jpeg",area: "-320 m²", local: "Junco Bairro", preco: "95.000" },
-  { url: "../imagens/homem.png", area: "89 kg", local: "corpo", preco: "coxinha" }
+  { id:1, url: "../imagens/ert.jpeg", link: "Painel/Painel.html", area: "250 m²", local: "Picos R. Santos", preco: "210.000" },  
+  { id:2, url: "../imagens/33300d20f8ec0b140b543fbf6d5a7fa4.jpg", link: "Painel/Painel.html", area: "180 m²", local: "Centro", preco: "175.000" },
+  { id:3, url: "../imagens/767267443391f57f2eb6949319d1f0a0.jpg", link: "Painel/Painel.html", area: "320 m²", local: "Bairro Junco", preco: "295.000"},
+  { id:4, url: "../imagens/2.jpeg", area: "520 m²", local: "Bairro Junco", preco: "495.000" },
+  { id:5, url: "../imagens/3.jpeg",area: "-320 m²", local: "Junco Bairro", preco: "95.000" },
+  { id:6, url: "../imagens/homem.png", area: "89 kg", local: "corpo", preco: "coxinha" }
 ];
 
 const OutraGaleria = [
-  { url: "../imagens/ert.jpeg", link: "Painel/Painel.html", area: "250 m²", local: "Picos R. Santos", preco: "210.000" },  
-  { url: "../imagens/33300d20f8ec0b140b543fbf6d5a7fa4.jpg", link: "Painel/Painel.html", area: "180 m²", local: "Centro", preco: "175.000" },
-  { url: "../imagens/767267443391f57f2eb6949319d1f0a0.jpg", link: "Painel/Painel.html", area: "320 m²", local: "Bairro Junco", preco: "295.000"},
-  { url: "../imagens/2.jpeg", area: "520 m²", local: "Bairro Junco", preco: "495.000" },
-  { url: "../imagens/3.jpeg",area: "-320 m²", local: "Junco Bairro", preco: "95.000" },
-  { url: "../imagens/homem.png", area: "89 kg", local: "corpo", preco: "coxinha" }
+  { id: 7, url: "../imagens/ert.jpeg", link: "Painel/Painel.html", area: "250 m²", local: "Picos R. Santos", preco: "210.000" },  
+  { id: 8,url: "../imagens/33300d20f8ec0b140b543fbf6d5a7fa4.jpg", link: "Painel/Painel.html", area: "180 m²", local: "Centro", preco: "175.000" },
+  { id: 9,url: "../imagens/767267443391f57f2eb6949319d1f0a0.jpg", link: "Painel/Painel.html", area: "320 m²", local: "Bairro Junco", preco: "295.000"},
+  {id: 10, url: "../imagens/2.jpeg", area: "520 m²", local: "Bairro Junco", preco: "495.000" },
+  { id: 11,url: "../imagens/3.jpeg",area: "-320 m²", local: "Junco Bairro", preco: "95.000" },
+  { id: 12,url: "../imagens/homem.png", area: "89 kg", local: "corpo", preco: "coxinha" }
 ];
 
 const OutraoutraGaleria = [
-  { url: "../imagens/ert.jpeg", link: "Painel/Painel.html", area: "250 m²", local: "Picos R. Santos", preco: "210.000" },  
-  { url: "../imagens/33300d20f8ec0b140b543fbf6d5a7fa4.jpg", link: "Painel/Painel.html", area: "180 m²", local: "Centro", preco: "175.000" },
-  { url: "../imagens/767267443391f57f2eb6949319d1f0a0.jpg", link: "Painel/Painel.html", area: "320 m²", local: "Bairro Junco", preco: "295.000"},
-  { url: "../imagens/2.jpeg", area: "520 m²", local: "Bairro Junco", preco: "495.000" },
-  { url: "../imagens/3.jpeg",area: "-320 m²", local: "Junco Bairro", preco: "95.000" },
-  { url: "../imagens/homem.png", area: "89 kg", local: "corpo", preco: "coxinha" }
+  { id:13,url: "../imagens/ert.jpeg", link: "Painel/Painel.html", area: "250 m²", local: "Picos R. Santos", preco: "210.000" },  
+  { id:14,url: "../imagens/33300d20f8ec0b140b543fbf6d5a7fa4.jpg", link: "Painel/Painel.html", area: "180 m²", local: "Centro", preco: "175.000" },
+  { id:15,url: "../imagens/767267443391f57f2eb6949319d1f0a0.jpg", link: "Painel/Painel.html", area: "320 m²", local: "Bairro Junco", preco: "295.000"},
+  { id:16,url: "../imagens/2.jpeg", area: "520 m²", local: "Bairro Junco", preco: "495.000" },
+  { id:17,url: "../imagens/3.jpeg",area: "-320 m²", local: "Junco Bairro", preco: "95.000" },
+  { id:18,url: "../imagens/homem.png", area: "89 kg", local: "corpo", preco: "coxinha" }
 ];
 
 criarCarrossel(".track", novosProdutos, "duas", "uno");        // primeira galeria
@@ -277,51 +284,51 @@ criarCarrossel(".track2", OutraGaleria, "duas2", "uno2");
 criarCarrossel(".track3", OutraoutraGaleria,"duas3","uno3")
 
 const Galeria = [
-  { url: "../imagens/ert.jpeg", link: "Painel/Painel.html", area: "250 m²", local: "Picos R. Santos", preco: "210.000" },  
-  { url: "../imagens/33300d20f8ec0b140b543fbf6d5a7fa4.jpg", link: "Painel/Painel.html", area: "180 m²", local: "Centro", preco: "175.000" },
-  { url: "../imagens/767267443391f57f2eb6949319d1f0a0.jpg", link: "Painel/Painel.html", area: "320 m²", local: "Bairro Junco", preco: "295.000"},
-  { url: "../imagens/2.jpeg", area: "520 m²", local: "Bairro Junco", preco: "495.000" },
-  { url: "../imagens/3.jpeg", area: "320 m²", local: "Junco Bairro", preco: "95.000" },
-  { url: "../imagens/ert.jpeg", link: "Painel/Painel.html", area: "250 m²", local: "Picos R. Santos", preco: "210.000" },  
-  { url: "../imagens/33300d20f8ec0b140b543fbf6d5a7fa4.jpg", link: "Painel/Painel.html", area: "180 m²", local: "Centro", preco: "175.000" },
-  { url: "../imagens/2.jpeg", area: "520 m²", local: "Bairro Junco", preco: "495.000" },
-  { url: "../imagens/3.jpeg", area: "320 m²", local: "Junco Bairro", preco: "95.000" },
-  { url: "../imagens/767267443391f57f2eb6949319d1f0a0.jpg", link: "Painel/Painel.html", area: "320 m²", local: "Bairro Junco", preco: "295.000"},
-]
+  { id: 19, url: "../imagens/ert.jpeg", area: "250 m²", local: "Picos R. Santos", preco: "210.000" },
+  { id: 20, url: "../imagens/33300d20f8ec0b140b543fbf6d5a7fa4.jpg", area: "180 m²", local: "Centro", preco: "175.000" },
+  { id: 21, url: "../imagens/767267443391f57f2eb6949319d1f0a0.jpg", area: "320 m²", local: "Bairro Junco", preco: "295.000" },
+  { id: 22, url: "../imagens/2.jpeg", area: "520 m²", local: "Bairro Junco", preco: "495.000" },
+  { id: 23, url: "../imagens/3.jpeg", area: "320 m²", local: "Junco Bairro", preco: "95.000" },
+  { id: 24, url: "../imagens/ert.jpeg", area: "250 m²", local: "Picos R. Santos", preco: "210.000" },
+  { id: 25, url: "../imagens/33300d20f8ec0b140b543fbf6d5a7fa4.jpg", area: "180 m²", local: "Centro", preco: "175.000" },
+  { id: 26, url: "../imagens/2.jpeg", area: "520 m²", local: "Bairro Junco", preco: "495.000" },
+  { id: 27, url: "../imagens/3.jpeg", area: "320 m²", local: "Junco Bairro", preco: "95.000" },
+  { id: 28, url: "../imagens/767267443391f57f2eb6949319d1f0a0.jpg", area: "320 m²", local: "Bairro Junco", preco: "295.000" }
+];
 
 const tota = document.querySelector(".total");
 
 Galeria.forEach(item => {
   const itema = document.createElement("div");
   itema.classList.add("itema");
+  itema.dataset.produtoId = item.id; // também adiciona ID
+
   const img = document.createElement("img");
   img.src = item.url;
   img.alt = "Imóvel";
   img.loading = "lazy";
+  itema.appendChild(img);
 
-  let imgContainer = img;
-
-  if (item.link) {
-    const a = document.createElement("a");
-    a.href = item.link; // ✅ aqui era "p.link", agora é "item.link"
-    a.appendChild(img);
-    imgContainer = a;
-  }
-
-  itema.appendChild(imgContainer);
-
-  // Opcional: adicionar área, local e preço
   const info = document.createElement("div");
   info.innerHTML = `
-  <div class="info3">
-  <div class="info3A">
-    <strong>Terreno disponível com área total de ${item.area}, situado no ${item.local}
-</strong><br></div>
+    <div class="info3">
+      <div class="info3A">
+        <strong>Terreno disponível com área total de ${item.area}, situado no ${item.local}</strong><br>
+      </div>
       <div class="info3C">
-    <strong class="preco">R$</strong>  ${item.preco}</div>
+        <strong class="preco">R$</strong> ${item.preco}
+      </div>
     </div>
   `;
   itema.appendChild(info);
 
-  tota.appendChild(itema); // ✅ dentro do loop
+  // Também adiciona clique na galeria fixa
+  itema.addEventListener("click", function () {
+    const id = this.dataset.produtoId;
+    const url = new URL("compra/compra.html", window.location.href);
+    url.searchParams.set("id", id);
+    window.location.href = url.toString();
+  });
+
+  tota.appendChild(itema);
 });
