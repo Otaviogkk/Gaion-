@@ -91,7 +91,7 @@ main{
   .botao:hover{
     opacity:0.8;
   }
-  @media (max-width: 600px) {
+  @media (max-width: 750px) & (orientation: portrait)  {
 main{
 padding:10px;
 }
@@ -112,5 +112,6 @@ grid-template-columns:1fr;
 .botao{
 font-size:18px;
 padding:12px;
+margin-left: 0;
 }
 }
