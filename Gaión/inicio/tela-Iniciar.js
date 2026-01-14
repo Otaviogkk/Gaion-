@@ -1,8 +1,8 @@
 // ============ PRIMEIRO CARROSSEL (banner principal) ============
 const imagensProduto = [
-  { url: "../imagens/ert.jpeg", link: "Painel/Painel.html", area: "250 m²", local: "Picos R. Santos", preco: "1210.000" },
-  { url: "../imagens/33300d20f8ec0b140b543fbf6d5a7fa4.jpg", link: "Painel/Painel.html", area: "180 m²", local: "Picos, Centro ", preco: "1175.000" },
-  { url: "../imagens/767267443391f57f2eb6949319d1f0a0.jpg", link: "Painel/Painel.html", area: "320 m²", local: "Bairro Junco", preco: "2095.000" }
+  { url: "../imagens/ert.jpeg", link: "Painel/Painel.html", area: "250 m²", local: "Picos R. Santos", preco: "1.210.000" },
+  { url: "../imagens/33300d20f8ec0b140b543fbf6d5a7fa4.jpg", link: "Painel/Painel.html", area: "180 m²", local: "Picos, Centro ", preco: "1.175.000" },
+  { url: "../imagens/767267443391f57f2eb6949319d1f0a0.jpg", link: "Painel/Painel.html", area: "320 m²", local: "Bairro Junco", preco: "2.095.000" }
 ];
 
 const banner = document.querySelector(".banner");
@@ -91,6 +91,160 @@ interval = setInterval(proximoSlide, 3500);
 
 
 // ============ SEGUNDO CARROSSEL (track - produtos adicionais) ============
+
+function criarCarrossel(trackSelector, produtos, idBtnAvancar, idBtnVoltar, visiveis = 3) {
+  const track = document.querySelector(trackSelector);
+  const btnAvancar = document.getElementById(idBtnAvancar);
+  const btnVoltar = document.getElementById(idBtnVoltar);
+
+  if (!track || !btnAvancar || !btnVoltar) {
+    console.warn("Elemento não encontrado para o carrossel:", trackSelector);
+    return;
+  }
+
+  let page = 0;
+  const extended = [...produtos, ...produtos.slice(0, visiveis)];
+
+  // Limpar conteúdo anterior (útil se reusar)
+  track.innerHTML = '';
+
+  // Criar cards
+  extended.forEach(p => {
+    const item = document.createElement("div");
+    item.classList.add("item");
+
+    const img = document.createElement("img");
+    img.src = p.url;
+    img.alt = "Imóvel";
+    img.loading = "lazy";
+
+    if (p.link) {
+      const a = document.createElement("a");
+      a.href = p.link;
+      a.appendChild(img);
+      item.appendChild(a);
+    } else {
+      item.appendChild(img);
+    }
+
+    if (p.area || p.local || p.preco) {
+      const info = document.createElement("div");
+      info.classList.add("info");
+      info.innerHTML = `
+        <div class="linha">
+          <svg width="32" height="19" viewBox="0 0 32 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.10907 8.28143L16.1091 17.7814L31.1091 8.28143L16.1091 0.281433L0.10907 8.28143Z" fill="#FFF0F0"/>
+            <path d="M4.10907 11.2014L16.1091 18.2014" stroke="#000000ff" stroke-width="0.5"/>
+            <path d="M28.178 10.3867L16.0402 18.1761" stroke="#000000ff" stroke-width="0.5"/>
+            <path d="M0.10907 8.28143L16.6091 0.281433L31.1091 8.28143" stroke="#460606" stroke-width="0.5"/>
+          </svg>
+          ${p.area || '—'}
+        </div>
+        <div class="linha">
+          <svg width="26" height="31" viewBox="0 0 26 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <mask id="mask0_10_68" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="26" height="31">
+              <rect width="25.4925" height="30.3741" fill="#D9D9D9"/>
+            </mask>
+            <g mask="url(#mask0_10_68)">
+              <path d="M17.9115 7.20743L18.1381 7.34512L18.3783 7.23477L24.1791 4.57559V24.7211H18.3149L8.13126 18.2895L7.81388 18.0893L7.53263 18.3393L1.0424 24.1078V5.42813L7.86954 1.1293L17.9115 7.20743Z" fill="white" stroke="#460606"/>
+              <path d="M8.10408 0.813577L8.10407 18.4456" stroke="#460606"/>
+              <line x1="18.399" y1="7.05109" x2="18.399" y2="24.9501" stroke="#460606"/>
+              <path d="M18.121 28.1794C18.3155 27.9645 18.5781 27.6692 18.8788 27.3112C19.533 26.5323 20.3656 25.4672 21.0907 24.3131C21.8203 23.1517 22.4188 21.9355 22.6376 20.8493C22.8542 19.7731 22.6867 18.9117 22.0135 18.3034C19.7541 16.2617 16.4888 16.2616 14.2294 18.3034C13.5562 18.9117 13.3897 19.7731 13.6063 20.8493C13.8251 21.9354 14.4226 23.1518 15.1522 24.3131C15.8772 25.4671 16.7099 26.5324 17.3641 27.3112C17.6645 27.6688 17.9265 27.9646 18.121 28.1794Z" fill="white" stroke="#460606"/>
+              <rect x="16.8142" y="20.0686" width="2.71197" height="2.71197" fill="#460606"/>
+            </g>
+          </svg>
+          ${p.local || '—'}
+        </div>
+        <div class="preco">R$ ${p.preco || '—'}</div>
+      `;
+      item.appendChild(info);
+    }
+
+    track.appendChild(item);
+  });
+
+  function getStep() {
+    const item = track.querySelector(".item");
+    if (!item) return 0;
+    const gap = parseFloat(getComputedStyle(track).gap) || 0;
+    return item.offsetWidth + gap;
+  }
+
+  function update(animate = true) {
+    const step = getStep();
+    if (step === 0) return;
+    track.style.transition = animate ? "transform 0.3s ease" : "none";
+    track.style.transform = `translateX(-${page * step}px)`;
+  }
+    // ==============================
+  // SUPORTE A ARRASTAR COM O DEDO
+  // ==============================
+  let startX = 0;
+  let currentX = 0;
+  let isDragging = false;
+
+  track.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+    track.style.transition = "none";
+  });
+
+  track.addEventListener("touchmove", (e) => {
+    if (!isDragging) return;
+    currentX = e.touches[0].clientX;
+    const delta = startX - currentX;
+    const step = getStep();
+    track.style.transform = `translateX(-${page * step + delta}px)`;
+  });
+
+  track.addEventListener("touchend", () => {
+    if (!isDragging) return;
+    isDragging = false;
+
+    const delta = startX - currentX;
+    const step = getStep();
+
+    track.style.transition = "transform 0.3s ease";
+
+    if (Math.abs(delta) > step / 4) {
+      if (delta > 0) {
+        page++; // swipe esquerda
+      } else {
+        page--; // swipe direita
+      }
+    }
+
+    if (page < 0) page = 0;
+    if (page >= produtos.length) page = produtos.length - 1;
+
+    update();
+  });
+
+  // Avançar (→)
+  btnAvancar.addEventListener("click", () => {
+    page++;
+    update();
+    if (page >= produtos.length) {
+      setTimeout(() => {
+        page = 0;
+        update(false);
+      }, 300);
+    }
+  });
+
+  // Voltar (←)
+  btnVoltar.addEventListener("click", () => {
+    if (page === 0) {
+      page = produtos.length;
+      update(false);
+    }
+    page--;
+    update();
+  });
+
+  // Inicializar
+  window.addEventListener("load", () => setTimeout(update, 100));
+}
 const novosProdutos = [
   { url: "../imagens/ert.jpeg", link: "Painel/Painel.html", area: "250 m²", local: "Picos R. Santos", preco: "210.000" },  
   { url: "../imagens/33300d20f8ec0b140b543fbf6d5a7fa4.jpg", link: "Painel/Painel.html", area: "180 m²", local: "Centro", preco: "175.000" },
@@ -100,115 +254,74 @@ const novosProdutos = [
   { url: "../imagens/homem.png", area: "89 kg", local: "corpo", preco: "coxinha" }
 ];
 
-const track = document.querySelector(".track");
-const btnNext = document.getElementById("uno");   // avança → (normalmente seta direita)
-const btnPrev = document.getElementById("duas"); // volta ← (normalmente seta esquerda)
+const OutraGaleria = [
+  { url: "../imagens/ert.jpeg", link: "Painel/Painel.html", area: "250 m²", local: "Picos R. Santos", preco: "210.000" },  
+  { url: "../imagens/33300d20f8ec0b140b543fbf6d5a7fa4.jpg", link: "Painel/Painel.html", area: "180 m²", local: "Centro", preco: "175.000" },
+  { url: "../imagens/767267443391f57f2eb6949319d1f0a0.jpg", link: "Painel/Painel.html", area: "320 m²", local: "Bairro Junco", preco: "295.000"},
+  { url: "../imagens/2.jpeg", area: "520 m²", local: "Bairro Junco", preco: "495.000" },
+  { url: "../imagens/3.jpeg",area: "-320 m²", local: "Junco Bairro", preco: "95.000" },
+  { url: "../imagens/homem.png", area: "89 kg", local: "corpo", preco: "coxinha" }
+];
 
-const visible = 3;
-let page = 0;
+const OutraoutraGaleria = [
+  { url: "../imagens/ert.jpeg", link: "Painel/Painel.html", area: "250 m²", local: "Picos R. Santos", preco: "210.000" },  
+  { url: "../imagens/33300d20f8ec0b140b543fbf6d5a7fa4.jpg", link: "Painel/Painel.html", area: "180 m²", local: "Centro", preco: "175.000" },
+  { url: "../imagens/767267443391f57f2eb6949319d1f0a0.jpg", link: "Painel/Painel.html", area: "320 m²", local: "Bairro Junco", preco: "295.000"},
+  { url: "../imagens/2.jpeg", area: "520 m²", local: "Bairro Junco", preco: "495.000" },
+  { url: "../imagens/3.jpeg",area: "-320 m²", local: "Junco Bairro", preco: "95.000" },
+  { url: "../imagens/homem.png", area: "89 kg", local: "corpo", preco: "coxinha" }
+];
 
-// Duplica os primeiros itens para criar efeito de loop infinito
-const extended = [...novosProdutos, ...novosProdutos.slice(0, visible)];
+criarCarrossel(".track", novosProdutos, "duas", "uno");        // primeira galeria
+criarCarrossel(".track2", OutraGaleria, "duas2", "uno2");
+criarCarrossel(".track3", OutraoutraGaleria,"duas3","uno3")
 
-// Cria os cards
-extended.forEach(p => {
-  const item = document.createElement("div");
-  item.classList.add("item");
+const Galeria = [
+  { url: "../imagens/ert.jpeg", link: "Painel/Painel.html", area: "250 m²", local: "Picos R. Santos", preco: "210.000" },  
+  { url: "../imagens/33300d20f8ec0b140b543fbf6d5a7fa4.jpg", link: "Painel/Painel.html", area: "180 m²", local: "Centro", preco: "175.000" },
+  { url: "../imagens/767267443391f57f2eb6949319d1f0a0.jpg", link: "Painel/Painel.html", area: "320 m²", local: "Bairro Junco", preco: "295.000"},
+  { url: "../imagens/2.jpeg", area: "520 m²", local: "Bairro Junco", preco: "495.000" },
+  { url: "../imagens/3.jpeg", area: "320 m²", local: "Junco Bairro", preco: "95.000" },
+  { url: "../imagens/ert.jpeg", link: "Painel/Painel.html", area: "250 m²", local: "Picos R. Santos", preco: "210.000" },  
+  { url: "../imagens/33300d20f8ec0b140b543fbf6d5a7fa4.jpg", link: "Painel/Painel.html", area: "180 m²", local: "Centro", preco: "175.000" },
+  { url: "../imagens/2.jpeg", area: "520 m²", local: "Bairro Junco", preco: "495.000" },
+  { url: "../imagens/3.jpeg", area: "320 m²", local: "Junco Bairro", preco: "95.000" },
+  { url: "../imagens/767267443391f57f2eb6949319d1f0a0.jpg", link: "Painel/Painel.html", area: "320 m²", local: "Bairro Junco", preco: "295.000"},
+]
 
+const tota = document.querySelector(".total");
+
+Galeria.forEach(item => {
+  const itema = document.createElement("div");
+  itema.classList.add("itema");
   const img = document.createElement("img");
-  img.src = p.url;
+  img.src = item.url;
   img.alt = "Imóvel";
-  img.loading = "lazy"; // opcional: melhora performance
+  img.loading = "lazy";
 
-  if (p.link) {
+  let imgContainer = img;
+
+  if (item.link) {
     const a = document.createElement("a");
-    a.href = p.link;
+    a.href = item.link; // ✅ aqui era "p.link", agora é "item.link"
     a.appendChild(img);
-    item.appendChild(a);
-  } else {
-    item.appendChild(img);
+    imgContainer = a;
   }
 
-  // Adiciona informações apenas se houver dados
-  if (p.area || p.local || p.preco) {
-    const info = document.createElement("div");
-    info.classList.add("info");
-    info.classList.add("res");
-    info.innerHTML = `
-      <div class="linha">
-        <svg width="1.9vw" height="auto" viewBox="0 0 32 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0.10907 8.28143L16.1091 17.7814L31.1091 8.28143L16.1091 0.281433L0.10907 8.28143Z" fill="#FFF0F0"/>
-          <path d="M4.10907 11.2014L16.1091 18.2014" stroke="#000000ff" stroke-width="0.5"/>
-          <path d="M28.178 10.3867L16.0402 18.1761" stroke="#000000ff" stroke-width="0.5"/>
-          <path d="M0.10907 8.28143L16.6091 0.281433L31.1091 8.28143" stroke="#460606" stroke-width="0.5"/>
-        </svg>
-        ${p.area || '—'}
-      </div>
-      <div class="linha">
-        <svg width="1.5vw" height="auto" viewBox="0 0 26 31" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <mask id="mask0_10_68" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="26" height="31">
-            <rect width="25.4925" height="30.3741" fill="#D9D9D9"/>
-          </mask>
-          <g mask="url(#mask0_10_68)">
-            <path d="M17.9115 7.20743L18.1381 7.34512L18.3783 7.23477L24.1791 4.57559V24.7211H18.3149L8.13126 18.2895L7.81388 18.0893L7.53263 18.3393L1.0424 24.1078V5.42813L7.86954 1.1293L17.9115 7.20743Z" fill="white" stroke="#460606"/>
-            <path d="M8.10408 0.813577L8.10407 18.4456" stroke="#460606"/>
-            <line x1="18.399" y1="7.05109" x2="18.399" y2="24.9501" stroke="#460606"/>
-            <path d="M18.121 28.1794C18.3155 27.9645 18.5781 27.6692 18.8788 27.3112C19.533 26.5323 20.3656 25.4672 21.0907 24.3131C21.8203 23.1517 22.4188 21.9355 22.6376 20.8493C22.8542 19.7731 22.6867 18.9117 22.0135 18.3034C19.7541 16.2617 16.4888 16.2616 14.2294 18.3034C13.5562 18.9117 13.3897 19.7731 13.6063 20.8493C13.8251 21.9354 14.4226 23.1518 15.1522 24.3131C15.8772 25.4671 16.7099 26.5324 17.3641 27.3112C17.6645 27.6688 17.9265 27.9646 18.121 28.1794Z" fill="white" stroke="#460606"/>
-            <rect x="16.8142" y="20.0686" width="2.71197" height="2.71197" fill="#460606"/>
-          </g>
-        </svg>
-        ${p.local || '—'}
-      </div>
-      <div class="preco">R$ ${p.preco || '—'}</div>
-    `;
-    item.appendChild(info); // ✅ Correção principal: adiciona ao "item", não a um "container"
-  }
+  itema.appendChild(imgContainer);
 
-  track.appendChild(item);
-});
+  // Opcional: adicionar área, local e preço
+  const info = document.createElement("div");
+  info.innerHTML = `
+  <div class="info3">
+  <div class="info3A">
+    <strong>Terreno disponível com área total de ${item.area}, situado no ${item.local}
+</strong><br></div>
+      <div class="info3C">
+    <strong class="preco">R$</strong>  ${item.preco}</div>
+    </div>
+  `;
+  itema.appendChild(info);
 
-// Calcula o deslocamento por página
-function getStep() {
-  const item = track.querySelector(".item");
-  if (!item) return 0;
-  const style = getComputedStyle(track);
-  const gap = parseFloat(style.gap) || 0;
-  return item.offsetWidth + gap;
-}
-
-function update(animate = true) {
-  const step = getStep();
-  if (step === 0) return;
-  track.style.transition = animate ? "transform 0.3s ease" : "none";
-  track.style.transform = `translateX(-${page * step}px)`;
-}
-
-// Botão "Próximo" (avança →)
-btnPrev.addEventListener("click", () => {
-  page++;
-  update();
-
-  // Loop: ao chegar no fim das duplicatas, volta pro início sem animação
-  if (page >= novosProdutos.length) {
-    setTimeout(() => {
-      page = 0;
-      update(false);
-    }, 300);
-  }
-});
-
-// Botão "Anterior" (volta ←)
-btnNext.addEventListener("click", () => {
-  if (page === 0) {
-    // Pula para o final (cópia do início)
-    page = novosProdutos.length;
-    update(false);
-  }
-  page--;
-  update();
-});
-
-// Inicializa após carregar tudo
-window.addEventListener("load", () => {
-  setTimeout(update, 100);
+  tota.appendChild(itema); // ✅ dentro do loop
 });
