@@ -102,7 +102,11 @@ function criarCarrossel(trackSelector, produtos, idBtnAvancar, idBtnVoltar, visi
   }
 
   let page = 0;
-  const extended = [...produtos, ...produtos.slice(0, visiveis)];
+  const extended = [
+  ...produtos.slice(-visiveis),
+  ...produtos,
+  ...produtos.slice(0, visiveis)
+];
 
   // Limpar conteúdo anterior (útil se reusar)
   track.innerHTML = '';
@@ -163,7 +167,7 @@ function criarCarrossel(trackSelector, produtos, idBtnAvancar, idBtnVoltar, visi
     });
     track.appendChild(item);
   });
-
+requestAnimationFrame(() => update(false));
   function getStep() {
     const item = track.querySelector(".item");
     if (!item) return 0;
@@ -215,8 +219,16 @@ function criarCarrossel(trackSelector, produtos, idBtnAvancar, idBtnVoltar, visi
       }
     }
 
-    if (page < 0) page = 0;
-    if (page >= produtos.length) page = produtos.length - 1;
+ if (page >= produtos.length + visiveis) {
+  page = visiveis;
+  update(false);
+}
+
+if (page < visiveis) {
+  page = produtos.length + visiveis - 1;
+  update(false);
+}
+
 
     update();
   });
@@ -225,23 +237,26 @@ function criarCarrossel(trackSelector, produtos, idBtnAvancar, idBtnVoltar, visi
   btnAvancar.addEventListener("click", () => {
     page++;
     update();
-    if (page >= produtos.length) {
+    if (page >= produtos.length + visiveis) {
       setTimeout(() => {
-        page = 0;
+        page = visiveis;
         update(false);
       }, 300);
     }
   });
 
   // Voltar (←)
-  btnVoltar.addEventListener("click", () => {
-    if (page === 0) {
-      page = produtos.length;
+btnVoltar.addEventListener("click", () => {
+  page--;
+  update();
+
+  if (page < visiveis) {
+    setTimeout(() => {
+      page = produtos.length + visiveis - 1;
       update(false);
-    }
-    page--;
-    update();
-  });
+    }, 300);
+  }
+});
 
   // Inicializar
   window.addEventListener("load", () => setTimeout(update, 100));
