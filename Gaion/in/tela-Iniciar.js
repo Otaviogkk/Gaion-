@@ -69,8 +69,14 @@ slide.addEventListener("click", function() {
   });
   dotsContainer.appendChild(dot);
 
-  // ============ SUPORTE A ARRASTAR COM O DEDO NO BANNER PRINCIPAL ============
 
+
+});
+
+const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".bola");
+
+  // ============ SUPORTE A ARRASTAR COM O DEDO NO BANNER PRINCIPAL ============
 let startXBanner = 0;
 let endXBanner = 0;
 const swipeThreshold = 50; // mínimos pixels para considerar um swipe
@@ -101,10 +107,6 @@ banner.addEventListener("touchmove", (e) => {
   // Se quiser, pode impedir scroll vertical ao arrastar horizontalmente:
   // e.preventDefault(); // use com cuidado!
 });
-});
-
-const slides = document.querySelectorAll(".slide");
-const dots = document.querySelectorAll(".bola");
 
 function trocarSlide(novo) {
   slides[index].classList.remove("active");
