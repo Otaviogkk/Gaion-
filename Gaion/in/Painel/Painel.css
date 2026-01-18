@@ -69,7 +69,7 @@ main{
   fill: #531D1A;
   padding-left: 20px;
   gap: 20px;
-  font-size: 1.5vh;
+  font-size: 2vh;
 }
 .cards svg{
  width: 2em;
@@ -91,13 +91,13 @@ main{
 }
 
 .cards-text span:first-child {
-  font-size: 1.6vh;
+  font-size: 2.5vh;
   margin-bottom: 3px;
 }
 
 .cards-text span:last-child {
   font-weight: bold;
-  font-size: 2vh;
+  font-size: 2.8vh;
 }
 
 .dropdown {

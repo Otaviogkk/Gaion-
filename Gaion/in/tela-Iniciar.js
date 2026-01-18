@@ -1,8 +1,8 @@
 // ============ PRIMEIRO CARROSSEL (banner principal) ============
 const imagensProduto = [
-  { id: "terreno-1", url: "../imagens/ert.jpeg", link:"compra/compra.html", area: "250 m²", local: "Picos R. Santos", preco: "1.210.000" },
-  { id: "terreno-2", url: "../imagens/33300d20f8ec0b140b543fbf6d5a7fa4.jpg", link: "compra/compra.html", area: "180 m²", local: "Picos, Centro ", preco: "1.175.000" },
-  { id: "terreno-3", url: "../imagens/767267443391f57f2eb6949319d1f0a0.jpg", link: "compra/compra.html", area: "320 m²", local: "Bairro Junco", preco: "2.095.000" }
+  { id: "terreno-1", url: "../imagens/ert.jpeg", link:"compra/compra.html", area: "250 m²", local: "Picos R. Santos", preco: "1.210.000,00" },
+  { id: "terreno-2", url: "../imagens/33300d20f8ec0b140b543fbf6d5a7fa4.jpg", link: "compra/compra.html", area: "180 m²", local: "Picos, Centro ", preco: "111.750,00" },
+  { id: "terreno-3", url: "../imagens/767267443391f57f2eb6949319d1f0a0.jpg", link: "compra/compra.html", area: "320 m²", local: "Bairro Junco", preco: "201.950,00" }
 ];
 
 const banner = document.querySelector(".banner");
@@ -68,6 +68,39 @@ slide.addEventListener("click", function() {
     resetInterval();
   });
   dotsContainer.appendChild(dot);
+
+  // ============ SUPORTE A ARRASTAR COM O DEDO NO BANNER PRINCIPAL ============
+
+let startXBanner = 0;
+let endXBanner = 0;
+const swipeThreshold = 50; // mínimos pixels para considerar um swipe
+
+banner.addEventListener("touchstart", (e) => {
+  startXBanner = e.touches[0].clientX;
+});
+
+banner.addEventListener("touchend", (e) => {
+  endXBanner = e.changedTouches[0].clientX;
+  const diff = startXBanner - endXBanner;
+
+  if (Math.abs(diff) > swipeThreshold) {
+    if (diff > 0) {
+      // Swipe para a esquerda → próximo slide
+      proximoSlide();
+    } else {
+      // Swipe para a direita → slide anterior
+      trocarSlide((index - 1 + slides.length) % slides.length);
+    }
+    resetInterval(); // reinicia o intervalo automático
+  }
+});
+
+// Opcional: impedir scroll horizontal acidental durante o toque no banner
+banner.addEventListener("touchmove", (e) => {
+  // Não fazemos nada aqui, mas evitamos comportamentos indesejados
+  // Se quiser, pode impedir scroll vertical ao arrastar horizontalmente:
+  // e.preventDefault(); // use com cuidado!
+});
 });
 
 const slides = document.querySelectorAll(".slide");
