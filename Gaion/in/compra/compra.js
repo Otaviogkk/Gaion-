@@ -32,7 +32,9 @@
   25: { area: "180 m²", local: "Centro", preco: "175.000", imagem: "../../imagens/33300d20f8ec0b140b543fbf6d5a7fa4.jpg" },
   26: { area: "520 m²", local: "Bairro Junco", preco: "495.000", imagem: "../../imagens/2.jpeg" },
   27: { area: "320 m²", local: "Junco Bairro", preco: "95.000", imagem: "../../imagens/3.jpeg" },
-  28: { area: "320 m²", local: "Bairro Junco", preco: "295.000", imagem: "../../imagens/767267443391f57f2eb6949319d1f0a0.jpg" }
+  28: { area: "320 m²", local: "Bairro Junco", preco: "295.000", imagem: "../../imagens/767267443391f57f2eb6949319d1f0a0.jpg" },
+  29: { area: "250 m²", local: "Picos R. Santos", preco: "210.000", imagem: "../../imagens/33300d20f8ec0b140b543fbf6d5a7fa4.jpg" },
+  30: { area: "180 m²", local: "Centro", preco: "175.000", imagem: "../../imagens/ert.jpeg" },
 };
 
 

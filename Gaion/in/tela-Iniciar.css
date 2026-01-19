@@ -184,7 +184,6 @@ main{
   width: calc(100% / 3); /* 3 por vez */
   flex-shrink: 0;
   position: relative;
-
 }
 
 .item img {
@@ -195,6 +194,7 @@ main{
   object-fit: cover;
   border-radius: 8px;
   cursor: pointer;
+   box-shadow: 0 4px 8px rgba(0,0,0,0.4);
 }
 
 /* setas */
@@ -238,7 +238,7 @@ main{
 .total{
   display: grid;
   width: 93vw;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr ;
   margin: 0 auto;
   justify-items: center;
   align-items: start;
@@ -250,65 +250,84 @@ main{
 .itema{
  display: flex;
  flex-direction: column;
+ align-items: center;
  padding: 10px;
- box-sizing: border-box;
+ gap: 10px;
  box-shadow: 0 12px 11px rgba(0, 0, 0, 0.60);
  border-radius: 8px;
  background: rgba(255, 255, 255, 0.8);
   transition: opacity 5s ease;
   height: 100%;
+  min-height: 310px;
+  box-sizing: border-box;
 }
-.itema > *:last-child{
-  margin-top: auto; /* empurra o preço para baixo */
-}
-.itema:hover{
-    transform: scale(1.05);
-    cursor: pointer;
-}
+/*.itema > *:last-child{
+ 
+}*/
+
 
 
 .itema img{
   width: 100%;
   height: 100%;
-  min-width: 15vw;
+  min-width: 300px;
   max-width: 15vw;
   max-height: 20vh;
   object-fit: cover;
-  border-radius: 8px;
-  cursor: pointer;
+  border-radius: 6px;
+  box-sizing: border-box;
 }
 .itema svg{
   object-fit: cover;
   border-radius: 8px;
+  
 }
 .info3{
   display: flex;
   flex-direction: column;
-  gap: 7px;
-  margin-left: 10px;
-  padding: 0;
+  flex: 1;
+  gap: 5px;
+  box-sizing: border-box;
+  
 }
-.info3A,
-.info3B {
+.info3A {
   display: flex;
   align-items: center;
-  gap: 8px;
   font-size: 16px;
   font-weight: 100;
-  margin-bottom: 10px;
   text-align: justify;
 }
 
 
 .info3C{
   display: flex;
+  flex-direction: column;
   font-size: 25px;
   font-weight: 700;
   margin-right: 0px;
- font-family: "kantumruy-pro", Georgia, serif;
-  gap: 7px;
+  margin-top: auto;
+  font-family: "kantumruy-pro", Georgia, serif;
+  gap: 10px;
   color: #3a1a12;
+  border-top: solid 1px #A0776f;
 }
+.btnConsulte{
+  background: #531D1A;
+  background: linear-gradient(270deg, rgba(83, 29, 26, 1) 0%, rgba(49, 0, 0, 1) 100%);
+  color: #fff;
+  border-radius: 7px;
+  border: none;
+  height: 38px;
+  font-size: 20px;
+  font-family: "Chakra Petch",Georgia,serif;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.btnConsulte:hover{
+    transform: scale(1.02);
+    background: linear-gradient(90deg, rgba(83, 29, 26, 1) 0%, rgba(49, 0, 0, 1) 100%);
+}
+
 @media (max-width: 768px) and (orientation: portrait){
   body{
     background-image: url("../../imagens/fundo2.png");
