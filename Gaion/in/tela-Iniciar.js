@@ -145,7 +145,7 @@ function criarCarrossel(trackSelector, produtos, idBtnAvancar, idBtnVoltar, visi
   track.innerHTML = '';
 
   // Criar cards
-  extended.forEach(p => {
+  extended.forEach((p, index)=> {
     const item = document.createElement("div");
     item.classList.add("item");
     const produtoId = p.id !== undefined ? p.id : index;
