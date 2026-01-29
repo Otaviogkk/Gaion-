@@ -71,5 +71,15 @@ const produtos = {
     } else {
       document.body.innerHTML = "<h1>Produto não encontrado</h1>";
     }
-  }
+    //direciona o cliente
+    fuction comprar() {
+      let confirmar = confirm("Você deseja entrar em contato com o corretor?")
+        if(confirmar) {
+          const telefone = "558994124419"
+          let mensagem = "Olá! fiquei interessado neste produto."
+          window.location.href = 
+            "https://wa.me/" + 558994124419 + "?text=" + encodeURIComponent(mensagem);
+    }
+
+  
   
