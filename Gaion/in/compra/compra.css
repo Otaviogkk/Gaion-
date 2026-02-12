@@ -57,7 +57,7 @@ main{
     gap: 10px;
   }
 
-@media (max-width: 768px) and (orientation: portrait){ 
+
  .vol {
   display: inline-block;
   width: fit-content;
@@ -238,4 +238,3 @@ main{
     margin-left: 10%;
     font-size: 18px;
   }
-}
