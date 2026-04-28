@@ -4,6 +4,7 @@ body{
   background-size: cover;
   background-position: center;
   padding-top: 0px;
+  padding-bottom: 5px;
 }
 
 .barra-buscar{
@@ -159,6 +160,7 @@ main{
 
 main{
  padding-top: 0px;
+ padding-bottom: 4rem;
 } 
 .barra-buscar{
   display: inline;

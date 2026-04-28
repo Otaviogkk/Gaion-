@@ -1,27 +1,28 @@
-body {
-  background-image: url("../../imagens/fundo.png");
-  background-repeat: no-repeat;   
-  background-size: cover;         
-  background-position: center; 
-  background-color: rgb(252, 246, 240);
-  display: flex;
-  justify-content: center;  
-  align-items: center;  
-  min-height: 100vh;         
-  margin: 0;
-  
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
+body {
+  background-image: url("../../imagens/fundo.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: rgb(252, 246, 240);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+/* O painel do cadastro/login  */ 
 .card {
-  width: max(800.48px,80.7vw);
+  width: max(800.48px, 80.7vw);
   display: flex;
   position: relative;
-  margin-left: auto;
-  margin-right: auto;
   background: #fff;
   border: 0.4px solid #732e2a;
   border-radius: 7px;
-  height: clamp(600px,calc(680px + 1vh),890px);
+  height: clamp(600px, calc(680px + 1vh), 890px);
   transition: all 0.6s ease;
 }
 .card .card-conteudo {
@@ -29,15 +30,16 @@ body {
   top: 100px;
   position: absolute;
 }
+/*HEADER & TIPOGRAFIA*/
 .card .card-header {
   text-align: center;
 }
 
 .card .card-header .card-title {
- font-size: 24px;
- font-family: 'Chakra Petch', sans-serif;
- color: #531D1A;
- font-weight: 400;
+  font-size: 24px;
+  font-family: 'Chakra Petch', sans-serif;
+  color: #531D1A;
+  font-weight: 400;
 }
 
 .card .card-header .card-title svg {
@@ -46,20 +48,22 @@ body {
 }
 
 .card .card-header .card-title #primario {
-font-size: 62px;
-font-weight: 500;
-font-family: "Kantumruy Pro", sans-serif;;
+  font-size: 62px;
+  font-weight: 500;
+  font-family: "Kantumruy Pro", sans-serif;
 }
+
 .card .card-header .subtitulo {
   font-size: 30px;
   font-weight: 400;
   font-family: 'Chakra Petch', sans-serif;
   color: #531D1A;
 }
+
 .card .card-header .destaque {
   font-weight: 700;
 }
-
+/*  FIGURA & BOTÕES */
 .card .card-figure {
   margin-left: 110px;
   width: 300px;
@@ -67,23 +71,18 @@ font-family: "Kantumruy Pro", sans-serif;;
   margin-top: 100px;
 }
 
-.card .card-figure img {
-  width: auto;
-  height: auto;
-}
 .button-group {
-  text-align: center;
   top: 380px;
-  margin-left: clamp(640px,56%,56%);
-  display: flex;            
-  flex-direction: column;   
+  margin-left: clamp(640px, 56%, 56%);
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 8px;   
-  position: absolute;             
+  gap: 8px;
+  position: absolute;
+  text-align: center;
 }
 
 .button-group .btn {
-  display: inline-block;
   padding: 12px 25px;
   font-family: 'Chakra Petch', sans-serif;
   width: 293px;
@@ -91,16 +90,17 @@ font-family: "Kantumruy Pro", sans-serif;;
   text-decoration: none;
   font-size: 23px;
   font-weight: 400;
-  transition: all 0.2s ease, background 0.3s ease;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  cursor: pointer;
 }
 
 .btn-primary {
-  background: #ffff;
+  background: #fff; /* botão de login*/
   color: #310000;
   border: 0.5px solid #531D1A;
 }
 
-.btn-primary:hover {
+.btn-primary:hover,.btn-secondary:hover  {
   background: #f5f2f2;
   transform: scale(1.03);
 }
@@ -113,14 +113,13 @@ font-family: "Kantumruy Pro", sans-serif;;
 
 .btn-secondary:hover {
   background: linear-gradient(#310000 0%, #531D1A 100%);
-  transform: scale(1.03);
 }
-
+/*  Reprasividade */
 @media (max-width: 1024px) and (orientation: landscape) {
- .card {
-  width: 90.9vw;
-  height: 91vh;
- }
+  .card {
+    width: 90.9vw;
+    height: 91vh;
+  }
 
   .card .card-conteudo {
     position: absolute;
@@ -132,65 +131,51 @@ font-family: "Kantumruy Pro", sans-serif;;
     text-align: center;
     margin-left: 0;
     right: 0%;
-    
   }
+  .card .card-header .card-title { font-size: 2.34375vw; }
+  .card .card-header .card-title svg { width: 6.34vw; }
+  .card .card-header .card-title #primario { font-size: 4.882vw; }
+  .card .card-header .subtitulo { font-size: 2.569vw; } 
 
-  .card .card-header .card-title {
- font-size: 2.34375vw;
-}
-
-.card .card-header .card-title svg {
-  width: 6.34vw;
-}
-
-.card .card-header .card-title #primario {
-font-size: 4.882vw;
-}
-.card .card-header .subtitulo {
-  font-size: 2.569vw;
-}
-.card .card-figure {
+  .card .card-figure {
     display: flex;
-   justify-content: center;   
-    align-items: center;       
-    min-height: 100vh;         
+    justify-content: center;
+    align-items: center;
     margin: 0;
     margin-left: 4.4vw;
-}
-
-.card .card-figure img {
-  width: min(39.0625vw, 63.594vh); 
-  height: min(39.0625vw, 63.594vh); 
-  margin-bottom: 9.67vh;
-}
-
-.button-group{
-   right: 11.718vw;
-    top: max(180px,48.96vh);
-  gap: 0.1px;
-  align-items: center;
-} 
-
-.button-group .btn {
-  padding: 1.4vh 3vw;
-  width: 20.460vw;
-  height: max(20.71px, 2.38vh);
-  border-radius: 8.5px;
-  font-size: clamp(14.976px,min(1.95vw, 3.6vh),min(1.95vw, 3.6vh));
-}
-
-}
-
-
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-  body{
-    background-image: url("../../imagens/fundo2.png");
   }
+
+  .card .card-figure img {
+    width: min(39.0625vw, 63.594vh);
+    height: min(39.0625vw, 63.594vh);
+    margin-bottom: 9.67vh;
+  }
+
+  .button-group {
+    right: 11.718vw;
+    top: max(180px, 48.96vh);
+    gap: 0.1px;
+    align-items: center;
+  }
+
+  .button-group .btn {
+    padding: 1.4vh 3vw;
+    width: 20.460vw;
+    height: max(20.71px, 2.38vh);
+    border-radius: 8.5px;
+    font-size: clamp(14.976px, min(1.95vw, 3.6vh), min(1.95vw, 3.6vh));
+  }
+}
+
+/* Portrai*/
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  body { background-image: url("../../imagens/fundo2.png"); }
+
   .card {
     margin-top: 5vh;
     width: 83vw;
     height: 87vh;
-    min-height: 750px; 
+    min-height: 750px;
     flex-direction: column;
     align-items: center;
     padding-bottom: 40px;
@@ -199,82 +184,8 @@ font-size: 4.882vw;
   .card .card-conteudo {
     position: relative;
     width: 100%;
-    margin-left: 0px;
-    margin-top: 0px;
-    top:0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .card .card-figure {
-    width: auto;
-    margin: 20px auto 10px auto;
-    padding: 10px;
-  }
-
-  .card .card-figure img {
-    width: max(309.507px,37.29vh);
-    height: auto;
-    margin-bottom: 20px;
-  }
-
-  .button-group {
-    position: relative;
-    top: 0px;
-    padding: 0px;
-    margin-left: 30px;
-    margin-top: 3vh;
-    display: flex;
-    align-items: center;
-    gap: 0px;
-  }
-  .button-group .btn {
-    width: 23.42vh;
-    height: auto;
-    font-size: 2.3vh;
-  }
-
-  .card .card-header .card-title {
- font-size: 2vh;
-}
-
-.card .card-header .card-title #primario {
-font-size: max(50px,4.7vh);
-}
-.card .card-header .subtitulo {
-  font-size: 3vh;
-  font-weight: 400;
-  font-family: 'Chakra Petch', sans-serif;
-  color: #531D1A;
-}
-}
-
-  @media (max-width: 768px)  and (orientation: portrait) {
-   body{
-    background-image: url("../../imagens/fundo3.png");
-    display: flex;
-    justify-content: center;   
-    align-items: center;     
-    min-height: 100vh;         
-    margin: 0;
-}  
-    .card {
-    margin-top: calc(2px + 1vh) ;
-    width: 89vw;
-    height: 89vh;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;  
-    padding-bottom: 40px
-  }
-
-  .card .card-conteudo {
-    position: relative;
-    width: 100%;
-    margin-left: 0px;
-    margin-top: 0px;
+    margin-left: 0;
+    margin-top: 0;
     top: 0;
     display: flex;
     flex-direction: column;
@@ -284,63 +195,115 @@ font-size: max(50px,4.7vh);
 
   .card .card-figure {
     width: auto;
-    margin: 20px auto 10px auto;
+    margin: 20px auto 10px;
     padding: 10px;
   }
 
   .card .card-figure img {
-    width: clamp(250px,41.6vh,330px);
+    width: max(309.507px, 37.29vh);
     height: auto;
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
   }
 
   .button-group {
-    position: relative; 
-    top: 0px;
-    padding: 0px;
+    position: relative;
+    top: 0;
+    padding: 0;
+    margin-left: 30px;
+    margin-top: 3vh;
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+
+  .button-group .btn {
+    width: 23.42vh;
+    height: auto;
+    font-size: 2.3vh;
+  }
+
+  .card .card-header .card-title { font-size: 2vh; }
+  .card .card-header .card-title #primario { font-size: max(50px, 4.7vh); }
+  .card .card-header .subtitulo { font-size: 3vh; } /* Duplicatas removidas */
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+  body { background-image: url("../../imagens/fundo3.png"); } /* Flexs redundantes removidos */
+
+  .card {
+    margin-top: calc(2px + 1vh);
+    width: 89vw;
+    height: 89vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 40px;
+  }
+
+  .card .card-conteudo {
+    position: relative;
+    width: 100%;
+    margin-left: 0;
+    margin-top: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .card .card-figure {
+    width: auto;
+    margin: 20px auto 10px;
+    padding: 10px;
+  }
+
+  .card .card-figure img {
+    width: clamp(250px, 41.6vh, 330px);
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .button-group {
+    position: relative;
+    top: 0;
+    padding: 0;
     margin-left: 2.66vw;
     display: flex;
     align-items: center;
-    gap: 0px;
+    gap: 0;
   }
+
   .button-group .btn {
     width: 35.5vw;
-    height: max(8px,1.8vh);
+    height: max(8px, 1.8vh);
     font-size: 2.3vh;
-    margin-top: 0px;   
-    line-height: max(8px,1.8vh);
+    margin-top: 0;
+    line-height: max(8px, 1.8vh);
   }
 
-.card .card-header .card-title svg {
-  width: 60px;
-  height: auto
+  .card .card-header .card-title svg {
+    width: 60px;
+    height: auto;
+  }
+
+  .card .card-header .card-title #primario { font-size: min(56px, 10vw); }
+  .card .card-header .subtitulo { font-size: min(4.3vw, 24px); } /* Duplicatas removidas */
 }
 
-.card .card-header .card-title #primario {
-font-size: min(56px,10vw);
-}
-.card .card-header .subtitulo {
-  font-size: min(4.3vw,24px);
-  font-weight: 400;
-  font-family: 'Chakra Petch', sans-serif;
-  color: #531D1A;
-}
-}
-@media (max-width: 400px)  and (orientation: portrait) {
-.body {
-  justify-content: center;
-  align-items: center;
-
-}
+@media (max-width: 400px) and (orientation: portrait) {
+  body { 
+    justify-content: center;
+    align-items: center;
+  }
 
   .card .card-figure img {
     width: 78vw;
     height: auto;
-    margin-bottom: 20px; 
-  }
- .button-group .btn {
-      font-size: clamp(12px, min(6vw, 3vh), 24px);
-
+    margin-bottom: 20px;
   }
 
+  .button-group .btn {
+    font-size: clamp(12px, min(6vw, 3vh), 24px);
+  }
 }
