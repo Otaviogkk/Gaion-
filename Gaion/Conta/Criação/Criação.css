@@ -150,7 +150,7 @@ body {
   }
 
   .button-group {
-  width: 50%;
+  width: 55%;
   padding: 0 10px;
   text-align: center;
   order: 3;
@@ -182,7 +182,7 @@ body {
 @media (max-aspect-ratio: 2.5/5) and (orientation: portrait) {
 .card{height: 75vh;}
 .button-group { 
-  width: 90%;
+  width: 55%;
   height: 8%;
 }
   
