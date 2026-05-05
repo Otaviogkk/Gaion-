@@ -14,47 +14,88 @@ body {
   min-height: 100vh;
   margin: 0;
 }
-/* O painel do cadastro/login  */ 
+/* O painel do cadastro/login & & BOTÕES   */ 
 .card {
-  width: max(800.48px, 80.7vw);
-  display: flex;
+  width: 72.63vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* duas colunas */
+  grid-template-areas: 
+    "figure conteudo";
+  align-items: center;
   position: relative;
   background: #fff;
   border: 0.4px solid #732e2a;
   border-radius: 7px;
-  height: clamp(600px, calc(680px + 1vh), 890px);
-  transition: all 0.6s ease;
+  height: min(40vw, 890px);
 }
 .card .card-conteudo {
-  margin-left: max(600px, 50%);
-  top: 100px;
-  position: absolute;
+  width: 100%;
+  position: relative;
+  grid-area: conteudo;
+  display: grid;
+  justify-items: center;
+  gap: 9px
+}
+.button-group {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  width: 50%;
+  gap: 2px;
+}
+.button-group .btn {
+  font-family: 'Chakra Petch', sans-serif;
+  width: 100%;
+  border-radius: 5.5px;
+  text-decoration: none;
+  font-size: 1.4vw;
+  font-weight: 400;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  cursor: pointer;
+  height: 160%;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center; 
+}
+.btn-primary {
+  background: #fff; /* botão de login*/
+  color: #310000;
+  border: 0.5px solid #531D1A;
+}
+.btn-primary:hover,.btn-secondary:hover  {
+  background: #f5f2f2;
+  transform: scale(1.03);
+}
+.btn-secondary {
+  background: linear-gradient(#531D1A 0%, #310000 100%);
+  color: white;
+  border: none;
+}
+.btn-secondary:hover {
+  background: linear-gradient(#310000 0%, #531D1A 100%);
 }
 /*HEADER & TIPOGRAFIA*/
 .card .card-header {
   text-align: center;
-}
-
-.card .card-header .card-title {
-  font-size: 24px;
-  font-family: 'Chakra Petch', sans-serif;
+  font-size:  0.9vw;
+  font-family:'Chakra Petch', sans-serif;
   color: #531D1A;
   font-weight: 400;
 }
-
-.card .card-header .card-title svg {
-  width: 94px;
+.card .card-header svg {
+  width: 3em;
   height: auto;
 }
 
-.card .card-header .card-title #primario {
-  font-size: 62px;
+.card .card-header #primario {
+  font-size: 2.5em;
   font-weight: 500;
   font-family: "Kantumruy Pro", sans-serif;
 }
 
-.card .card-header .subtitulo {
-  font-size: 30px;
+.card .card-header #subtitulo {
+  font-size: 2.3em;
   font-weight: 400;
   font-family: 'Chakra Petch', sans-serif;
   color: #531D1A;
@@ -63,247 +104,93 @@ body {
 .card .card-header .destaque {
   font-weight: 700;
 }
-/*  FIGURA & BOTÕES */
+/* FIGURA */
 .card .card-figure {
-  margin-left: 110px;
-  width: 300px;
-  height: auto;
-  margin-top: 100px;
+ width: 100%;
+ margin-left: 10%;
+ grid-area: figure;
 }
-
-.button-group {
-  top: 380px;
-  margin-left: clamp(640px, 56%, 56%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  position: absolute;
-  text-align: center;
-}
-
-.button-group .btn {
-  padding: 12px 25px;
-  font-family: 'Chakra Petch', sans-serif;
-  width: 293px;
-  border-radius: 8.5px;
-  text-decoration: none;
-  font-size: 23px;
-  font-weight: 400;
-  transition: transform 0.2s ease, background-color 0.3s ease;
-  cursor: pointer;
-}
-
-.btn-primary {
-  background: #fff; /* botão de login*/
-  color: #310000;
-  border: 0.5px solid #531D1A;
-}
-
-.btn-primary:hover,.btn-secondary:hover  {
-  background: #f5f2f2;
-  transform: scale(1.03);
-}
-
-.btn-secondary {
-  background: linear-gradient(#531D1A 0%, #310000 100%);
-  color: white;
-  border: none;
-}
-
-.btn-secondary:hover {
-  background: linear-gradient(#310000 0%, #531D1A 100%);
-}
-/*  Reprasividade */
-@media (max-width: 1024px) and (orientation: landscape) {
-  .card {
-    width: 90.9vw;
-    height: 91vh;
-  }
-
-  .card .card-conteudo {
-    position: absolute;
-    width: 51.75vw;
-    margin-top: 9.625vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-left: 0;
-    right: 0%;
-  }
-  .card .card-header .card-title { font-size: 2.34375vw; }
-  .card .card-header .card-title svg { width: 6.34vw; }
-  .card .card-header .card-title #primario { font-size: 4.882vw; }
-  .card .card-header .subtitulo { font-size: 2.569vw; } 
-
-  .card .card-figure {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    margin-left: 4.4vw;
-  }
-
   .card .card-figure img {
-    width: min(39.0625vw, 63.594vh);
-    height: min(39.0625vw, 63.594vh);
-    margin-bottom: 9.67vh;
+    width: 89%;
   }
-
-  .button-group {
-    right: 11.718vw;
-    top: max(180px, 48.96vh);
-    gap: 0.1px;
-    align-items: center;
-  }
-
-  .button-group .btn {
-    padding: 1.4vh 3vw;
-    width: 20.460vw;
-    height: max(20.71px, 2.38vh);
-    border-radius: 8.5px;
-    font-size: clamp(14.976px, min(1.95vw, 3.6vh), min(1.95vw, 3.6vh));
-  }
-}
-
-/* Portrai*/
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+/*  Reprasividade Portrai*/
+@media (max-width: 1024px) and (orientation: portrait) {
   body { background-image: url("../../imagens/fundo2.png"); }
-
   .card {
-    margin-top: 5vh;
-    width: 83vw;
-    height: 87vh;
-    min-height: 750px;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 40px;
-  }
-
-  .card .card-conteudo {
-    position: relative;
-    width: 100%;
-    margin-left: 0;
-    margin-top: 0;
-    top: 0;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .card .card-figure {
-    width: auto;
-    margin: 20px auto 10px;
-    padding: 10px;
-  }
-
-  .card .card-figure img {
-    width: max(309.507px, 37.29vh);
-    height: auto;
-    margin-bottom: 20px;
-  }
-
-  .button-group {
-    position: relative;
-    top: 0;
-    padding: 0;
-    margin-left: 30px;
-    margin-top: 3vh;
-    display: flex;
-    align-items: center;
-    gap: 0;
-  }
-
-  .button-group .btn {
-    width: 23.42vh;
-    height: auto;
-    font-size: 2.3vh;
-  }
-
-  .card .card-header .card-title { font-size: 2vh; }
-  .card .card-header .card-title #primario { font-size: max(50px, 4.7vh); }
-  .card .card-header .subtitulo { font-size: 3vh; } /* Duplicatas removidas */
-}
-
-@media (max-width: 768px) and (orientation: portrait) {
-  body { background-image: url("../../imagens/fundo3.png"); } /* Flexs redundantes removidos */
-
-  .card {
-    margin-top: calc(2px + 1vh);
-    width: 89vw;
-    height: 89vh;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-bottom: 40px;
+    height: 98vh;
+    Width: 90vw;
   }
-
   .card .card-conteudo {
-    position: relative;
-    width: 100%;
-    margin-left: 0;
-    margin-top: 0;
-    top: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: contents;
+  
+  }
+  /* ORDEM FINAL */
+  .card .card-header {
+    order: 1;
     text-align: center;
+    font-size: 2vw;
   }
 
   .card .card-figure {
+    display: flex;
+    order: 2;
     width: auto;
-    margin: 20px auto 10px;
-    padding: 10px;
+   align-items: center;
+   justify-content: center;
+   margin-bottom: 8%;
+   margin-top: 0;
   }
 
   .card .card-figure img {
-    width: clamp(250px, 41.6vh, 330px);
-    height: auto;
-    margin-bottom: 20px;
+   width: 98%;
   }
 
   .button-group {
-    position: relative;
-    top: 0;
-    padding: 0;
-    margin-left: 2.66vw;
-    display: flex;
-    align-items: center;
-    gap: 0;
+  width: 40%;
+  padding: 0 10px;
+  text-align: center;
+  order: 3;
+  position: relative;
+  gap:10%;
   }
-
   .button-group .btn {
-    width: 35.5vw;
-    height: max(8px, 1.8vh);
-    font-size: 2.3vh;
-    margin-top: 0;
-    line-height: max(8px, 1.8vh);
-  }
+ 
+    font-size: clamp(14px, 3vw, 20px);
+    height: 190%;
 
-  .card .card-header .card-title svg {
-    width: 60px;
-    height: auto;
   }
-
-  .card .card-header .card-title #primario { font-size: min(56px, 10vw); }
-  .card .card-header .subtitulo { font-size: min(4.3vw, 24px); } /* Duplicatas removidas */
 }
 
-@media (max-width: 400px) and (orientation: portrait) {
-  body { 
-    justify-content: center;
-    align-items: center;
-  }
+@media (max-aspect-ratio: 1/1) and (min-aspect-ratio: 3.25/5) {
+.card{
+ padding: 8px;
+ height: 94.5vh;
+}
+  .button-group {
+  display: flex;
+  justify-items: center;
+  text-align: center;
+  width: 80%;
+  gap: 5px;
+  padding: 0;
+}
 
-  .card .card-figure img {
-    width: 78vw;
-    height: auto;
-    margin-bottom: 20px;
-  }
-
+}
+@media (max-aspect-ratio: 2.5/5) and (orientation: portrait) {
+.card{height: 75vh;}
+.button-group { 
+  width: 60%;
+  height: 8%;
+}
+  
   .button-group .btn {
-    font-size: clamp(12px, min(6vw, 3vh), 24px);
+    gap: 0;
+    font-size: clamp(14px, 3vw, 20px);
+    height: 180%;
+
   }
 }

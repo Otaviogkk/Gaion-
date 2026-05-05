@@ -22,8 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const checkbox = document.getElementById("caixinha"); 
   const form = document.querySelector(".Vendedor");          
+  const fom = document.querySelector(".container");     
 checkbox.addEventListener('change', function() {
-  const forms = document.querySelectorAll('.Vendedor');
+  const forms = document.querySelectorAll('.Vendedor, .container');
   forms.forEach(form => form.classList.toggle('Not'));
 });
 

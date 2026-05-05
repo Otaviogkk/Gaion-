@@ -1,7 +1,7 @@
 from flask import Flask, make_response, jsonify, request
 from terrenos import imoveis
 
-app = Flask('_name_')
+app = Flask(__name__)
 app.config['JSON_SORT_KEYS']= False
 
 @app.route('/imoveis', methods=['GET'])
@@ -12,6 +12,6 @@ def create_imovel():
     imovel = request.json
     imoveis.append(imovel)
     return make_response(
-        jsonify(mensagem="imóvel cadastrado com sucesso!", imovel))
+        jsonify(mensagem="imóvel cadastrado com sucesso!", imovel=imovel))
 
 app.run()

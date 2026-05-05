@@ -1,47 +1,45 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 body {
   background-image: url("../../../imagens/fundo.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   background-color: rgb(252, 246, 240);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  margin: 0;
+  display: grid;          
+  place-items: center;
   font-family: 'Chakra Petch', sans-serif;
+  margin: 0;             
+  min-height: 100vh;      
 }
 
 .container {
   position: relative;
-  width: max(315px, 60vw);
+  width:  60vw;
   height: 87vh;
-  padding: min(2.02vw, 3.17vh);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0px;
+  display: grid;
+  place-items: center;
   border: 1px solid black;
   border-radius: 7px;
   background-color: #ffffff;
   transition: all 0.6s ease;
 }
-
-.card-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0vh;
-  margin-bottom: 250px;
-  width: 100%; /* Garante que filhos respeitem a largura */
+.container.Not {
+ height: 95vh;
 }
 
-.card-content .incone-gaion1 {
+.card-content{
+  width: 100%;
   display: flex;
-  align-items: center;
   flex-direction: column;
-  margin-bottom: 50px;
-  margin-top: 30vh;
+  align-items: center;
+  justify-content: center;
+}
+.card-content .incone-gaion1 {
+  display: grid;
+  place-items: center;
   transition: all 0.6s ease;
 }
 
@@ -85,7 +83,7 @@ body {
   font-size: 18px;
   display: flex; 
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;  /* ATUALIZADO: de 'center' para 'stretch' */
   justify-content: center;
   gap: 0px; 
   width: 100%;
@@ -107,18 +105,18 @@ body {
 .card-content .form .collumn {
   display: flex;
   flex-direction: column;
-  gap: 8px; /* espaço entre label e input */
+  gap: 8px;
   width: 100%;
 }
 
 .card-content .form label{
-font-size: clamp(11px,min(1.45vw, 2.25vh),min(1.45vw, 2.25vh));
+  font-size: clamp(11px,min(1.45vw, 2.25vh),min(1.45vw, 2.25vh));
 }
 
 .card-content .form input {
   width: 100%;
   min-height: 5.6vh;
-  padding: 0 6px; /* ajustado: era 86px (muito grande!) */
+  padding: 0 6px;
   font-size: min(1.3vw, 16px);
   border-radius: 7px;
   box-sizing: border-box;
@@ -151,7 +149,7 @@ font-size: clamp(11px,min(1.45vw, 2.25vh),min(1.45vw, 2.25vh));
   font-family: 'Chakra Petch', sans-serif;
   color: #531D1A;
   position: relative;
-  padding-left: 2.1vw; /* espaço para o quadrado do checkbox */
+  padding-left: 2.1vw;
   line-height: 1.4;
 }
 
@@ -182,7 +180,6 @@ font-size: clamp(11px,min(1.45vw, 2.25vh),min(1.45vw, 2.25vh));
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 #Login{
@@ -194,120 +191,110 @@ font-size: clamp(11px,min(1.45vw, 2.25vh),min(1.45vw, 2.25vh));
   font-size: clamp(11px,min(1.45vw, 2.25vh),min(1.45vw, 2.25vh));
   border-radius: 7px;
   border: none;
-  
 }
 
 @media (max-width: 768px) and (orientation: portrait){
   .container{
-  height: 87vh;
-  transition: transform 0.3s ease;
-  justify-content: center;
-  gap: 0px;
-  border: none;
-  border-radius: 7px;
-  background:none;
+    height: 87vh;
+    transition: transform 0.3s ease;
+    justify-content: center;
+    gap: 0px;
+    border: none;
+    border-radius: 7px;
+    background:none;
+  }
+  .card-content {
+    gap: 0vh; 
+  }
+
+  .card-content .incone-gaion1 svg {
+    width: 8vh;
+    min-width: 50px;
+    height: auto;
+    color: #531D1A;
+  }
+
+  .card-content .form .nome {
+    flex-direction: column;
+    gap:0px;
+  }
+
+  .card-content .form input {
+    width: 80vw;
+    max-width: 500px;
+    height: min(10vw,9.56vh);
+    min-height: 0px;
+    max-height: 38px;
+    font-size: clamp(13px, 3.5vw, 18px);
+  }
+  .checkbox-label {
+    padding-left: min(17px,5.1vw);
+  }
+
+  #Login{
+    width: min(209px, 55.73vw);
+    height: min(10vw,4.56vh);
+    max-height: 38px;
+  }
+
+  .card-content .incone-gaion1 span {
+    font-size: min(22px, 5.86vw);
+  }
+
+  .card-content .incone-gaion {
+    position: relative;
+    margin-top: 5vh;
+    font-size: clamp(11px, min(6.4vw, 2.88vh), 24px);
+    display: none;
+  }
+
+  .card-content .incone-gaion svg {
+    width: min(7.7vw,3.4vh);
+    max-width: 29px;
+    height: auto;
+  }
 }
-.card-content {
-  gap: 0vh; 
-}
 
-.card-content .incone-gaion1 svg {
- width: 8vh;
- min-width: 50px;
- height: auto;
- color: #531D1A;
-
-}
-
-.card-content .form .nome {
-flex-direction: column;
-gap:0px;
-}
-
-
-.card-content .form input {
-  width: 80vw;
-  max-width: 500px;
-  height: min(10vw,9.56vh);
-  min-height: 0px;
-  max-height: 38px;
-  font-size: clamp(13px, 3.5vw, 18px);
-}
-.checkbox-label {
-  padding-left: min(17px,5.1vw); /* espaço para o quadrado do checkbox */
-}
-
-
-
-#Login{
-  width: min(209px, 55.73vw);
-  height: min(10vw,4.56vh);
-  max-height: 38px;
-}
-
-
-
-
-
-.card-content .incone-gaion1 span {
-  font-size: min(22px, 5.86vw);
-}
-
-.card-content .incone-gaion {
-  position: relative;
-  margin-top: 5vh;
-  font-size: clamp(11px, min(6.4vw, 2.88vh), 24px);
-  display: none;
-}
-
-.card-content .incone-gaion svg {
-width: min(7.7vw,3.4vh);
-max-width: 29px;
-height: auto;
-}
-}
 @media (max-height: 650px) and (orientation: landscape){
+  .card-content {
+    margin-bottom: 0px;
+  }
+  .card-content .incone-gaion1 {
+    display: none;
+  }
 
-.card-content {
-  margin-bottom: 0px;
-}
-.card-content .incone-gaion1 {
-  display: none;
+  .card-content .incone-gaion {
+    display: none;
+  }
+  .checkbox-label{
+    padding-left: min(17px,5.1vw);
+  }
+
+  .botão{
+    bottom: 0px;
+  }
 }
 
-.card-content .incone-gaion {
-  display: none;
-}
-.checkbox-label{
-   padding-left: min(17px,5.1vw);
-}
-
-.botão{
-bottom: 0px;
-}
-}
-
-
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+@media (max-aspect-ratio: 4.5/5) and (orientation: portrait) {
   body{
     background-image: url("../../../imagens/fundo2.png");
   }
 
+  .card-content {
+    display: flex;
+    align-items: center;
+    gap: 0vh;
+    margin-bottom: 8vh;
+    transform: translateY(-20%);
+    width: 100%;
+  }  
+  .card-content .form{
+    height: 20vh;
+  }
 
-.card-content {
-  display: flex;
-  align-items: center;
-  gap: 0vh;
-  margin-bottom: 6vh;
-  transform: translateY(-20%);
-  width: 100%; /* Garante que filhos respeitem a largura */
-}  
-
-.card-content .form input {
-  height: min(10vw,4.56vh);
-  min-height: 0px;
-  max-height: 40px;
-
-}
-
+  .card-content .form input {
+    height: 100%;
+    min-height: 0px;
+    max-height: none;
+  }
 }
