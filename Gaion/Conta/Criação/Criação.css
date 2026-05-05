@@ -150,7 +150,7 @@ body {
   }
 
   .button-group {
-  width: 50%;
+  width: 90%;
   padding: 0 10px;
   text-align: center;
   order: 3;
@@ -167,7 +167,7 @@ body {
 @media (max-aspect-ratio: 1/1) and (min-aspect-ratio: 3.25/5) {
 .card{
  padding: 8px;
- height: 94vh;
+ height: 95.5vh;
 }
   .button-group {
   display: flex;
