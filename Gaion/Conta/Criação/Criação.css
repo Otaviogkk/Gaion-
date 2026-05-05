@@ -182,7 +182,7 @@ body {
 @media (max-aspect-ratio: 2.5/5) and (orientation: portrait) {
 .card{height: 75vh;}
 .button-group { 
-  width: 55%;
+  width: 90%;
   height: 8%;
 }
   
