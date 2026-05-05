@@ -158,7 +158,6 @@ body {
   gap:10%;
   }
   .button-group .btn {
- 
     font-size: clamp(16px, 3vw, 20px);
     height: 190%;
 
@@ -183,7 +182,7 @@ body {
 @media (max-aspect-ratio: 2.5/5) and (orientation: portrait) {
 .card{height: 75vh;}
 .button-group { 
-  width: 60%;
+  width: 55%;
   height: 8%;
 }
   
