@@ -1,9 +1,6 @@
 
-document.addEventListener("DOMContentLoaded", () => {
-
-  
+document.addEventListener("DOMContentLoaded", () => {  
   const cpfInput = document.getElementById('cpf');
-
   // define maxlength para o formato com pontos e hífen
   cpfInput.setAttribute('maxlength', '14');
 
@@ -20,10 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-  const checkbox = document.getElementById("caixinha"); 
-  const form = document.querySelector(".Vendedor");          
-  const fom = document.querySelector(".container");     
-checkbox.addEventListener('change', function() {
+  const checkbox = document.getElementById("caixinha");  
+  checkbox.addEventListener('change', function() {
   const forms = document.querySelectorAll('.Vendedor, .container');
   forms.forEach(form => form.classList.toggle('Not'));
 });

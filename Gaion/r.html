@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Terrenos</title>
+    <style>
+        :root {
+            --bg-main: #FFFFFF;
+            --bg-sec: #dfd2c8;
+            --text-main: #310000;
+            --text-accent: #531D1A;
+            --card-bg: #fdfbf9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-main);
+            min-height: 100vh;
+            padding: 30px 20px;
+            color: var(--text-main);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            color: var(--text-accent);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: var(--text-accent);
+            margin-bottom: 35px;
+            font-size: 1rem;
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto 50px;
+            background: var(--bg-main);
+            border: 2px solid var(--text-main);
+            border-radius: 20px;
+            padding: 35px 30px;
+            box-shadow: 8px 8px 0px var(--bg-sec);
+        }
+
+        .form-container h2 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: var(--text-accent);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-section {
+            margin-bottom: 30px;
+            padding-bottom: 25px;
+            border-bottom: 2px dashed var(--bg-sec);
+        }
+
+        .form-section h3 {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+        }
+
+        .form-group {
+            flex: 1;
+            min-width: 200px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            flex: 1 1 100%;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            color: var(--text-accent);
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 12px 15px;
+            border: 2px solid var(--text-main);
+            border-radius: 10px;
+            background: var(--bg-sec);
+            color: var(--text-main);
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            outline: none;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-accent);
+            opacity: 0.6;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            background: var(--bg-main);
+            box-shadow: 4px 4px 0px var(--text-main);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .upload-area {
+            border: 2px dashed var(--text-main);
+            border-radius: 15px;
+            padding: 40px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 20px;
+            position: relative;
+            background: var(--bg-main);
+        }
+
+        .upload-area:hover {
+            background: var(--bg-sec);
+        }
+
+        .upload-area.dragover {
+            background: var(--bg-sec);
+            box-shadow: inset 0 0 10px rgba(49, 0, 0, 0.1);
+        }
+
+        .upload-area .upload-icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: var(--text-accent);
+        }
+
+        .upload-area p {
+            color: var(--text-accent);
+            font-size: 0.95rem;
+        }
+
+        .upload-area p span {
+            color: var(--text-main);
+            text-decoration: underline;
+            font-weight: 700;
+        }
+
+        .upload-area input[type="file"] {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .preview-container {
+            display: none;
+            margin-bottom: 20px;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .preview-container.active {
+            display: flex;
+        }
+
+        .preview-item {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid var(--text-main);
+        }
+
+        .preview-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .preview-item .remove-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: var(--text-accent);
+            border: 1px solid var(--text-main);
+            color: var(--bg-main);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s;
+        }
+
+        .preview-item .remove-btn:hover {
+            transform: scale(1.2);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--text-main);
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            background: var(--text-accent);
+            color: var(--bg-main);
+            transition: all 0.2s;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 4px 4px 0px var(--text-main);
+            background: var(--text-main);
+        }
+
+        .btn-submit:active {
+            transform: translateY(0);
+        }
+
+        .products-section h2 {
+            text-align: center;
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+            color: var(--text-accent);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: var(--bg-main);
+            border: 2px solid var(--text-main);
+            border-radius: 18px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            box-shadow: 6px 6px 0px var(--bg-sec);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 8px 8px 0px var(--text-accent);
+        }
+
+        .product-card .card-image {
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+            background: var(--bg-sec);
+        }
+
+        .product-card .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .product-card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .price-badge {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            background: var(--bg-main);
+            color: var(--text-accent);
+            padding: 8px 18px;
+            border: 2px solid var(--text-main);
+            border-radius: 25px;
+            font-weight: 800;
+            font-size: 1.2rem;
+            box-shadow: 2px 2px 0px var(--text-main);
+        }
+
+        .price-per-m2 {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: var(--text-accent);
+            color: var(--bg-main);
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .terrain-type {
+            background: var(--bg-sec);
+            border: 2px solid var(--text-main);
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-main);
+            text-transform: uppercase;
+        }
+
+        .card-body .location {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: var(--text-main);
+            margin-bottom: 15px;
+            line-height: 1.4;
+            font-weight: 600;
+        }
+
+        .dimensions-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .dim-item {
+            background: var(--bg-sec);
+            border: 1px solid var(--text-main);
+            border-radius: 10px;
+            padding: 12px 8px;
+            text-align: center;
+        }
+
+        .dim-item .dim-label {
+            font-size: 0.7rem;
+            color: var(--text-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .dim-item .dim-value {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .dim-item .dim-unit {
+            font-size: 0.75rem;
+            color: var(--text-accent);
+        }
+
+        .features-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed var(--bg-sec);
+        }
+
+        .feature-tag {
+            background: var(--bg-main);
+            border: 1px solid var(--text-main);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            color: var(--text-accent);
+            font-weight: 600;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 10px;
+            padding: 0 20px 20px;
+        }
+
+        .btn-edit, .btn-delete {
+            flex: 1;
+            padding: 10px;
+            border: 2px solid var(--text-main);
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .btn-edit {
+            background: var(--bg-main);
+            color: var(--text-accent);
+        }
+
+        .btn-edit:hover {
+            background: var(--text-accent);
+            color: var(--bg-main);
+        }
+
+        .btn-delete {
+            background: var(--bg-sec);
+            color: var(--text-main);
+        }
+
+        .btn-delete:hover {
+            background: var(--text-main);
+            color: var(--bg-main);
+        }
+
+        .toast {
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            background: var(--bg-main);
+            color: var(--text-main);
+            border: 2px solid var(--text-main);
+            padding: 15px 25px;
+            border-radius: 12px;
+            font-weight: 600;
+            box-shadow: 4px 4px 0px var(--text-accent);
+            transform: translateX(400px);
+            transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            z-index: 1000;
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        .toast.error {
+            background: var(--text-main);
+            color: var(--bg-main);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-accent);
+            border: 2px dashed var(--bg-sec);
+            border-radius: 20px;
+            margin-top: 20px;
+        }
+
+        .empty-state .empty-icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 600px) {
+            .form-group { min-width: 100%; }
+            .products-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 1.6rem; }
+            .form-container { padding: 25px 18px; box-shadow: 4px 4px 0px var(--bg-sec); }
+            .dimensions-grid { grid-template-columns: 1fr; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .product-card { animation: fadeInUp 0.5s ease forwards; }
+    </style>
+</head>
+<body>
+
+    <h1>🏞️ Cadastro de Terrenos</h1>
+    <p class="subtitle">Cadastre lotes e terrenos disponíveis</p>
+
+    <div class="form-container">
+        <form id="terrainForm">
+
+            <!-- Seção: Imagens -->
+            <div class="form-section">
+                <h3>📷 Fotos do Terreno</h3>
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">📷</div>
+                    <p>Arraste imagens aqui ou <span>clique para selecionar</span></p>
+                    <p style="font-size:0.78rem; color:var(--text-accent); margin-top:5px;">JPG, PNG — máx. 5MB cada</p>
+                    <input type="file" id="fileInput" accept="image/*" multiple>
+                </div>
+                <div class="preview-container" id="previewContainer"></div>
+            </div>
+
+            <!-- Seção: Preço e Tipo -->
+            <div class="form-section">
+                <h3>💰 Valor e Categoria</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>💵 Preço Total (R$)</label>
+                        <input type="text" id="price" placeholder="ex: 250.000,00" required>
+                    </div>
+                    <div class="form-group">
+                        <label>📊 Tipo de Terreno</label>
+                        <select id="terrainType" required>
+                            <option value="">Selecione...</option>
+                            <option value="Urbano">Urbano</option>
+                            <option value="Rural">Rural</option>
+                            <option value="Comercial">Comercial</option>
+                            <option value="Residencial">Residencial</option>
+                            <option value="Industrial">Industrial</option>
+                            <option value="Misto">Misto</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção: Localização -->
+            <div class="form-section">
+                <h3>📍 Localização</h3>
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label>🏡 Endereço Completo</label>
+                        <textarea id="address" placeholder="Rua, número, bairro, cidade - UF" required></textarea>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>🌆 Bairro</label>
+                        <input type="text" id="neighborhood" placeholder="ex: Centro" required>
+                    </div>
+                    <div class="form-group">
+                        <label>🏙️ Cidade</label>
+                        <input type="text" id="city" placeholder="ex: São Paulo" required>
+                    </div>
+                    <div class="form-group">
+                        <label>📌 Referência</label>
+                        <input type="text" id="reference" placeholder="Ponto de referência">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção: Dimensões -->
+            <div class="form-section">
+                <h3>📐 Dimensões e Área</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>↔️ Frente (m)</label>
+                        <input type="number" id="front" step="0.01" min="0" placeholder="ex: 10.00" required>
+                    </div>
+                    <div class="form-group">
+                        <label>↕️ Profundidade (m)</label>
+                        <input type="number" id="depth" step="0.01" min="0" placeholder="ex: 25.00" required>
+                    </div>
+                    <div class="form-group">
+                        <label>📊 Área Total (m²)</label>
+                        <input type="number" id="area" step="0.01" min="0" placeholder="Calculado auto." readonly
+                               style="opacity:0.7; cursor:not-allowed;">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>🔺 Topografia</label>
+                        <select id="topography">
+                            <option value="Plano">Plano</option>
+                            <option value="Aclive">Aclive (subida)</option>
+                            <option value="Declive">Declive (descida)</option>
+                            <option value="Misto">Misto</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>📏 Testada (m)</label>
+                        <input type="number" id="frontage" step="0.01" min="0" placeholder="Largura da frente">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção: Características -->
+            <div class="form-section">
+                <h3>✨ Características</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>⚡ Energia Elétrica</label>
+                        <select id="electricity">
+                            <option value="Sim">Sim</option>
+                            <option value="Não">Não</option>
+                            <option value="Próximo">Próximo</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>💧 Água</label>
+                        <select id="water">
+                            <option value="Sim">Sim</option>
+                            <option value="Não">Não</option>
+                            <option value="Poço">Poço</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>🚽 Esgoto</label>
+                        <select id="sewage">
+                            <option value="Rede">Rede Pública</option>
+                            <option value="Fossa">Fossa</option>
+                            <option value="Não">Não</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label>📝 Observações Adicionais</label>
+                        <textarea id="observations" placeholder="Documentação, zoneamento, características especiais..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção: Vendedor -->
+            <div class="form-section">
+                <h3>👤 Informações do Vendedor</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nome do Vendedor/Proprietário</label>
+                        <input type="text" id="seller" placeholder="ex: João Silva" required>
+                    </div>
+                    <div class="form-group">
+                        <label>📞 Contato</label>
+                        <input type="text" id="contact" placeholder="ex: (11) 99999-9999" required>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-submit">🚀 Cadastrar Terreno</button>
+        </form>
+    </div>
+
+    <!-- LISTA DE TERRENOS -->
+    <div class="products-section">
+        <h2>🏞️ Terrenos Cadastrados</h2>
+        <div id="terrainsContainer">
+            <div class="empty-state" id="emptyState">
+                <div class="empty-icon">📋</div>
+                <p>Nenhum terreno cadastrado ainda.</p>
+            </div>
+            <div class="products-grid" id="terrainsGrid"></div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script>
+        let uploadedImages = [];
+        let terrains = [];
+
+        const form = document.getElementById('terrainForm');
+        const fileInput = document.getElementById('fileInput');
+        const uploadArea = document.getElementById('uploadArea');
+        const previewContainer = document.getElementById('previewContainer');
+        const terrainsGrid = document.getElementById('terrainsGrid');
+        const emptyState = document.getElementById('emptyState');
+        const toast = document.getElementById('toast');
+        const frontInput = document.getElementById('front');
+        const depthInput = document.getElementById('depth');
+        const areaInput = document.getElementById('area');
+
+        function calculateArea() {
+            const f = parseFloat(frontInput.value) || 0;
+            const d = parseFloat(depthInput.value) || 0;
+            const area = (f * d).toFixed(2);
+            areaInput.value = area > 0 ? area : '';
+        }
+
+        frontInput.addEventListener('input', calculateArea);
+        depthInput.addEventListener('input', calculateArea);
+
+        uploadArea.addEventListener('dragover', (e) => { e.preventDefault(); uploadArea.classList.add('dragover'); });
+        uploadArea.addEventListener('dragleave', () => { uploadArea.classList.remove('dragover'); });
+        uploadArea.addEventListener('drop', (e) => { e.preventDefault(); uploadArea.classList.remove('dragover'); handleFiles(e.dataTransfer.files); });
+        fileInput.addEventListener('change', (e) => { handleFiles(e.target.files); fileInput.value = ''; });
+
+        function handleFiles(files) {
+            Array.from(files).forEach(file => {
+                if (!file.type.startsWith('image/')) return;
+                if (file.size > 5 * 1024 * 1024) { showToast(`"${file.name}" excede 5MB!`, true); return; }
+                const reader = new FileReader();
+                reader.onload = (e) => { uploadedImages.push(e.target.result); renderPreviews(); };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        function renderPreviews() {
+            previewContainer.innerHTML = '';
+            previewContainer.classList.toggle('active', uploadedImages.length > 0);
+            uploadedImages.forEach((src, index) => {
+                const div = document.createElement('div');
+                div.className = 'preview-item';
+                div.innerHTML = `<img src="${src}" alt="Preview"><button type="button" class="remove-btn" onclick="removeImage(${index})">✕</button>`;
+                previewContainer.appendChild(div);
+            });
+        }
+
+        function removeImage(index) { uploadedImages.splice(index, 1); renderPreviews(); }
+
+        function formatPrice(value) {
+            return parseFloat(value.replace(/\./g, '').replace(',', '.')).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        }
+
+        function formatPricePerM2(price, area) {
+            const p = parseFloat(price.replace(/\./g, '').replace(',', '.'));
+            const a = parseFloat(area);
+            if (a > 0) {
+                return (p / a).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) + '/m²';
+            }
+            return '';
+        }
+
+        function showToast(message, isError = false) {
+            toast.textContent = message;
+            toast.className = 'toast' + (isError ? ' error' : '');
+            setTimeout(() => toast.classList.add('show'), 10);
+            setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const price = document.getElementById('price').value;
+            const terrainType = document.getElementById('terrainType').value;
+            const address = document.getElementById('address').value.trim();
+            const neighborhood = document.getElementById('neighborhood').value.trim();
+            const city = document.getElementById('city').value.trim();
+            const reference = document.getElementById('reference').value.trim();
+            const front = parseFloat(frontInput.value);
+            const depth = parseFloat(depthInput.value);
+            const area = parseFloat(areaInput.value) || (front * depth).toFixed(2);
+            const topography = document.getElementById('topography').value;
+            const seller = document.getElementById('seller').value.trim();
+            const contact = document.getElementById('contact').value.trim();
+            const electricity = document.getElementById('electricity').value;
+            const water = document.getElementById('water').value;
+            const sewage = document.getElementById('sewage').value;
+            const observations = document.getElementById('observations').value.trim();
+
+            if (!price || !terrainType || !address || !neighborhood || !city || isNaN(front) || isNaN(depth) || !seller || !contact) {
+                showToast('Preencha todos os campos obrigatórios!', true);
+                return;
+            }
+
+            const terrain = {
+                id: Date.now(),
+                image: uploadedImages.length > 0 ? uploadedImages[0] : null,
+                price: formatPrice(price),
+                priceRaw: price,
+                terrainType: terrainType,
+                address: address,
+                neighborhood: neighborhood,
+                city: city,
+                reference: reference,
+                front: front,
+                depth: depth,
+                area: parseFloat(area).toFixed(2),
+                topography: topography,
+                seller: seller,
+                contact: contact,
+                electricity: electricity,
+                water: water,
+                sewage: sewage,
+                observations: observations
+            };
+
+            terrains.push(terrain);
+            renderTerrains();
+            showToast('✅ Terreno cadastrado com sucesso!');
+
+            form.reset();
+            uploadedImages = [];
+            previewContainer.innerHTML = '';
+            previewContainer.classList.remove('active');
+            areaInput.value = '';
+        });
+
+        function renderTerrains() {
+            if (terrains.length === 0) {
+                emptyState.style.display = 'block';
+                terrainsGrid.innerHTML = '';
+                return;
+            }
+            emptyState.style.display = 'none';
+            terrainsGrid.innerHTML = '';
+
+            terrains.forEach((terrain, index) => {
+                const pricePerM2 = formatPricePerM2(terrain.priceRaw, terrain.area);
+                const imgSrc = terrain.image || '';
+                const imgHTML = imgSrc
+                    ? `<div class="card-image"><img src="${imgSrc}" alt="Terreno"><div class="price-per-m2">${pricePerM2}</div><div class="price-badge">${terrain.price}</div></div>`
+                    : `<div class="card-image" style="display:flex;align-items:center;justify-content:center;"><span style="font-size:4rem;">🏞️</span><div class="price-per-m2">${pricePerM2}</div><div class="price-badge">${terrain.price}</div></div>`;
+
+                const features = [];
+                if (terrain.electricity === 'Sim') features.push('⚡ Energia');
+                if (terrain.water === 'Sim' || terrain.water === 'Poço') features.push('💧 Água');
+                if (terrain.sewage === 'Rede') features.push('🚽 Esgoto');
+                features.push(`🔺 ${terrain.topography}`);
+
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.style.animationDelay = `${index * 0.1}s`;
+                card.innerHTML = `
+                    ${imgHTML}
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div class="terrain-type">${terrain.terrainType}</div>
+                        </div>
+                        <div class="location">📍 ${terrain.neighborhood}, ${terrain.city}${terrain.reference ? '<br><small>📌 Ref: ' + terrain.reference + '</small>' : ''}</div>
+                        <div class="dimensions-grid">
+                            <div class="dim-item">
+                                <div class="dim-label">Frente</div>
+                                <div class="dim-value">${terrain.front}<span class="dim-unit"> m</span></div>
+                            </div>
+                            <div class="dim-item">
+                                <div class="dim-label">Profundidade</div>
+                                <div class="dim-value">${terrain.depth}<span class="dim-unit"> m</span></div>
+                            </div>
+                            <div class="dim-item">
+                                <div class="dim-label">Área Total</div>
+                                <div class="dim-value">${terrain.area}<span class="dim-unit"> m²</span></div>
+                            </div>
+                        </div>
+                        <div style="margin-top:10px; font-size:0.85rem; color:var(--text-accent);">
+                            <strong>Vendedor:</strong> ${terrain.seller}<br>
+                            <strong>Contato:</strong> ${terrain.contact}
+                        </div>
+                        <div class="features-list">
+                            ${features.map(f => `<span class="feature-tag">${f}</span>`).join('')}
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn-edit" onclick="showToast('✏️ Editar em breve!')">✏️ Editar</button>
+                        <button class="btn-delete" onclick="deleteTerrain(${terrain.id})">🗑️ Excluir</button>
+                    </div>
+                `;
+                terrainsGrid.appendChild(card);
+            });
+        }
+
+        function deleteTerrain(id) {
+            terrains = terrains.filter(t => t.id !== id);
+            renderTerrains();
+            showToast('🗑️ Terreno removido.');
+        }
+    </script>
+</body>
+</html>

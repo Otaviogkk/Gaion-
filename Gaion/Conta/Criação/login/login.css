@@ -17,17 +17,21 @@ body {
 
 .container {
   position: relative;
-  width:  60vw;
-  height: 87vh;
+  width:  50vw;
+  height: auto;
+  min-height: 40vw ;
   display: grid;
   place-items: center;
   border: 1px solid black;
   border-radius: 7px;
   background-color: #ffffff;
   transition: all 0.6s ease;
+  padding: 1px;
+  overflow: hidden;
+  
 }
 .container.Not {
- height: 95vh;
+  min-height: 45vw ;
 }
 
 .card-content{
@@ -44,7 +48,7 @@ body {
 }
 
 .card-content .incone-gaion1 svg {
-  width: min(8.108vw, 12.711vh);
+  width: clamp(4rem, 6vw, 6rem);
   height: auto;
   color: #DFD2C8;
 }
@@ -60,19 +64,19 @@ body {
   display: flex;
   align-items: center;
   gap: 0px;
-  margin-top: 8vh;
+  margin-top: 18vh;
   position: relative;
 }
 .card-content .incone-gaion span{
   position: static;
   white-space: nowrap;
-  font-size: clamp(19px, min(3.5vw, 4.5vh), 35px);
+  font-size: clamp(1.5rem, 2vw, 2rem);
   font-family: 'Kantumruy Pro', sans-serif;
   margin-top: 5px; 
 }
 
 .card-content .incone-gaion svg {
-  width: 42px;
+  width: clamp(1.5rem, 2vw, 2rem);
   height: auto;
   aspect-ratio: 1 / 1;
 }
@@ -83,7 +87,7 @@ body {
   font-size: 18px;
   display: flex; 
   flex-direction: column;
-  align-items: stretch;  /* ATUALIZADO: de 'center' para 'stretch' */
+  align-items: center;  
   justify-content: center;
   gap: 0px; 
   width: 100%;
@@ -107,17 +111,18 @@ body {
   flex-direction: column;
   gap: 8px;
   width: 100%;
+ 
 }
 
 .card-content .form label{
-  font-size: clamp(11px,min(1.45vw, 2.25vh),min(1.45vw, 2.25vh));
+  font-size: clamp(0.7rem, 1vw, 1.5rem);
 }
 
 .card-content .form input {
   width: 100%;
-  min-height: 5.6vh;
+  min-height: 44px;
   padding: 0 6px;
-  font-size: min(1.3vw, 16px);
+  font-size: clamp(0.7rem, 1vw, 1.5rem);
   border-radius: 7px;
   box-sizing: border-box;
   border: 0.5px solid #531D1A;
@@ -149,7 +154,7 @@ body {
   font-family: 'Chakra Petch', sans-serif;
   color: #531D1A;
   position: relative;
-  padding-left: 2.1vw;
+  padding-left: 1.3rem;
   line-height: 1.4;
 }
 
@@ -159,8 +164,8 @@ body {
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  width: max(11px, 1.3vw);
-  height: max(11px, 1.3vw);
+  width: max(14px, 1.3vw);
+  height: max(14px, 1.3vw);
   border: 2px solid #531D1A;
   border-radius: 4px;
   background-color: white;
@@ -180,121 +185,72 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
 #Login{
-  width: 15vw;
-  height: 5.29vh;
-  background: #531D1A;
-  background: linear-gradient(90deg,rgba(83, 29, 26, 1) 0%, rgba(49, 0, 0, 1) 100%);
+  width: 60%;
+  padding: 5px;
+  height: auto;
+  min-height: 44px; 
   color: #fff;
-  font-size: clamp(11px,min(1.45vw, 2.25vh),min(1.45vw, 2.25vh));
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
+  font-weight: 200;
   border-radius: 7px;
-  border: none;
+  background: #310000;
+ 
+background: linear-gradient(270.21deg, #531D1A 2.37%, #310000 99.84%);
+
+}
+#Login:hover {
+  background: linear-gradient(#310000 0%, #531D1A 100%);
+  transform: scale(1.03);
+}
+@media (max-aspect-ratio: 4.5/5) and (orientation: portrait){
+   body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  .container {
+  width:  75vw;
+  max-width: 600px;
+  min-height: 65vh ;
+  overflow-y: auto;
+}
+.container.Not {
+  min-height: 65vh ;
+}
+.checkbox-label {
+  padding-left: 1rem;
 }
 
-@media (max-width: 768px) and (orientation: portrait){
-  .container{
-    height: 87vh;
-    transition: transform 0.3s ease;
-    justify-content: center;
-    gap: 0px;
-    border: none;
-    border-radius: 7px;
-    background:none;
-  }
-  .card-content {
-    gap: 0vh; 
-  }
-
-  .card-content .incone-gaion1 svg {
-    width: 8vh;
-    min-width: 50px;
-    height: auto;
-    color: #531D1A;
-  }
-
-  .card-content .form .nome {
-    flex-direction: column;
-    gap:0px;
-  }
-
-  .card-content .form input {
-    width: 80vw;
-    max-width: 500px;
-    height: min(10vw,9.56vh);
-    min-height: 0px;
-    max-height: 38px;
-    font-size: clamp(13px, 3.5vw, 18px);
-  }
-  .checkbox-label {
-    padding-left: min(17px,5.1vw);
-  }
+.card-content .form input {
+  min-height: 30px;
+}
 
   #Login{
-    width: min(209px, 55.73vw);
-    height: min(10vw,4.56vh);
-    max-height: 38px;
-  }
-
-  .card-content .incone-gaion1 span {
-    font-size: min(22px, 5.86vw);
-  }
-
-  .card-content .incone-gaion {
-    position: relative;
-    margin-top: 5vh;
-    font-size: clamp(11px, min(6.4vw, 2.88vh), 24px);
-    display: none;
-  }
-
-  .card-content .incone-gaion svg {
-    width: min(7.7vw,3.4vh);
-    max-width: 29px;
-    height: auto;
-  }
+  height: auto;
+  min-height: 24px;
+  border: none;
 }
-
-@media (max-height: 650px) and (orientation: landscape){
-  .card-content {
-    margin-bottom: 0px;
-  }
-  .card-content .incone-gaion1 {
-    display: none;
-  }
-
-  .card-content .incone-gaion {
-    display: none;
-  }
-  .checkbox-label{
-    padding-left: min(17px,5.1vw);
-  }
-
-  .botão{
-    bottom: 0px;
-  }
 }
-
-@media (max-aspect-ratio: 4.5/5) and (orientation: portrait) {
-  body{
-    background-image: url("../../../imagens/fundo2.png");
-  }
-
-  .card-content {
-    display: flex;
-    align-items: center;
-    gap: 0vh;
-    margin-bottom: 8vh;
-    transform: translateY(-20%);
-    width: 100%;
-  }  
-  .card-content .form{
-    height: 20vh;
-  }
-
-  .card-content .form input {
-    height: 100%;
-    min-height: 0px;
-    max-height: none;
-  }
+@media (max-aspect-ratio: 3/5) and (orientation: portrait){
+  .container {
+  width:  90vw;
+  min-height: 80vh ;
+  padding: 10px;
+}
+.container.Not {
+  min-height: 85vh ;
+}
+  #Login{
+  width: 45%;
+}
+}
+@media (max-height: 600px) and (orientation: landscape){
+  .container {
+  width:  80vw;
+  max-width: 600px;
+}
 }
