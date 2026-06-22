@@ -1,17 +1,99 @@
-from flask import Flask, make_response, jsonify, request
-from terrenos import imoveis
+from flask import Flask, render_template, request
+from flask_sqlalchemy import SQLAlchemy
+from app import db
+from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import datetime
+
+from urllib.parse import quote_plus
+
+
+USER = "root"
+PASSWORD = "Mudar@12345" 
+HOST = "localhost"
+PORT = "3306" 
+DATABASE = "Cadastro"
 
 app = Flask(__name__)
-app.config['JSON_SORT_KEYS']= False
 
-@app.route('/imoveis', methods=['GET'])
-def get_imoveis():
-    return make_response(jsonify(mensagem = "Lista de imóveis", dados=imoveis))
+senha_travada = quote_plus(PASSWORD)
 
-def create_imovel():
-    imovel = request.json
-    imoveis.append(imovel)
-    return make_response(
-        jsonify(mensagem="imóvel cadastrado com sucesso!", imovel=imovel))
+app.config['JSON_SORT_KEYS']=False
+app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql+pymysql://{USER}:{senha_travada}@{HOST}:{PORT}/{DATABASE}"
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-app.run()
+
+db = SQLAlchemy(app)
+
+class Cliente(db.Model):
+    __tablename__ = 'clientes'
+    id = db.Column(db.Integer, primary_key=True)
+    nome = db.Column(db.String(60),nullable=False)
+    email = db.Column(db.String(60), unique=True, nullable=False)
+    cpf = db.Column(db.String(11), unique=True, nullable=False)
+    data = db.Column(db.Date, nullable=False)
+    senha_hash = db.Column(db.String(255), nullable=True) #nullable=True, temporariamente
+
+    def definir(self, senha_monstro):
+        self.senha_hash = generate_password_hash(senha_monstro)
+
+    def verificar(self, senha_pura):
+        return check_password_hash(self.senha_hash, senha_pura)
+    
+@app.route('/', methods=['GET', 'POST'])
+@app.route("/cadastrar-se", methods=['GET', 'POST'])
+@app.route("/cadastro", methods=['GET', 'POST'])
+
+def inicializar():
+    nome_cadastrado = None
+
+    # SÓ tenta ler os dados se o usuário clicou no botão "Criar" (POST)
+    if request.method == 'POST':
+        nome_cadastrado = request.form.get('nome')
+        email = request.form.get('email')
+        senha = request.form.get('senha')
+        cpf = request.form.get('cpf')
+        
+        # Se quiser capturar o nascimento que está no seu HTML:
+        dia = request.form.get('dia')
+        mes = request.form.get('mes')
+        ano = request.form.get('ano')
+
+        try:
+            data_string = f"{ano}-{mes}-{dia}"
+            data_formatada= datetime.strptime(data_string, "%Y-%m-%d").date()
+        except ValueError:
+            return "Erro: data de nascimento inválida", 400
+        
+        try:
+            novo_Cliente = Cliente(
+                nome=nome_cadastrado,
+                email=email,
+                cpf=cpf,
+                data=data_formatada
+            )
+            novo_Cliente.definir(senha)
+            db.session.add(novo_Cliente)
+            db.session.commit()
+
+            print(f"Usúario {nome_cadastrado} com sucesso no MYSQL!")
+
+
+        except Exception as e:
+            db.session.rollback()
+            print(f"Erro ao salvar no banco: {e}")
+            return "Erro ao salvar no banco de dados", 500
+        
+        # Mostra no terminal do VS Code / Prompt
+        #print(f'Resultado nome : {nome_cadastrado}')
+        #print(f'Resultado email: {email}')
+        #print(f'Resultado senha: {senha}')
+        #print(f'Data de Nascimento: {dia}/{mes}/{ano}')
+
+    # Passamos a variável 'nome' para o HTML exibir a mensagem no final, se ela existir
+    return render_template('cadastrar-se.html', nome=nome_cadastrado)
+
+if __name__ == '__main__':
+    with app.app_context():
+        db.create_all()
+
+    app.run(host="localhost", port=5000, debug=True)
