@@ -310,27 +310,27 @@ btnVoltar.addEventListener("click", () => {
   window.addEventListener("load", () => setTimeout(update, 100));
 }
 const novosProdutos = [
-  { id:1, url: "../imagens/ert.jpeg", link: "Painel/Painel.html", area: "250 m²", local: "Picos R. Santos", preco: "210.000" },  
-  { id:2, url: "../imagens/33300d20f8ec0b140b543fbf6d5a7fa4.jpg", link: "Painel/Painel.html", area: "180 m²", local: "Centro", preco: "175.000" },
-  { id:3, url: "../imagens/767267443391f57f2eb6949319d1f0a0.jpg", link: "Painel/Painel.html", area: "320 m²", local: "Bairro Junco", preco: "295.000"},
+  { id:1, url: "../imagens/ert.jpeg", link: "Painel/painel.html", area: "250 m²", local: "Picos R. Santos", preco: "210.000" },  
+  { id:2, url: "../imagens/33300d20f8ec0b140b543fbf6d5a7fa4.jpg", link: "Painel/painel.html", area: "180 m²", local: "Centro", preco: "175.000" },
+  { id:3, url: "../imagens/767267443391f57f2eb6949319d1f0a0.jpg", link: "Painel/painel.html", area: "320 m²", local: "Bairro Junco", preco: "295.000"},
   { id:4, url: "../imagens/2.jpeg", area: "520 m²", local: "Bairro Junco", preco: "495.000" },
   { id:5, url: "../imagens/3.jpeg",area: "-320 m²", local: "Junco Bairro", preco: "95.000" },
   { id:6, url: "../imagens/homem.png", area: "89 kg", local: "corpo", preco: "coxinha" }
 ];
 
 const OutraGaleria = [
-  { id: 7, url: "../imagens/ert.jpeg", link: "Painel/Painel.html", area: "250 m²", local: "Picos R. Santos", preco: "210.000" },  
-  { id: 8,url: "../imagens/33300d20f8ec0b140b543fbf6d5a7fa4.jpg", link: "Painel/Painel.html", area: "180 m²", local: "Centro", preco: "175.000" },
-  { id: 9,url: "../imagens/767267443391f57f2eb6949319d1f0a0.jpg", link: "Painel/Painel.html", area: "320 m²", local: "Bairro Junco", preco: "295.000"},
+  { id: 7, url: "../imagens/ert.jpeg", link: "Painel/painel.html", area: "250 m²", local: "Picos R. Santos", preco: "210.000" },  
+  { id: 8,url: "../imagens/33300d20f8ec0b140b543fbf6d5a7fa4.jpg", link: "Painel/painel.html", area: "180 m²", local: "Centro", preco: "175.000" },
+  { id: 9,url: "../imagens/767267443391f57f2eb6949319d1f0a0.jpg", link: "Painel/painel.html", area: "320 m²", local: "Bairro Junco", preco: "295.000"},
   {id: 10, url: "../imagens/2.jpeg", area: "520 m²", local: "Bairro Junco", preco: "495.000" },
   { id: 11,url: "../imagens/3.jpeg",area: "-320 m²", local: "Junco Bairro", preco: "95.000" },
   { id: 12,url: "../imagens/homem.png", area: "89 kg", local: "corpo", preco: "coxinha" }
 ];
 
 const OutraoutraGaleria = [
-  { id:13,url: "../imagens/ert.jpeg", link: "Painel/Painel.html", area: "250 m²", local: "Picos R. Santos", preco: "210.000" },  
-  { id:14,url: "../imagens/33300d20f8ec0b140b543fbf6d5a7fa4.jpg", link: "Painel/Painel.html", area: "180 m²", local: "Centro", preco: "175.000" },
-  { id:15,url: "../imagens/767267443391f57f2eb6949319d1f0a0.jpg", link: "Painel/Painel.html", area: "320 m²", local: "Bairro Junco", preco: "295.000"},
+  { id:13,url: "../imagens/ert.jpeg", link: "Painel/painel.html", area: "250 m²", local: "Picos R. Santos", preco: "210.000" },  
+  { id:14,url: "../imagens/33300d20f8ec0b140b543fbf6d5a7fa4.jpg", link: "Painel/painel.html", area: "180 m²", local: "Centro", preco: "175.000" },
+  { id:15,url: "../imagens/767267443391f57f2eb6949319d1f0a0.jpg", link: "Painel/painel.html", area: "320 m²", local: "Bairro Junco", preco: "295.000"},
   { id:16,url: "../imagens/2.jpeg", area: "520 m²", local: "Bairro Junco", preco: "495.000" },
   { id:17,url: "../imagens/3.jpeg",area: "-320 m²", local: "Junco Bairro", preco: "95.000" },
   { id:18,url: "../imagens/homem.png", area: "89 kg", local: "corpo", preco: "coxinha" }
