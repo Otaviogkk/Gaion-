@@ -1,0 +1,461 @@
+/* =========================================
+   1. VARIÁVEIS E RESET
+   ========================================= */
+:root {
+    --bg-main: #FFFFFF;
+    --bg-sec: #e9e1db;
+    --text-main: #310000;
+    --text-accent: #531D1A;
+    --card-bg: #fdfbf9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(var(--bg-main), var(--bg-sec));
+    min-height: 100vh;
+    padding: 30px 20px;
+    color: var(--text-main);
+}
+
+/* =========================================
+   3. LAYOUT PRINCIPAL DO FORMULÁRIO
+   ========================================= */
+.form-container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 30px;
+    margin: 0 auto 80px;
+    max-width: 90vw;
+    background: var(--bg-main);
+    border: 2px solid var(--text-main);
+    border-radius: 20px;
+    padding: 35px 30px;
+    box-shadow: 8px 8px 0px var(--bg-sec);
+}
+
+.form-column h2 {
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+    color: var(--text-accent);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 2px solid var(--bg-sec);
+    padding-bottom: 10px;
+}
+
+/* =========================================
+   4. ÁREA DE UPLOAD E PREVIEW
+   ========================================= */
+.upload-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    border: 2px dashed var(--text-main);
+    border-radius: 15px;
+    padding: 40px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-bottom: 20px;
+    position: relative;
+    background: var(--bg-main);
+}
+
+.upload-area:hover, .upload-area.dragover {
+    background: var(--bg-sec);
+    box-shadow: inset 0 0 10px rgba(49, 0, 0, 0.1);
+}
+
+.upload-area .upload-icon {
+    width: 3rem;
+    height: auto;
+    margin-bottom: 10px;
+    color: var(--text-accent);
+}
+.upload-area .upload-icon svg{
+    color: transparent;
+    stroke: var(--text-accent);
+    transition: all 0.25s;
+}
+
+.upload-area:hover .upload-icon svg {
+    fill: var(--text-accent);
+    stroke: var(--bg-main);
+}
+.upload-area p {
+    color: var(--text-accent);
+    font-size: 0.95rem;
+}
+
+.upload-area p span {
+    color: var(--text-main);
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+.upload-area input[type="file"] {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.preview-container {
+    display: none;
+    margin-bottom: 20px;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.preview-container.active {
+    display: flex;
+}
+
+.preview-item {
+    position: relative;
+    width: auto;
+    height: auto;
+    max-width: 400px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid var(--text-main);
+}
+
+.preview-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top
+}
+
+.preview-item .remove-btn {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    background: var(--text-accent);
+    border: 1px solid var(--text-main);
+    color: var(--bg-main);
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+
+.preview-item .remove-btn:hover {
+    transform: scale(1.1);
+}
+
+/* =========================================
+   5. ELEMENTOS DO FORMULÁRIO
+   ========================================= */
+.form-section {
+    margin-bottom: 25px;
+}
+
+.form-section h3 {
+    font-size: 1.1rem;
+    color: var(--text-main);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    flex: 1 1 100%;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    color: var(--text-accent);
+    margin-bottom: 6px;
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 12px 15px;
+    border: 2px solid var(--text-main);
+    border-radius: 10px;
+    background: var(--bg-sec);
+    color: var(--text-main);
+    font-size: 0.95rem;
+    transition: all 0.3s;
+    outline: none;
+    font-family: inherit;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--text-accent);
+    opacity: 0.6;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    background: var(--bg-main);
+    box-shadow: 4px 4px 0px var(--text-main);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* =========================================
+   6. BOTÕES
+   ========================================= */
+.btn-submit {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid var(--text-main);
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    background: var(--text-accent);
+    color: var(--bg-main);
+    transition: all 0.2s;
+    letter-spacing: 0.5px;
+    margin-top: 10px;
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 0px var(--text-accent);
+    background: var(--text-main);
+}
+
+.btn-submit:active {
+    transform: translateY(0);
+}
+
+/* =========================================
+   7. SEÇÃO DE PRODUTOS (CARDS)
+   ========================================= */
+.products-section {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.products-section h2 {
+    text-align: center;
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+    color: var(--text-accent);
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.product-card {
+    background: var(--bg-main);
+    border: 2px solid var(--text-main);
+    border-radius: 18px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    box-shadow: 6px 6px 0px var(--bg-sec);
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 8px 8px 0px var(--text-accent);
+}
+
+.product-card .card-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    background: var(--bg-sec);
+}
+
+.product-card .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+}
+
+.product-card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.price-badge {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background: var(--bg-main);
+    color: var(--text-accent);
+    padding: 6px 14px;
+    border: 2px solid var(--text-main);
+    border-radius: 25px;
+    font-weight: 800;
+    font-size: 1.1rem;
+    box-shadow: 2px 2px 0px var(--text-main);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.terrain-type {
+    display: inline-block;
+    background: var(--bg-sec);
+    border: 2px solid var(--text-main);
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-main);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.card-body .location {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: var(--text-main);
+    margin-bottom: 15px;
+    line-height: 1.4;
+    font-weight: 600;
+}
+
+.dimensions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.dim-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--bg-sec);
+    border: 1px solid var(--text-main);
+    border-radius: 10px;
+    padding: 10px 5px;
+    text-align: center;
+   
+}
+
+.dim-item .dim-label {
+    font-size: 0.65rem;
+    color: var(--text-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+    font-weight: 600;
+    overflow-wrap: break-word;
+}
+
+.dim-item .dim-value {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-main);
+      white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* =========================================
+   8. UTILITÁRIOS (TOAST, EMPTY STATE)
+   ========================================= */
+.toast {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    background: var(--bg-main);
+    color: var(--text-main);
+    border: 2px solid var(--text-main);
+    padding: 15px 25px;
+    border-radius: 12px;
+    font-weight: 600;
+    box-shadow: 4px 4px 0px var(--text-accent);
+    transform: translateX(400px);
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    z-index: 1000;
+}
+
+.toast.show {
+    transform: translateX(0);
+}
+
+.toast.success {
+    background: #d4edda;
+    color: #155724;
+    border-color: #155724;
+    box-shadow: 4px 4px 0px #155724;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-accent);
+    border: 2px dashed var(--bg-sec);
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+.empty-state .empty-icon {
+    font-size: 4rem;
+    margin-bottom: 15px;
+}
+
+/* =========================================
+   9. ANIMAÇÕES E RESPONSIVIDADE
+   ========================================= */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 1300px) and (orientation: portrait) {
+    .form-container {
+        grid-template-columns: 1fr;
+        padding: 25px 18px;
+        box-shadow: 4px 4px 0px var(--bg-sec);
+    }
+    .form-group { min-width: 100%; }
+    .products-grid { grid-template-columns: 1fr; }
+    h1 { font-size: 1.6rem; }
+    .dimensions-grid { grid-template-columns: 1fr; }
+}

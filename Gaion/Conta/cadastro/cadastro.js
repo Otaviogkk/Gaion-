@@ -71,3 +71,25 @@ function validarData() {
     }
   }
 }
+
+// Lógica de CPF e Checkbox Vendedor
+const cpfInput = document.getElementById('cpf');
+if (cpfInput) {
+  cpfInput.setAttribute('maxlength', '14');
+  cpfInput.addEventListener('input', (e) => {
+    let valor = e.target.value.replace(/\D/g, "");
+    valor = valor.slice(0, 11);
+    valor = valor.replace(/^(\d{3})(\d)/, "$1.$2");
+    valor = valor.replace(/^(\d{3})\.(\d{3})(\d)/, "$1.$2.$3");
+    valor = valor.replace(/(\d{3})(\d{2})$/, "$1-$2");
+    e.target.value = valor;
+  });
+}
+
+const checkbox = document.getElementById("caixinha");
+if (checkbox) {
+  checkbox.addEventListener('change', function() {
+    const elements = document.querySelectorAll('.Vendedor, .Conteiner');
+    elements.forEach(el => el.classList.toggle('Not'));
+  });
+}

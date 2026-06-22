@@ -342,18 +342,18 @@ criarCarrossel(".track3", OutraoutraGaleria,"duas3","uno3")
 requestAnimationFrame(() => update(false));
 
 const Galeria = [
-  { id: 19, url: "../imagens/ert.jpeg", area: "250 m²", local: "Picos R. Santos", preco: "210.000" },
-  { id: 20, url: "../imagens/33300d20f8ec0b140b543fbf6d5a7fa4.jpg", area: "180 m²", local: "Centro", preco: "175.000" },
-  { id: 21, url: "../imagens/767267443391f57f2eb6949319d1f0a0.jpg", area: "320 m²", local: "Bairro Junco", preco: "295.000" },
-  { id: 22, url: "../imagens/2.jpeg", area: "520 m²", local: "Bairro Junco", preco: "495.000" },
-  { id: 23, url: "../imagens/3.jpeg", area: "320 m²", local: "Junco Bairro", preco: "95.000" },
-  { id: 24, url: "../imagens/ert.jpeg", area: "250 m²", local: "Picos R. Santos", preco: "210.000" },
-  { id: 25, url: "../imagens/33300d20f8ec0b140b543fbf6d5a7fa4.jpg", area: "180 m²", local: "Centro", preco: "175.000" },
-  { id: 26, url: "../imagens/2.jpeg", area: "520 m²", local: "Bairro Junco", preco: "495.000" },
-  { id: 27, url: "../imagens/3.jpeg", area: "320 m²", local: "Junco Bairro", preco: "95.000" },
-  { id: 28, url: "../imagens/767267443391f57f2eb6949319d1f0a0.jpg", area: "320 m²", local: "Bairro Junco", preco: "295.000" },
-  { id: 29, url: "../imagens/33300d20f8ec0b140b543fbf6d5a7fa4.jpg", area: "320 m²", local: "Junco Bairro", preco: "95.000" },
-  { id: 30, url: "../imagens/ert.jpeg", area: "250 m²", local: "Picos R. Santos", preco: "210.000" },
+  { id: 19, url: "../imagens/ert.jpeg", area: "250 m²", local: "Picos R. Santos", preco: "210.000", frente: "10", profundidade: "25", tipo: "Urbano" },
+  { id: 20, url: "../imagens/33300d20f8ec0b140b543fbf6d5a7fa4.jpg", area: "180 m²", local: "Centro", preco: "175.000", frente: "12", profundidade: "15", tipo: "Urbano" },
+  { id: 21, url: "../imagens/767267443391f57f2eb6949319d1f0a0.jpg", area: "320 m²", local: "Bairro Junco", preco: "295.000", frente: "16", profundidade: "20", tipo: "Rural" },
+  { id: 22, url: "../imagens/2.jpeg", area: "520 m²", local: "Bairro Junco", preco: "495.000", frente: "20", profundidade: "26", tipo: "Rural" },
+  { id: 23, url: "../imagens/3.jpeg", area: "320 m²", local: "Junco Bairro", preco: "95.000", frente: "32", profundidade: "10", tipo: "Rural" },
+  { id: 24, url: "../imagens/ert.jpeg", area: "250 m²", local: "Picos R. Santos", preco: "210.000", frente: "12.5", profundidade: "20", tipo: "Urbano" },
+  { id: 25, url: "../imagens/33300d20f8ec0b140b543fbf6d5a7fa4.jpg", area: "180 m²", local: "Centro", preco: "175.000", frente: "9", profundidade: "20", tipo: "Urbano" },
+  { id: 26, url: "../imagens/2.jpeg", area: "520 m²", local: "Bairro Junco", preco: "495.000", frente: "26", profundidade: "20", tipo: "Rural" },
+  { id: 27, url: "../imagens/3.jpeg", area: "320 m²", local: "Junco Bairro", preco: "95.000", frente: "16", profundidade: "20", tipo: "Rural" },
+  { id: 28, url: "../imagens/767267443391f57f2eb6949319d1f0a0.jpg", area: "320 m²", local: "Bairro Junco", preco: "295.000", frente: "20", profundidade: "16", tipo: "Rural" },
+  { id: 29, url: "../imagens/33300d20f8ec0b140b543fbf6d5a7fa4.jpg", area: "250 m²", local: "Picos R. Santos", preco: "210.000", frente: "10", profundidade: "25", tipo: "Urbano" },
+  { id: 30, url: "../imagens/ert.jpeg", area: "180 m²", local: "Centro", preco: "175.000", frente: "15", profundidade: "12", tipo: "Urbano" },
 ];
 
 const tota = document.querySelector(".total");
@@ -361,38 +361,59 @@ const tota = document.querySelector(".total");
 Galeria.forEach(item => {
   const itema = document.createElement("div");
   itema.classList.add("itema");
-  itema.dataset.produtoId = item.id; // também adiciona ID
+  itema.dataset.produtoId = item.id;
 
-  const img = document.createElement("img");
-  img.src = item.url;
-  img.alt = "Imóvel";
-  img.loading = "lazy";
-  itema.appendChild(img);
+  itema.innerHTML = `
+      <div class="card-image">
+          <img src="${item.url}" alt="Terreno" loading="lazy">
+          <span class="price-badge">R$ ${item.preco}</span>
+      </div>
 
-  const info = document.createElement("div");
-  info.classList.add("info3");
-  info.innerHTML = `
-      <div class="info3A">
-        <strong>Terreno disponível com área total de ${item.area}, situado no ${item.local}</strong><br>
+      <div class="card-body">
+          <span class="terrain-type">${item.tipo}</span>
+
+          <div class="location">
+              📍 ${item.local}
+          </div>
+
+          <div class="dimensions-grid">
+
+              <div class="dim-item">
+                  <div class="dim-label">Frente</div>
+                  <div class="dim-value">
+                      ${item.frente}
+                      <span class="dim-unit">m</span>
+                  </div>
+              </div>
+
+              <div class="dim-item">
+                  <div class="dim-label">Profund.</div>
+                  <div class="dim-value">
+                      ${item.profundidade}
+                      <span class="dim-unit">m</span>
+                  </div>
+              </div>
+
+              <div class="dim-item">
+                  <div class="dim-label">Área</div>
+                  <div class="dim-value">
+                      ${item.area}
+                  </div>
+              </div>
+
+          </div>
+          
+          <button class="btnConsulte">Consulte</button>
       </div>
-      <div class="info3C">
-        <strong class="preco">R$ ${item.preco}</strong>
-        <button class="btnConsulte">Consulte</button>
-      </div>
-    </div>
   `;
-  itema.appendChild(info);
-const btnConsulte = info.querySelector(".btnConsulte");
 
-btnConsulte.addEventListener("click", function (e) {
-  e.stopPropagation(); 
-
-  const id = itema.dataset.produtoId;
-  const url = new URL("compra/compra.html", window.location.href);
-  url.searchParams.set("id", id);
-  window.location.href = url.toString();
-});
- 
+  // Navegar ao clicar em qualquer parte do card ou no botão
+  itema.addEventListener("click", function () {
+    const id = this.dataset.produtoId;
+    const url = new URL("compra/compra.html", window.location.href);
+    url.searchParams.set("id", id);
+    window.location.href = url.toString();
+  });
 
   tota.appendChild(itema);
 });

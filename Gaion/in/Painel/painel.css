@@ -160,7 +160,7 @@ main{
 
 main{
  padding-top: 0px;
- padding-bottom: 4rem;
+ padding-bottom: 5rem;
 } 
 .barra-buscar{
   display: inline;
@@ -191,10 +191,27 @@ main{
   background: #fff;
 }
 
-.periodo{
-  max-width: none;
-  height: 30px;
-
+}
+.btn-terrenos {
+    width: auto;
+    padding: 10px 25px;
+    border: 2px solid #310000;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    background: #531D1A;
+    color: #FFFFFF;
+    transition: all 0.2s;
+    letter-spacing: 0.5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    box-sizing: border-box;
 }
 
+.btn-terrenos:hover {
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 0px #310000;
+    background: #310000;
 }

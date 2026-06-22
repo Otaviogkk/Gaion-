@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro</title>
+  <link rel="stylesheet" href="cadastro.css">
+  <link rel="stylesheet" href="../../Universal/global.css">
+</head>
+<body>
+  <div class="container">
+    <div class="card-content">
+      <div class="BoaVindas">
+        <svg id="Incone" viewBox="0 0 88 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <mask id="path-1-inside-1_99_3" fill="white">
+                <path d="M61.6279 59.999H9.23047L14.2656 50.7686H50.7686L73.4268 9.22949H87.6914L61.6279 59.999ZM73.4268 9.22949H36.9229L14.2656 50.7686H0L27.6924 0H78.4609L73.4268 9.22949Z"/>
+              </mask>
+              <path d="M61.6279 59.999H9.23047L14.2656 50.7686H50.7686L73.4268 9.22949H87.6914L61.6279 59.999ZM73.4268 9.22949H36.9229L14.2656 50.7686H0L27.6924 0H78.4609L73.4268 9.22949Z" fill="currentColor"/>
+              <path d="M52.2681 23.5762L45.8442 36.4229H33.1157L39.5396 23.5762H52.2681Z" fill="currentColor" stroke="currentColor"/>
+        </svg><br>
+        <span>Faça seu cadastro</span>
+      </div>
+      <div class="requirimento">  
+        <form action="">
+          <div class="pri">
+            <div class="collumn">
+            <label for="name">Nome</label>
+            <input type="text" placeholder="Digite seu Nome">
+            </div>
+          <div class="collumn">
+          <label for="e-mail"> E-mail</label>
+          <input type="email" placeholder="Digite seu E-mail">
+          </div>
+        </div>
+          <div class="adicionais">
+            <div class="collumn">
+              <label for="password">Senha</label>
+              <input type="password" id="senha" placeholder="Digite sua Senha">
+            </div>
+          <div class="collumn">
+            <label for="data-nascimento">Data de nascimento</label>
+            <div class="data-input-container">
+              <input type="text" class="data-field" id="dia" maxlength="2">
+              <span class="separator">/</span>
+              <input type="text" class="data-field" id="mes" maxlength="2">
+              <span class="separator">/</span>
+              <input type="text" class="data-field" id="ano" maxlength="4">
+          </div>
+            </div>
+          </div>
+          
+          <div class="Vendedor Not">
+            <div class="adicionais">
+              <div class="collumn">
+                <label for="cpf">CPF</label>
+                <input type="text" id="cpf" name="CPF" placeholder="000.000.000-00">
+              </div>
+              <div class="collumn">
+                <label for="ID">Seu ID de empresa</label>
+                <input type="password" id="ID" placeholder="Digite seu ID">
+              </div>
+            </div>
+          </div>
+
+          <div class="checkbox-wrapper">
+            <input id="caixinha" type="checkbox" class="checkbox-custom">
+            <label for="caixinha" class="checkbox-label">Vendedor</label>
+          </div>
+
+          <div class="botão">
+            <input type="submit" id="cadastro" value="Criar" class="botao">
+          </div>
+        </form>
+      </div>
+      <div class="incone-gaion">
+        <svg viewBox="0 0 69 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M48.3066 54.7617H7.23535L11.1816 46.3369H39.7949L57.5547 8.4248H68.7354L48.3066 54.7617ZM57.5547 8.4248H28.9414L11.1816 46.3369H0L21.7061 0H61.501L57.5547 8.4248Z" fill="#310000"/>
+          <path d="M30.7503 21.0615H41.6033L36.1768 33.6989H25.3237L30.7503 21.0615Z" fill="#310000"/>
+        </svg> 
+        <span>Gaion</span>
+      </div>
+    </div>
+  </div>
+  <script src="cadastro.js"></script>
+</body>
+</html>

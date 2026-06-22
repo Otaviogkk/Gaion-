@@ -1,0 +1,80 @@
+/* === Fontes Globais === */
+@font-face {
+  font-family: "Chakra Petch";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: 
+    url("../fonts/chakra-petch/chakra-petch-latin-400-normal.woff2") format("woff2"),
+    url("../fonts/chakra-petch/chakra-petch-latin-400-normal.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Chakra Petch5";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: 
+    url("../fonts/chakra-petch/chakra-petch-latin-500-normal.woff2") format("woff2"),
+    url("../fonts/chakra-petch/chakra-petch-latin-500-normal.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Kantumruy-pro";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/kantumruy-pro/kantumruy-pro-khmer-400-normal.woff2") format("woff2"),
+       url("../fonts/kantumruy-pro/kantumruy-pro-khmer-400-normal.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Kantumruy-pro5";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: 
+    url("../fonts/kantumruy-pro/kantumruy-pro-khmer-500-normal.woff2") format("woff2"),
+    url("../fonts/kantumruy-pro/kantumruy-pro-khmer-500-normal.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Kantumruy-pro";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: 
+    url("../fonts/kantumruy-pro/kantumruy-pro-khmer-600-normal.woff2") format("woff2"),
+    url("../fonts/kantumruy-pro/kantumruy-pro-khmer-600-normal.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Kantumruy-pro";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: 
+    url("../fonts/kantumruy-pro/kantumruy-pro-khmer-700-normal.woff2") format("woff2"),
+    url("../fonts/kantumruy-pro/kantumruy-pro-khmer-700-normal.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Kantumruy-pro7";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: 
+    url("../fonts/kantumruy-pro/kantumruy-pro-khmer-700-normal.woff2") format("woff2"),
+    url("../fonts/kantumruy-pro/kantumruy-pro-khmer-700-normal.woff") format("woff");
+}
+
+/* === Reset e Base Globais === */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Kantumruy-pro", Arial, sans-serif;
+}

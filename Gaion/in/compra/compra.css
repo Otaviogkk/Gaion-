@@ -1,240 +1,453 @@
-@font-face {
-  font-family: "Chakra Petch";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: 
-    url("../../fonts/chakra-petch/chakra-petch-latin-400-normal.woff2") format("woff2"),
-    url("../../fonts/chakra-petch/chakra-petch-latin-400-normal.woff") format("woff");
-}
-@font-face {
-  font-family: "Chakra Petch5";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: 
-    url("../../fonts/chakra-petch/chakra-petch-latin-500-normal.woff2") format("woff2"),
-    url("../../fonts/chakra-petch/chakra-petch-latin-500-normal.woff") format("woff");
-}
-@font-face {
-  font-family: "Kantumruy-pro";
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: 
-    url("../../fonts/kantumruy-pro/kantumruy-pro-khmer-600-normal.woff2") format("woff2"),
-    url("../../fonts/kantumruy-pro/kantumruy-pro-khmer-600-normal.woff") format("woff");
-}
-@font-face {
-  font-family: "Kantumruy-pro5";
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: 
-    url("../../fonts/kantumruy-pro/kantumruy-pro-khmer-500-normal.woff2") format("woff2"),
-    url("../../fonts/kantumruy-pro/kantumruy-pro-khmer-500-normal.woff") format("woff");
-}
-@font-face {
-  font-family: "Kantumruy-pro7";
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: 
-    url("../../fonts/kantumruy-pro/kantumruy-pro-khmer-700-normal.woff2") format("woff2"),
-    url("../../fonts/kantumruy-pro/kantumruy-pro-khmer-700-normal.woff") format("woff");
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-.container{
-    margin:0;
-    font-family: Arial, sans-serif;
-    background:#f5f5f5;
-    display:flex;
-    justify-content:center;
-    padding:20px;
-    flex-direction: column;
-    box-sizing: border-box;
-    padding-bottom: 3em;
-    gap: 10px;
-  }
+/* =========================================
+   1. LAYOUT PRINCIPAL (PC BASE)
+   ========================================= */
+ .content{
+  padding-top: 20px;
+  padding-bottom: 15px;
+ }
 
+  .container {
+  margin:  auto;
+  max-width: 90vw;
+  font-family: Arial, sans-serif;
+  background: #fdfbf9;
+  border: 2px solid #310000;
+  border-radius: 20px;
+  padding: 35px 30px;
+  box-shadow: 8px 8px 0px #e9e1db;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  gap: 15px;
+}
 
- .vol {
+.header-section {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid #e9e1db;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.form-container {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 30px;
+}
+
+.form-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.vol {
   display: inline-block;
   width: fit-content;
   height: fit-content;
 }
  
- h2{
-    margin:0 0 5px 0;
-    font-size:23px;
-    font-family: "Kantumruy-pro",Georgia, serif;
-    color: #531D1A;
-  }
- .local{
+h2 {
+  margin: 10px 0 5px 0;
+  font-size: 28px;
+  font-family: "Kantumruy-pro", Georgia, serif;
+  color: #531D1A;
+}
+
+.local {
   display: flex;
   align-items: center;
-  font-size: max(0.9em,13px) ;
+  font-size: 15px;
   font-family: "Chakra Petch", Georgia, serif;
   gap: 8px;
   color: #531D1A;
   margin-bottom: 10px;
- }
-  .local1{
-   display: flex;
-   flex-direction: column;
-   gap: 0px;
-  }
- .local1 > * {
+}
+
+.local1 {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+
+.local1 > * {
   margin: 0;
   padding: 0;
   line-height: 1.1;
 }
- .local2{
-  font-family: "Kantumruy-pro5",Georgia,serif;
-  font-size: 17px;
- } 
- .campo1{
+
+.local2 {
+  font-family: "Kantumruy-pro5", Georgia, serif;
+  font-size: 18px;
+} 
+
+.campo1 {
   display: flex;
   gap: 0px;
   flex-direction: column;
- }
+}
 
- .figure{
+.figure {
   width: 100%;
-  max-width: 314px;
-  height: 178px;    
+  max-width: none;
+  height: 350px;
   margin: 0px auto;     
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 12px;
   border: 1px solid black;
   margin-bottom: 20px;
- }
-  .foto{
-    width:100%;
-    height: 100%;
-    border-radius:7px;
-    object-fit:cover;
-    
-  }
+}
 
-  .extras{
-    font-size:22px;
-    margin-left: 20px;
-  }
+.foto {
+  width: 100%;
+  height: 100%;
+  border-radius: 7px;
+  object-fit: cover;
+}
 
-  .linha{
-    width:100%;
-    height:0.5px;
-    background:#A0776F;
-  }
- .campo2{
-  margin-bottom: 20px ;
+.extras {
+  font-size: 22px;
+  margin-left: 20px;
+}
+
+.linha {
+  width: 100%;
+  height: 0.5px;
+  background: #A0776F;
+  margin-top: 15px;
+}
+
+.campo2 {
+  margin-bottom: 20px;
   display: grid;
-  gap: 10px;
+  gap: 15px;
   grid-template-columns: 1fr 1fr;
   font-family: "Chakra Petch5", Georgia, serif;
- }
-  .grid{
-  display: grid;
-  grid-template-columns:1fr;
-  gap: 16px;
-  }
+}
 
-  .campo{
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.campo {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 
-  .campo span{
-    font-size:18px;
-  }
-.aparecia2,
-  .aparecia{ 
+.campo span {
+  font-size: 18px;
+}
+
+.aparecia,
+.aparecia2 {
   display: flex;
   align-items: center;
+  justify-content: center;
+  text-align: center;
   border: 2px solid #7a2d2d;
   border-radius: 14px;
   height: 48px;
   gap: 1px;
   font-size: 16px;
 }
-  
- .aparecia span:first-child {
+.aparecia span:first-child {
   flex: 1;
-  padding-left: 16px;
   font-size: 20px;
   color: #7a2d2d;
 } 
 
-
 /* separador */
 .divisor {
   width: 1px;
-  height: 100%;              /* 🔥 ocupa toda a altura */
+  height: 100%;
   background: #7a2d2d;
 }
 
 /* unidade — o ponto-chave */
 .unidade {
-  width: 80px;
+  width: 120px;
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* padrão */
+  justify-content: center;
   font-size: 18px;
   color: #7a2d2d;
 }
-.unidade.mester {
-  justify-content: center;   /* 🔥 empurra pra direita */
 
-}
- .aparecia2{
+.aparecia2 {
   background-color: #C0A49C;
   border: 1px solid #310000;
   color: #531D1A;
- }
- .infoma{
-   display: flex;
-   flex-direction: column;
-   gap: 25px;
- }
- .aparecia3 {
+}
+
+.infoma {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.aparecia3 {
   margin-top: 5px;
   margin-bottom: 5px;
   color: #A0776F;
-  
- }
- .aparecia3 span{
+}
+
+.aparecia3 span {
   font-size: 23px;
- } 
-  .preco{
-    font-size:26px;
-    margin-top:20px;
-    font-family: "Kantumruy-pro7",Georgia, serif;
-    color: #531D1A;
+} 
+
+.preco {
+  font-size: 32px;
+  margin-top: 20px;
+  font-family: "Kantumruy-pro7", Georgia, serif;
+  color: #531D1A;
+}
+
+.botao {
+  margin-top: 20px;
+  width: 100%;
+  background: #531D1A;
+  background: linear-gradient(270deg, rgba(83, 29, 26, 1) 0%, rgba(49, 0, 0, 1) 100%);
+  color: white;
+  font-size: 22px;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.botao:hover {
+  transform: translateY(-2px);
+  box-shadow: 4px 4px 0px #310000;
+  opacity: 0.9;
+}
+
+#tipo {
+  margin-left: 10%;
+  font-size: 18px;
+}
+
+/* =========================================
+   NOVAS SEÇÕES PREMIUM
+   ========================================= */
+.column-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.premium-card {
+  background: #fdfbf9;
+  border: 1px solid #C0A49C;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 2px 2px 0px #e9e1db;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.card-title {
+  margin: 0;
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 20px;
+  color: #531D1A;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid #e9e1db;
+  padding-bottom: 8px;
+}
+
+.details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  font-size: 17px;
+}
+
+.detail-label {
+  color: #7a2d2d;
+  font-weight: bold;
+}
+
+.detail-value {
+  color: #310000;
+  font-weight: 500;
+  text-align: right;
+  max-width: 60%;
+  word-wrap: break-word;
+}
+
+.destaque-tipo {
+  background: #C0A49C;
+  color: #531D1A;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  border: 1px solid #7a2d2d;
+}
+
+.obs-card {
+  background: #fffafa;
+  border-left: 5px solid #531D1A;
+}
+
+.obs-text {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #310000;
+  font-style: italic;
+}
+
+.contact-card {
+  background: #fdfbf9;
+  border: 2px solid #531D1A;
+  box-shadow: 4px 4px 0px #C0A49C;
+  gap: 20px;
+}
+
+.seller-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.highlight-value {
+  font-size: 19px;
+  color: #531D1A;
+  font-weight: bold;
+}
+
+.linha-separadora {
+  width: 100%;
+  height: 1px;
+  background: #C0A49C;
+}
+
+.preco-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+/* =========================================
+   2. LAYOUT MOBILE (SUBSTITUIÇÃO)
+   ========================================= */
+@media (max-width: 1024px) and (orientation: portrait) {
+  .container {
+    margin: auto;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 20px;
+    padding-bottom: 3em;
+    gap: 10px;
+  }
+  
+  .form-container {
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
 
-  .botao{
-    margin-top:20px;
-    width:100%;
-    background: #531D1A;
-    background: linear-gradient(270deg, rgba(83, 29, 26, 1) 0%, rgba(49, 0, 0, 1) 100%);
-    color:white;
-    font-size:20px;
-    padding:15px;
-    border:none;
-    border-radius:10px;
-    cursor:pointer;
-   
+  .header-section {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
   }
 
-  .botao:hover{
-    opacity:0.8;
+  h2 {
+    font-size: 23px;
+    margin: 0 0 5px 0;
   }
-  #tipo{
-    margin-left: 10%;
-    font-size: 18px;
+
+  .local {
+    font-size: max(0.9em, 13px);
   }
+  .local2 {
+    font-size: 17px;
+  }
+
+  .figure {
+    max-width: 70vw;
+    height: 30vw;
+  }
+
+  .preco {
+    font-size: 26px;
+  }
+
+  .botao {
+    font-size: 20px;
+  }
+  .campo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+  .figure {
+    max-width: 70vw;
+    height: 45vw;
+  }
+  .campo span {
+  font-size: 83%;
+}
+  .aparecia,
+.aparecia2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 2px solid #7a2d2d;
+  border-radius: 14px;
+  height: 8vw;
+  gap: 1px;
+}
+.aparecia span:first-child {
+  flex: 1;
+  font-size: 100%;
+  color: #7a2d2d;
+} 
+
+/* separador */
+.divisor {
+  width: 1px;
+  height: 100%;
+  background: #7a2d2d;
+}
+
+/* unidade — o ponto-chave */
+.unidade {
+  width: 66%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #7a2d2d;
+}
+}
+

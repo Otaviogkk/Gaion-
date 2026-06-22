@@ -1,25 +1,14 @@
-@font-face {
-  font-family: "Chakra Petch";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: 
-    url("../fonts/chakra-petch/chakra-petch-latin-400-normal.woff2") format("woff2"),
-    url("../fonts/chakra-petch/chakra-petch-latin-400-normal.woff") format("woff");
-}
-@font-face {
-  font-family: "Kantumruy-pro";
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: 
-    url("../fonts/kantumruy-pro/kantumruy-pro-khmer-700-normal.woff2") format("woff2"),
-    url("../fonts/kantumruy-pro/kantumruy-pro-khmer-700-normal.woff") format("woff");
-}
 
+:root {
+    --bg-main: #FFFFFF;
+    --bg-sec: #e9e1db;
+    --text-main: #310000;
+    --text-accent: #531D1A;
+    --card-bg: #fdfbf9;
+}
 
 body{
-  background: #f6f0f0;
+  background-color: rgba(216, 195, 181, 0.4);
   background-image: url("../imagens/fundo.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -236,7 +225,7 @@ main{
 .total{
   display: grid;
   width: 93vw;
-  grid-template-columns: 1fr 1fr 1fr 1fr ;
+  grid-template-columns: 1fr 1fr 1fr ;
   margin: 0 auto;
   justify-items: center;
   align-items: start;
@@ -245,84 +234,145 @@ main{
  
 }
 
-.itema{
- display: flex;
- flex-direction: column;
- align-items: center;
- padding: 0.6vw;
- gap: 10px;
- box-shadow: 0 12px 11px rgba(0, 0, 0, 0.60);
- border-radius: 8px;
- background: rgba(255, 255, 255, 0.8);
- transition: opacity 5s ease;
- height: 100%;
- min-height: 38.75vh;
- box-sizing: border-box;
+.itema {
+    background: var(--bg-main);
+    border: 2px solid var(--text-main);
+    border-radius: 18px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 6px 6px 0px var(--bg-sec);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    cursor: pointer;
+    box-sizing: border-box;
 }
 
-
-.itema img{
-  width: 100%;
-  height: 100%;
-  min-width: 20vw;
-  max-width: 19vw;
-  max-height: 25vh;
-  object-fit: cover;
-  border-radius: 6px;
-  box-sizing: border-box;
-}
-.itema svg{
-  object-fit: cover;
-  border-radius: 8px;
-  
-}
-.info3{
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  gap: 5px;
-  box-sizing: border-box;
-  
-}
-.info3A {
-  display: flex;
-  align-items: center;
-  font-size: 16px;
-  font-weight: 100;
-  text-align: justify;
-  margin-bottom: 10px;
-  margin-left: 5px;
-  font-family: "chakra-petch";
-  color: rgb(85, 86, 86);
+.itema:hover {
+    transform: translateY(-5px);
+    box-shadow: 8px 8px 0px var(--text-accent);
 }
 
+.itema .card-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    background: var(--bg-sec);
+}
 
-.info3C{
-  display: flex;
-  flex-direction: column;
-  font-size: 25px;
-  font-weight: 700;
-  margin-right: 0px;
-  margin-top: auto;
-  font-family: "kantumruy-pro", Georgia, serif;
-  gap: 10px;
-  color: #3a1a12;
-  border-top: solid 1px #A0776f;
+.itema .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
 }
-.btnConsulte{
-  background: #531D1A;
-  background: linear-gradient(270deg, rgba(83, 29, 26, 1) 0%, rgba(49, 0, 0, 1) 100%);
-  color: #fff;
-  border-radius: 7px;
-  border: none;
-  height: auto;
-  min-height: 38px;
-  font-size: 20px;
-  font-family: "Chakra Petch",Georgia,serif;
-  cursor: pointer;
-  transition: transform 0.2s ease;
+
+.itema:hover .card-image img {
+    transform: scale(1.05);
 }
-.btnConsulte:hover{
+
+.itema .price-badge {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background: var(--bg-main);
+    color: var(--text-accent);
+    padding: 6px 14px;
+    border: 2px solid var(--text-main);
+    border-radius: 25px;
+    font-weight: 800;
+    font-size: 1.1rem;
+    box-shadow: 2px 2px 0px var(--text-main);
+}
+
+.itema .card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.itema .terrain-type {
+    display: inline-block;
+    align-self: flex-start;
+    background: var(--bg-sec);
+    border: 2px solid var(--text-main);
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-main);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.itema .location {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: var(--text-main);
+    margin-bottom: 15px;
+    line-height: 1.4;
+    font-weight: 600;
+    text-align: left;
+}
+
+.itema .dimensions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.itema .dim-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--bg-sec);
+    border: 1px solid var(--text-main);
+    border-radius: 10px;
+    padding: 10px 5px;
+    text-align: center;
+}
+
+.itema .dim-item .dim-label {
+    font-size: 0.65rem;
+    color: var(--text-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+    font-weight: 600;
+    overflow-wrap: break-word;
+}
+
+.itema .dim-item .dim-value {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-main);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.itema .btnConsulte {
+    background: #531D1A;
+    background: linear-gradient(270deg, rgba(83, 29, 26, 1) 0%, rgba(49, 0, 0, 1) 100%);
+    color: #fff;
+    border-radius: 7px;
+    border: none;
+    height: auto;
+    min-height: 38px;
+    font-size: 20px;
+    font-family: "Chakra Petch", Georgia, serif;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    width: 100%;
+    margin-top: auto;
+}
+
+.itema .btnConsulte:hover {
     transform: scale(1.02);
     background: linear-gradient(90deg, rgba(83, 29, 26, 1) 0%, rgba(49, 0, 0, 1) 100%);
 }
@@ -349,8 +399,8 @@ main{
   gap: 30px;
 }
 .itema{
-  width: 80vw;
-  height: 30vh;
+  width: 85vw;
+  height: auto;
 }
 .itema img{
  min-width: none;
@@ -407,7 +457,7 @@ main{
   gap: 30px;
 }
 .itema{
-  width: 80vw;
+  width: 85vw;
   height: auto;
 }
 .itema img{
@@ -451,7 +501,7 @@ main{
   gap: 30px;
 }
 .itema{
-  width: 40vw;
+  width: 45vw;
   height: auto;
 }
 .itema img{

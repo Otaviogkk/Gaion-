@@ -1,25 +1,5 @@
 /* está locariçao nesta aquivos, barra larterais e e barra de pesquisar 
 /* aquir começar barra lateraral */
-@font-face {
-  font-family: "Kantumruy-pro";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("../fonts/kantumruy-pro/kantumruy-pro-khmer-400-normal.woff2") format("woff2");
-  src: url("../fonts/kantumruy-pro/kantumruy-pro-khmer-400-normal.woff") format("woff");
-}
-@font-face {
-  font-family: "Chakra Petch";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: 
-    url("../fonts/chakra-petch/chakra-petch-latin-400-normal.woff2") format("woff2"),
-    url("../fonts/chakra-petch/chakra-petch-latin-400-normal.woff") format("woff");
-}
-body{
-  margin: 0;
-}
 .sidebar{
   display: flex;
   position: fixed;

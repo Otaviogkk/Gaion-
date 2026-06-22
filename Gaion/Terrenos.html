@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Terrenos</title>
+    <!-- Link para o arquivo CSS separado -->
+    <link rel="stylesheet" href="r.css">
+</head>
+<body>
+    <!-- Notificação Toast -->
+    <div id="toast" class="toast">Terreno cadastrado com sucesso!</div>
+    <form id="terrainForm">
+        <div class="form-container">
+            
+            <!-- COLUNA 1: FOTOS -->
+            <div class="form-column">
+                <h2><svg xmlns="http://www.w3.org/2000/svg" width="26" height="27" fill="none" viewBox="0 0 27 27"><path stroke="#531d1a" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.142" d="M6.75 6.86a2.566 2.566 0 0 1-1.823 1.172q-.633.087-1.26.194c-1.17.194-2.001 1.224-2.001 2.409v9.359a2.5 2.5 0 0 0 2.5 2.499h16.66a2.5 2.5 0 0 0 2.499-2.5v-9.358c0-1.185-.833-2.215-2.002-2.41a53 53 0 0 0-1.26-.194 2.57 2.57 0 0 1-1.82-1.172l-.914-1.461a2.43 2.43 0 0 0-1.928-1.154 54 54 0 0 0-5.811 0 2.43 2.43 0 0 0-1.928 1.154z"/><path stroke="#531d1a" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.142" d="M17.494 14.162a4.998 4.998 0 1 1-9.996 0 4.998 4.998 0 0 1 9.996 0m2.499-2.499h.009v.009h-.01z"/></svg> Fotos do Terreno</h2>
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 27 27"><path stroke="#531d1a"stroke-linecap="round" stroke-linejoin="round" stroke-width="1.142" d="M6.75 6.86a2.566 2.566 0 0 1-1.823 1.172q-.633.087-1.26.194c-1.17.194-2.001 1.224-2.001 2.409v9.359a2.5 2.5 0 0 0 2.5 2.499h16.66a2.5 2.5 0 0 0 2.499-2.5v-9.358c0-1.185-.833-2.215-2.002-2.41a53 53 0 0 0-1.26-.194 2.57 2.57 0 0 1-1.82-1.172l-.914-1.461a2.43 2.43 0 0 0-1.928-1.154 54 54 0 0 0-5.811 0 2.43 2.43 0 0 0-1.928 1.154z"/><path stroke="" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.142" d="M17.494 14.162a4.998 4.998 0 1 1-9.996 0 4.998 4.998 0 0 1 9.996 0m2.499-2.499h.009v.009h-.01z"/></svg></div>
+                    <p>Arraste imagens aqui ou <span>clique para selecionar</span></p>
+                    <p style="font-size:0.78rem; color:var(--text-accent); margin-top:5px;">JPG, PNG — máx. 5MB cada</p>
+                    <input type="file" id="fileInput" accept="image/*" multiple required>
+                </div>
+                <div class="preview-container" id="previewContainer"></div>
+            </div>
+
+            <!-- COLUNA 2: DADOS DO TERRENO -->
+            <div class="form-column">
+                <h2>Detalhes do Imóvel</h2>
+                
+                <div class="form-section">
+                    <h3>Valor e Categoria</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Preço Total (R$)</label>
+                            <input type="text" id="price" placeholder="ex: 250.000,00" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Tipo de Terreno</label>
+                            <select id="terrainType" required>
+                                <option value="">Selecione...</option>
+                                <option value="Urbano">Urbano</option>
+                                <option value="Rural">Rural</option>
+                                <option value="Comercial">Comercial</option>
+                                <option value="Residencial">Residencial</option>
+                                <option value="Industrial">Industrial</option>
+                                <option value="Misto">Misto</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Localização</h3>
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <label>Endereço Completo</label>
+                            <textarea id="address" placeholder="Rua, número, bairro, cidade - UF" required></textarea>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Bairro</label>
+                            <input type="text" id="neighborhood" placeholder="ex: Centro" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Cidade</label>
+                            <input type="text" id="city" placeholder="ex: São Paulo" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Referência</label>
+                            <input type="text" id="reference" placeholder="Ponto de referência">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Dimensões e Área</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Comprimento (m)</label>
+                            <input type="number" id="front" step="0.01" min="0" placeholder="ex: 10.00" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Largura (m)</label>
+                            <input type="number" id="depth" step="0.01" min="0" placeholder="ex: 25.00" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Área Total (m²)</label>
+                            <input type="text" id="area" placeholder="Calculado auto." readonly style="opacity:0.7; cursor:not-allowed; background: var(--bg-sec);">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label> Topografia</label>
+                            <select id="topography">
+                                <option value="Plano">Plano</option>
+                                <option value="Aclive">Aclive (subida)</option>
+                                <option value="Declive">Declive (descida)</option>
+                                <option value="Misto">Misto</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Testada (m)</label>
+                            <input type="number" id="frontage" step="0.01" min="0" placeholder="Largura da frente">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <label>Observações Adicionais</label>
+                            <textarea id="observations" placeholder="Documentação, zoneamento, características especiais..."></textarea>
+                        </div>
+                    </div>
+                </div>
+    <div class="form-section">
+                <h3>Informações do Vendedor</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nome do Vendedor/Proprietário</label>
+                        <input type="text" id="seller" placeholder="ex: João Silva" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Contato</label>
+                        <input type="text" id="contact" placeholder="ex: (11) 99999-9999" required>
+                    </div>
+                </div>
+            </div>
+                <button type="submit" class="btn-submit"> Cadastro do Terreno</button>
+            </div>
+        </div>
+    </form>
+
+    <!-- Seção de Exemplo para utilizar o CSS de Cards -->
+    <div class="products-section">
+        <h2> Cadastrados Recentemente</h2>
+        <div class="products-grid">
+            <!-- Card de Exemplo -->
+
+        </div>
+    </div>
+ 
+    <script src="Terrenos.js"></script>
+</body>
+</html>
