@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
-from app import db
+#from app import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 
@@ -24,13 +24,13 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
-class Cliente(db.Model):
+class cliente(db.Model):
     __tablename__ = 'clientes'
     id = db.Column(db.Integer, primary_key=True)
     nome = db.Column(db.String(60),nullable=False)
     email = db.Column(db.String(60), unique=True, nullable=False)
     cpf = db.Column(db.String(11), unique=True, nullable=False)
-    data = db.Column(db.Date, nullable=False)
+    nascimento = db.Column(db.Date, nullable=False)
     senha_hash = db.Column(db.String(255), nullable=True) #nullable=True, temporariamente
 
     def definir(self, senha_monstro):
@@ -52,6 +52,9 @@ def inicializar():
         email = request.form.get('email')
         senha = request.form.get('senha')
         cpf = request.form.get('cpf')
+
+        if cpf:
+            cpf = "".join(filter(str.isdigit, cpf))
         
         # Se quiser capturar o nascimento que está no seu HTML:
         dia = request.form.get('dia')
@@ -65,14 +68,14 @@ def inicializar():
             return "Erro: data de nascimento inválida", 400
         
         try:
-            novo_Cliente = Cliente(
+            novo_cliente = cliente(
                 nome=nome_cadastrado,
                 email=email,
                 cpf=cpf,
-                data=data_formatada
+                nascimento =data_formatada
             )
-            novo_Cliente.definir(senha)
-            db.session.add(novo_Cliente)
+            novo_cliente.definir(senha)
+            db.session.add(novo_cliente)
             db.session.commit()
 
             print(f"Usúario {nome_cadastrado} com sucesso no MYSQL!")
