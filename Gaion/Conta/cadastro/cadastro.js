@@ -89,7 +89,7 @@ if (cpfInput) {
 const checkbox = document.getElementById("caixinha");
 if (checkbox) {
   checkbox.addEventListener('change', function() {
-    const elements = document.querySelectorAll('.Vendedor, .Conteiner');
+    const elements = document.querySelectorAll('.Vendedor, .container');
     elements.forEach(el => el.classList.toggle('Not'));
   });
 }

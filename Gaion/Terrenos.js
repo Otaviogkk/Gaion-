@@ -105,9 +105,37 @@ form.addEventListener('submit', (e) => {
     submitBtn.innerText = '⏳ Salvando...';
     submitBtn.disabled = true;
 
-    setTimeout(() => {
+    const formData = new FormData();
+    // Informações principais
+    formData.append('price', document.getElementById('price').value);
+    formData.append('terrainType', terrainType.value);
+    formData.append('address', address.value);
+    formData.append('area', area.value);
+    formData.append('seller', document.getElementById('seller').value);
 
-        // Imagem do card
+    // Informações adicionais
+    formData.append('neighborhood', document.getElementById('neighborhood').value);
+    formData.append('city', document.getElementById('city').value);
+    formData.append('reference', document.getElementById('reference').value);
+    formData.append('front', front.value);
+    formData.append('depth', depth.value);
+    formData.append('topography', document.getElementById('topography').value);
+    formData.append('frontage', document.getElementById('frontage').value);
+    formData.append('observations', document.getElementById('observations').value);
+    formData.append('contact', document.getElementById('contact').value);
+
+    // Imagens
+    selectedFiles.forEach((file) => {
+        formData.append('images', file);
+    });
+
+    fetch('http://127.0.0.1:5000/api/terrenos', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("Resposta da API:", data);        // Imagem do card
         const image = selectedFiles.length > 0
             ? URL.createObjectURL(selectedFiles[0])
             : 'https://via.placeholder.com/500x300';
@@ -115,6 +143,15 @@ form.addEventListener('submit', (e) => {
         // Criar card
         const card = document.createElement('div');
         card.className = 'product-card';
+        card.style.cursor = 'pointer';
+
+        card.addEventListener('click', () => {
+            if(data.id) {
+                const url = new URL("in/compra/compra.html", window.location.href);
+                url.searchParams.set("id", data.id);
+                window.location.href = url.toString();
+            }
+        });
 
         card.innerHTML = `
             <div class="card-image">
@@ -180,5 +217,78 @@ form.addEventListener('submit', (e) => {
             toast.classList.remove('show', 'success');
         }, 3000);
 
-    }, 1500);
+    })
+    .catch(error => {
+        console.error("Erro ao enviar para API:", error);
+        alert("Houve um erro ao enviar o terreno para o servidor.");
+        submitBtn.innerText = originalText;
+        submitBtn.disabled = false;
+    });
+});
+
+// 5. CARREGAR TERRENOS EXISTENTES
+document.addEventListener("DOMContentLoaded", () => {
+    fetch('http://127.0.0.1:5000/api/terrenos')
+        .then(response => response.json())
+        .then(data => {
+            const productsGrid = document.querySelector('.products-grid');
+            if (!productsGrid) return;
+            productsGrid.innerHTML = ''; // Limpa os de exemplo do HTML
+            
+            // Inverte para colocar os mais recentes no topo
+            data.reverse().forEach(t => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.style.cursor = 'pointer';
+                
+                card.addEventListener('click', () => {
+                    if(t.id) {
+                        const url = new URL("in/compra/compra.html", window.location.href);
+                        url.searchParams.set("id", t.id);
+                        window.location.href = url.toString();
+                    }
+                });
+
+                card.innerHTML = `
+                    <div class="card-image">
+                        <img src="${t.imagem}" alt="Terreno">
+                        <span class="price-badge">R$ ${t.preco || ''}</span>
+                    </div>
+
+                    <div class="card-body">
+                        <span class="terrain-type">${t.tipo || ''}</span>
+
+                        <div class="location">
+                            📍 ${t.endereco || ''}
+                        </div>
+
+                        <div class="dimensions-grid">
+                            <div class="dim-item">
+                                <div class="dim-label">Frente</div>
+                                <div class="dim-value">
+                                    ${t.largura || '-'}
+                                    <span class="dim-unit">m</span>
+                                </div>
+                            </div>
+                            <div class="dim-item">
+                                <div class="dim-label">Profund.</div>
+                                <div class="dim-value">
+                                    ${t.comprimento || '-'}
+                                    <span class="dim-unit">m</span>
+                                </div>
+                            </div>
+                            <div class="dim-item">
+                                <div class="dim-label">Área</div>
+                                <div class="dim-value">
+                                    ${t.area || '-'}
+                                    <span class="dim-unit">m²</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                productsGrid.appendChild(card);
+            });
+        })
+        .catch(err => console.error("Erro ao carregar lista de terrenos:", err));
 });

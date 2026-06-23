@@ -6,37 +6,6 @@
    - #531D1A (Marrom Avermelhado / Vinho)
    - #310000 (Vinho Escuro)
    ========================================================================== */
-
-@font-face {
-  font-family: "Chakra Petch";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: 
-    url("../../../fonts/chakra-petch/chakra-petch-latin-400-normal.woff2") format("woff2"),
-    url("../../../fonts/chakra-petch/chakra-petch-latin-400-normal.woff") format("woff");
-}
-
-@font-face {
-  font-family: "Kantumruy-pro";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: 
-    url("../../../fonts/kantumruy-pro/kantumruy-pro-khmer-400-normal.woff2") format("woff2"),
-    url("../../../fonts/kantumruy-pro/kantumruy-pro-khmer-400-normal.woff") format("woff");
-}
-
-@font-face {
-  font-family: "Kantumruy-pro";
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: 
-    url("../../../fonts/kantumruy-pro/kantumruy-pro-khmer-600-normal.woff2") format("woff2"),
-    url("../../../fonts/kantumruy-pro/kantumruy-pro-khmer-600-normal.woff") format("woff");
-}
-
 *,
 *::before,
 *::after {
@@ -64,16 +33,23 @@ body {
   position: relative;
   width: 50vw;
   height: auto;
-  min-height: 40vw;
+  max-height: 99vh;
   display: grid;
   place-items: center;
   border: 1px solid black;
   border-radius: 7px;
   background-color: #ffffff;
   transition: all 0.6s ease;
-  padding: 1px;
+  padding: 15px;
   overflow: hidden;
 }
+
+.container.Not {
+  padding: 5px;
+  min-height: 45vh;
+  max-height: 99vh;
+}
+
 .card-content {
   width: 100%;
   display: flex;
@@ -147,6 +123,15 @@ input::placeholder {
 .container .requirimento form .pri input:not(:placeholder-shown),
 .container .requirimento form #senha:not(:placeholder-shown) {
   background-color: #dfd2c8;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #dfd2c8 inset !important;
+  -webkit-text-fill-color: #531D1A !important;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 .container .requirimento form .pri {
@@ -301,7 +286,7 @@ input::placeholder {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 #cadastro {
@@ -325,12 +310,15 @@ input::placeholder {
 /* ==========================================================================
    LOGOMARCA / RODAPÉ
    ========================================================================== */
+.login{
+  text-align: center; 
+}
 
 .container .incone-gaion {
   display: flex;
   align-items: center;
   gap: 0px;
-  margin-top: 2rem;
+  margin-top: 1rem;
   position: relative;
 }
 
